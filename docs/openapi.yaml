@@ -1,0 +1,345 @@
+openapi: 3.1.0
+info:
+  title: ParaCite API
+  description: Citas jurídicas de precisión para agentes Legal-AI. Solo se devuelven
+    matches con `es_cita_valida_alta_precision` por encima del umbral (default 0.87).
+    El corpus seed está etiquetado [FIXTURE].
+  contact:
+    name: ParaCite
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      tags:
+      - health
+      summary: Health
+      operationId: health_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /v1/me:
+    get:
+      tags:
+      - account
+      summary: Me
+      operationId: me_v1_me_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeResponse'
+  /v1/cite:
+    post:
+      tags:
+      - cite
+      summary: Cite
+      operationId: cite_v1_cite_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CiteRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CiteResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/ingest:
+    post:
+      tags:
+      - ingest
+      summary: Ingest
+      operationId: ingest_v1_ingest_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestRequest'
+        required: true
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestAccepted'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /corpus/{chunk_id}:
+    get:
+      tags:
+      - corpus
+      summary: Get Chunk
+      operationId: get_chunk_corpus__chunk_id__get
+      parameters:
+      - name: chunk_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Chunk Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    CiteMatch:
+      properties:
+        id:
+          type: string
+          title: Id
+        tipo:
+          type: string
+          title: Tipo
+        confianza:
+          type: number
+          title: Confianza
+        cita_formal:
+          type: string
+          title: Cita Formal
+        parrafo_exacto:
+          type: string
+          title: Parrafo Exacto
+        enlace_profundo:
+          type: string
+          title: Enlace Profundo
+        metadatos:
+          additionalProperties: true
+          type: object
+          title: Metadatos
+      type: object
+      required:
+      - id
+      - tipo
+      - confianza
+      - cita_formal
+      - parrafo_exacto
+      - enlace_profundo
+      - metadatos
+      title: CiteMatch
+    CiteRequest:
+      properties:
+        tesis:
+          type: string
+          minLength: 1
+          title: Tesis
+          description: Tesis jurídica en lenguaje natural.
+        jurisdiccion:
+          type: string
+          title: Jurisdiccion
+          default: ES
+        tipos:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/TipoDocumento'
+            type: array
+          - type: 'null'
+          title: Tipos
+        umbral_confianza:
+          type: number
+          maximum: 1.0
+          minimum: 0.0
+          title: Umbral Confianza
+          default: 0.87
+        max_resultados:
+          type: integer
+          maximum: 20.0
+          minimum: 1.0
+          title: Max Resultados
+          default: 3
+        incluir_texto_completo:
+          type: boolean
+          title: Incluir Texto Completo
+          default: false
+      type: object
+      required:
+      - tesis
+      title: CiteRequest
+    CiteResponse:
+      properties:
+        request_id:
+          type: string
+          title: Request Id
+        tesis:
+          type: string
+          title: Tesis
+        matches:
+          items:
+            $ref: '#/components/schemas/CiteMatch'
+          type: array
+          title: Matches
+        sin_match_alta_confianza:
+          type: boolean
+          title: Sin Match Alta Confianza
+        tiempo_procesamiento_ms:
+          type: integer
+          title: Tiempo Procesamiento Ms
+      type: object
+      required:
+      - request_id
+      - tesis
+      - matches
+      - sin_match_alta_confianza
+      - tiempo_procesamiento_ms
+      title: CiteResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    IngestAccepted:
+      properties:
+        job_id:
+          type: string
+          title: Job Id
+        status:
+          type: string
+          title: Status
+          default: queued
+        queued_at:
+          type: string
+          format: date-time
+          title: Queued At
+      type: object
+      required:
+      - job_id
+      - queued_at
+      title: IngestAccepted
+    IngestRequest:
+      properties:
+        titulo:
+          type: string
+          minLength: 1
+          title: Titulo
+        texto:
+          type: string
+          minLength: 1
+          title: Texto
+        jurisdiccion:
+          type: string
+          title: Jurisdiccion
+          default: ES
+        tipo:
+          $ref: '#/components/schemas/TipoDocumento'
+          default: norma
+        materia:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Materia
+      type: object
+      required:
+      - titulo
+      - texto
+      title: IngestRequest
+    MeResponse:
+      properties:
+        key_id:
+          type: string
+          title: Key Id
+        nombre:
+          type: string
+          title: Nombre
+        plan:
+          type: string
+          title: Plan
+        jurisdiccion_default:
+          type: string
+          title: Jurisdiccion Default
+          default: ES
+        rate_limit:
+          $ref: '#/components/schemas/RateLimitInfo'
+        uso:
+          additionalProperties:
+            type: integer
+          type: object
+          title: Uso
+      type: object
+      required:
+      - key_id
+      - nombre
+      - plan
+      - rate_limit
+      - uso
+      title: MeResponse
+    RateLimitInfo:
+      properties:
+        limit:
+          type: integer
+          title: Limit
+        remaining:
+          type: integer
+          title: Remaining
+        window_seconds:
+          type: integer
+          title: Window Seconds
+          default: 60
+      type: object
+      required:
+      - limit
+      - remaining
+      title: RateLimitInfo
+    TipoDocumento:
+      type: string
+      enum:
+      - norma
+      - doctrina
+      - sentencia_fixture
+      title: TipoDocumento
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

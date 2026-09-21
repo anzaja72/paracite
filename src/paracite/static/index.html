@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ParaCite — citas jurídicas de precisión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,650&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #10243a;
+        --paper: #f6f1e7;
+        --gold: #b68a3a;
+        --line: #d7cbb6;
+        --ok: #1f6b4a;
+        --warn: #8a3b1f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Source Sans 3", system-ui, sans-serif;
+        background: radial-gradient(1200px 500px at 10% -10%, #ead9b3 0%, transparent 55%), var(--paper);
+        color: var(--ink);
+      }
+      header, main, footer { max-width: 920px; margin: 0 auto; padding: 1.25rem; }
+      header { padding-top: 2.2rem; }
+      h1 { font-family: Fraunces, Georgia, serif; font-weight: 650; font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 0.4rem; }
+      .lede { font-size: 1.1rem; max-width: 54ch; line-height: 1.5; }
+      .badge { display: inline-block; border: 1px solid var(--gold); color: #6d5118; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+      form { background: #fffdf8; border: 1px solid var(--line); border-radius: 16px; padding: 1.1rem; box-shadow: 0 10px 30px rgba(16,36,58,0.06); }
+      label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+      textarea, input {
+        width: 100%; font: inherit; padding: 0.7rem 0.8rem; border-radius: 10px;
+        border: 1px solid var(--line); background: #fff;
+      }
+      textarea { min-height: 120px; resize: vertical; }
+      .row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.7rem; margin-top: 0.8rem; }
+      @media (max-width: 720px) { .row { grid-template-columns: 1fr; } }
+      button {
+        background: var(--ink); color: var(--paper); border: 0; border-radius: 10px;
+        padding: 0.75rem 1.1rem; font: inherit; font-weight: 600; cursor: pointer;
+      }
+      button:hover { background: #1a3b5c; }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0 1rem; }
+      .chips button { background: transparent; color: var(--ink); border: 1px solid var(--line); font-weight: 500; font-size: 0.85rem; padding: 0.35rem 0.65rem; }
+      .result { margin-top: 1.2rem; }
+      article {
+        background: white; border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem; margin: 0.7rem 0;
+      }
+      .meta { font-size: 0.85rem; color: #4d5d6e; }
+      .empty { border: 1px dashed var(--warn); color: var(--warn); padding: 1rem; border-radius: 12px; }
+      .ok { color: var(--ok); font-weight: 600; }
+      code { font-size: 0.9rem; background: #efe6d4; padding: 0.1rem 0.3rem; border-radius: 4px; }
+      footer { color: #5b6b7a; font-size: 0.9rem; }
+      a { color: #1a4d7a; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="badge">MVP · jurisdicción ES · umbral 0.87</span>
+      <h1>ParaCite</h1>
+      <p class="lede">
+        Envía una tesis jurídica y recibe el párrafo exacto del corpus fixture que la fundamenta.
+        Si no hay alta confianza, no hay cita: cero alucinaciones por diseño.
+      </p>
+    </header>
+    <main>
+      <div class="chips" id="chips"></div>
+      <form id="form">
+        <label for="tesis">Tesis</label>
+        <textarea id="tesis" required>El despido disciplinario exige un incumplimiento grave y culpable del trabajador</textarea>
+        <div class="row">
+          <div>
+            <label for="key">API key</label>
+            <input id="key" value="pc_demo_dev_key" autocomplete="off" />
+          </div>
+          <div>
+            <label for="umbral">Umbral</label>
+            <input id="umbral" type="number" min="0" max="1" step="0.01" value="0.87" />
+          </div>
+          <div style="align-self:end">
+            <button type="submit">Citar</button>
+          </div>
+        </div>
+      </form>
+      <div class="result" id="out"></div>
+    </main>
+    <footer>
+      Corpus de demostración etiquetado <code>[FIXTURE]</code>. No uses estas citas como jurisprudencia verificada.
+      API: <a href="/docs">OpenAPI /docs</a> · <a href="/health">/health</a> · <a href="/openapi.json">openapi.json</a>
+    </footer>
+    <script>
+      const examples = [
+        "El despido disciplinario exige un incumplimiento grave y culpable del trabajador",
+        "Las vacaciones anuales retribuidas son de treinta días naturales",
+        "Quien por acción u omisión causa daño a otro está obligado a repararlo",
+        "El trabajador tiene derecho a un año sabático retribuido obligatorio cada tres años"
+      ];
+      const chips = document.getElementById("chips");
+      examples.forEach((t) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = t.slice(0, 52) + (t.length > 52 ? "…" : "");
+        b.onclick = () => { document.getElementById("tesis").value = t; };
+        chips.appendChild(b);
+      });
+      document.getElementById("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const out = document.getElementById("out");
+        out.innerHTML = "<p>Consultando…</p>";
+        const body = {
+          tesis: document.getElementById("tesis").value,
+          umbral_confianza: Number(document.getElementById("umbral").value),
+          jurisdiccion: "ES"
+        };
+        try {
+          const res = await fetch("/v1/cite", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + document.getElementById("key").value
+            },
+            body: JSON.stringify(body)
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            out.innerHTML = `<div class="empty">${data.detail || res.status}</div>`;
+            return;
+          }
+          if (data.sin_match_alta_confianza) {
+            out.innerHTML = `<div class="empty">Sin match de alta confianza (${data.tiempo_procesamiento_ms} ms). ParaCite no inventa la cita.</div>`;
+            return;
+          }
+          out.innerHTML = `<p class="ok">${data.matches.length} match(es) · ${data.tiempo_procesamiento_ms} ms</p>` +
+            data.matches.map(m => `
+              <article>
+                <div class="meta">${m.tipo} · confianza ${m.confianza} · <a href="${m.enlace_profundo}">enlace</a></div>
+                <h3>${m.cita_formal}</h3>
+                <p>${m.parrafo_exacto}</p>
+              </article>`).join("");
+        } catch (err) {
+          out.innerHTML = `<div class="empty">${err}</div>`;
+        }
+      });
+    </script>
+  </body>
+</html>

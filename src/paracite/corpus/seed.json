@@ -1,0 +1,385 @@
+{
+  "label": "ParaCite fixture corpus — ES Laboral/Civil. NOT official verified case law.",
+  "chunks": [
+    {
+      "id": "fix-et-054-despido-disciplinario",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Despido disciplinario — incumplimiento grave y culpable",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 54.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. El contrato de trabajo podrá extinguirse por decisión del empresario mediante despido basado en un incumplimiento grave y culpable del trabajador. Se consideran incumplimientos contractuales: las faltas repetidas e injustificadas de asistencia o puntualidad; la indisciplina o desobediencia en el trabajo; las ofensas verbales o físicas; la transgresión de la buena fe contractual y el abuso de confianza; la disminución continuada y voluntaria del rendimiento; y la embriaguez habitual o toxicomanía si repercuten negativamente en el trabajo.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "54",
+        "holds": ["despido disciplinario", "incumplimiento grave", "culpable"],
+        "rejects_if": ["no requiere incumplimiento", "sin causa", "despido libre"]
+      }
+    },
+    {
+      "id": "fix-et-052-despido-objetivo",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Despido objetivo — causas económicas, técnicas, organizativas o de producción",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 52.c (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. El contrato podrá extinguirse por causas objetivas cuando concurra la necesidad acreditada de amortizar puestos de trabajo por causas económicas, técnicas, organizativas o de producción. Se entiende que concurren causas económicas cuando de los resultados de la empresa se desprenda una situación económica negativa, en casos tales como la existencia de pérdidas actuales o previstas, o la disminución persistente de su nivel de ingresos ordinarios o ventas.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "52.c",
+        "holds": ["despido objetivo", "causas económicas", "técnicas", "organizativas"],
+        "rejects_if": ["sin acreditar", "despido objetivo libre"]
+      }
+    },
+    {
+      "id": "fix-et-038-vacaciones",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Vacaciones anuales retribuidas",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 38.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. El periodo de vacaciones anuales retribuidas, no sustituible por compensación económica, será el pactado en convenio colectivo o contrato individual. En ningún caso la duración será inferior a treinta días naturales. El calendario de vacaciones se fijará en cada empresa y el trabajador conocerá las fechas con dos meses de antelación.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "38.1",
+        "holds": ["vacaciones anuales", "treinta días naturales", "retribuidas"],
+        "rejects_if": ["quince días", "sustituibles por dinero", "no retribuidas"]
+      }
+    },
+    {
+      "id": "fix-et-034-jornada",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Jornada máxima ordinaria",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 34.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. La duración de la jornada de trabajo será la pactada en los convenios colectivos o contratos de trabajo. La duración máxima de la jornada ordinaria de trabajo será de cuarenta horas semanales de trabajo efectivo de promedio en cómputo anual.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "34.1",
+        "holds": ["jornada máxima", "cuarenta horas semanales", "trabajo efectivo"],
+        "rejects_if": ["sesenta horas", "sin límite de jornada"]
+      }
+    },
+    {
+      "id": "fix-et-014-periodo-prueba",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Periodo de prueba",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 14.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Podrá concertarse por escrito un periodo de prueba, con sujeción a los límites de duración que, en su caso, se establezcan en los convenios colectivos. En defecto de pacto en convenio, la duración del periodo de prueba no podrá exceder de seis meses para los técnicos titulados, ni de dos meses para los demás trabajadores. El empresario y el trabajador están respectivamente obligados a realizar las experiencias que constituyan el objeto de la prueba.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "14.1",
+        "holds": ["periodo de prueba", "por escrito", "convenios colectivos"],
+        "rejects_if": ["prueba verbal", "sin límite de duración"]
+      }
+    },
+    {
+      "id": "fix-et-056-improcedente",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Despido improcedente — indemnización",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 56.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Cuando el despido sea declarado improcedente, el empresario, en el plazo de cinco días desde la notificación de la sentencia, podrá optar entre la readmisión del trabajador o el abono de una indemnización equivalente a treinta y tres días de salario por año de servicio, prorrateándose por meses los periodos de tiempo inferiores a un año, hasta un máximo de veinticuatro mensualidades.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "56.1",
+        "holds": ["despido improcedente", "treinta y tres días", "salario por año"],
+        "rejects_if": ["sin indemnización", "cuarenta y cinco días obligatorios en todo caso"]
+      }
+    },
+    {
+      "id": "fix-et-037-guarda-legal",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Reducción de jornada por guarda legal",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 37.6 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Quien por razones de guarda legal tenga a su cuidado directo algún menor de doce años o una persona con discapacidad que no desempeñe una actividad retribuida tendrá derecho a una reducción de la jornada de trabajo diaria, con la disminución proporcional del salario entre, al menos, un octavo y un máximo de la mitad de la duración de aquella.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "37.6",
+        "holds": ["reducción de jornada", "guarda legal", "menor"],
+        "rejects_if": ["sin disminución de salario", "mayor de edad sin discapacidad"]
+      }
+    },
+    {
+      "id": "fix-lprl-014-seguridad",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Deber de seguridad y salud",
+      "cita_formal": "[FIXTURE] Ley de Prevención de Riesgos Laborales, art. 14 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Los trabajadores tienen derecho a una protección eficaz en materia de seguridad y salud en el trabajo. El empresario deberá garantizar la seguridad y la salud de los trabajadores a su servicio en todos los aspectos relacionados con el trabajo. Dicha obligación incluye la prevención de los riesgos laborales y la adopción de cuantas medidas sean necesarias para la protección de la seguridad y la salud.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "LPRL",
+        "articulo": "14",
+        "holds": ["seguridad y salud", "empresario deberá garantizar", "prevención de los riesgos"],
+        "rejects_if": ["el trabajador asume todos los riesgos", "sin deber de prevención"]
+      }
+    },
+    {
+      "id": "fix-et-055-nulo",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Despido nulo por discriminación",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 55.5 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Será nulo el despido que tenga por móvil alguna de las causas de discriminación prohibidas en la Constitución o en la ley, o bien se produzca con violación de derechos fundamentales y libertades públicas del trabajador. Será también nulo el despido en los supuestos de trabajadores durante los periodos de suspensión del contrato por nacimiento, adopción, guarda con fines de adopción, acogimiento o riesgo durante el embarazo.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "55.5",
+        "holds": ["despido nulo", "discriminación", "derechos fundamentales"],
+        "rejects_if": ["despido nulo por simple retraso", "discriminación permitida"]
+      }
+    },
+    {
+      "id": "fix-et-035-horas-extra",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Horas extraordinarias",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 35.4 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. La prestación de trabajo en horas extraordinarias será voluntaria, salvo que su realización se haya pactado en convenio colectivo o contrato individual de trabajo, dentro de los límites del artículo 35.2, o cuando se trate de prevenir o reparar siniestros y otros daños extraordinarios y urgentes.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "35.4",
+        "holds": ["horas extraordinarias", "voluntaria", "convenio colectivo"],
+        "rejects_if": ["siempre obligatorias", "sin límite anual"]
+      }
+    },
+    {
+      "id": "fix-et-029-salario",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Pago del salario y SMI",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 29 y 27 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. La liquidación y el pago del salario se harán puntual y documentalmente en la fecha y lugar convenidos o conforme a los usos y costumbres. El salario mínimo interprofesional, fijado anualmente por el Gobierno, es inembargable en la cuantía que determine la ley y el salario no puede ser inferior a dicho mínimo en cómputo anual para una jornada completa.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "29",
+        "holds": ["pago del salario", "fecha convenida", "salario mínimo"],
+        "rejects_if": ["pago a discreción indefinida", "sin fecha de pago"]
+      }
+    },
+    {
+      "id": "fix-et-015-temporal",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Contrato de duración determinada",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 15 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. El contrato de trabajo se presume concertado por tiempo indefinido. El contrato de duración determinada solo podrá celebrarse por circunstancias de la producción o por sustitución de persona trabajadora. Los contratos temporales celebrados en fraude de ley se presumen indefinidos.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "15",
+        "holds": ["duración determinada", "circunstancias de la producción", "indefinido"],
+        "rejects_if": ["temporal sin causa", "fraude de ley válido"]
+      }
+    },
+    {
+      "id": "fix-cc-1902-aquiliana",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Responsabilidad extracontractual",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1902 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. El que por acción u omisión causa daño a otro, interviniendo culpa o negligencia, está obligado a reparar el daño causado. Esta responsabilidad extracontractual exige un hecho dañoso, culpa o negligencia, un daño efectivo y nexo causal entre la conducta y el resultado.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1902",
+        "holds": ["causa daño a otro", "culpa o negligencia", "reparar el daño"],
+        "rejects_if": ["sin culpa nunca hay deber", "daño no se repara"]
+      }
+    },
+    {
+      "id": "fix-cc-1258-consentimiento",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Perfección de los contratos",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1258 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Los contratos se perfeccionan por el mero consentimiento, y desde entonces obligan, no solo al cumplimiento de lo expresamente pactado, sino también a todas las consecuencias que, según su naturaleza, sean conformes a la buena fe, al uso y a la ley.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1258",
+        "holds": ["contratos se perfeccionan", "consentimiento", "buena fe"],
+        "rejects_if": ["sin consentimiento hay contrato", "no obligan a nada"]
+      }
+    },
+    {
+      "id": "fix-cc-1964-prescripcion",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Prescripción de acciones personales",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1964.2 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Las acciones personales que no tengan señalado término especial de prescripción prescriben a los cinco años desde que pueda exigirse el cumplimiento de la obligación. En las obligaciones continuadas de hacer o no hacer, el plazo se computa cada vez que se incumplen.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1964.2",
+        "holds": ["acciones personales", "cinco años", "prescripción"],
+        "rejects_if": ["cincuenta años", "treinta años", "imprescriptibles siempre"]
+      }
+    },
+    {
+      "id": "fix-cc-007-buena-fe",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Ejercicio de derechos conforme a la buena fe",
+      "cita_formal": "[FIXTURE] Código Civil, art. 7.1 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Los derechos deberán ejercitarse conforme a las exigencias de la buena fe. La ley no ampara el abuso del derecho o el ejercicio antisocial del mismo. Todo acto u omisión que por la intención de su autor, por su objeto o por las circunstancias en que se realice sobrepase manifiestamente los límites normales del ejercicio de un derecho, dará lugar a la correspondiente indemnización y a las medidas judiciales o administrativas que impidan la persistencia del abuso.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "7.1",
+        "holds": ["buena fe", "abuso del derecho", "derechos deberán ejercitarse"],
+        "rejects_if": ["abuso del derecho está amparado", "mala fe irrelevante"]
+      }
+    },
+    {
+      "id": "fix-cc-1445-compraventa",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Compraventa — obligaciones recíprocas",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1445 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Por el contrato de compra y venta uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto, en dinero o signo que lo represente. El vendedor debe transmitir la propiedad y el comprador pagar el precio convenido.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1445",
+        "holds": ["compraventa", "entregar una cosa", "precio cierto"],
+        "rejects_if": ["sin precio hay compraventa", "verbal de inmuebles siempre válida sin excepción"]
+      }
+    },
+    {
+      "id": "fix-cc-1101-incumplimiento",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Indemnización por incumplimiento contractual",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1101 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Quedan sujetos a la indemnización de los daños y perjuicios causados los que en el cumplimiento de sus obligaciones incurrieren en dolo, negligencia o morosidad, y los que de cualquier modo contravinieren al tenor de aquéllas.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1101",
+        "holds": ["daños y perjuicios", "dolo", "negligencia", "morosidad"],
+        "rejects_if": ["incumplir no genera indemnización"]
+      }
+    },
+    {
+      "id": "fix-cc-348-propiedad",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Derecho de propiedad",
+      "cita_formal": "[FIXTURE] Código Civil, art. 348 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. La propiedad es el derecho de gozar y disponer de una cosa, sin más limitaciones que las establecidas en las leyes. El propietario tiene acción contra el tenedor y el poseedor de la cosa para reivindicarla.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "348",
+        "holds": ["derecho de gozar y disponer", "propiedad", "reivindicarla"],
+        "rejects_if": ["propiedad absoluta sin ley", "sin acción reivindicatoria"]
+      }
+    },
+    {
+      "id": "fix-cc-1089-fuentes",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Fuentes de las obligaciones",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1089 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. Las obligaciones nacen de la ley, de los contratos y cuasi contratos, y de los actos y omisiones ilícitos o en que intervenga cualquier género de culpa o negligencia.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1089",
+        "holds": ["obligaciones nacen", "contratos", "culpa o negligencia"],
+        "rejects_if": ["solo nacen de la costumbre oral"]
+      }
+    },
+    {
+      "id": "fix-cc-1256-arbitrio",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "Validez no queda al arbitrio de una de las partes",
+      "cita_formal": "[FIXTURE] Código Civil, art. 1256 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. La validez y el cumplimiento de los contratos no pueden dejarse al arbitrio de uno de los contratantes. El pacto que atribuye a una sola parte la facultad ilimitada de desvincularse es incompatible con este precepto de demostración.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "CC",
+        "articulo": "1256",
+        "holds": ["validez y el cumplimiento", "arbitrio", "contratantes"],
+        "rejects_if": ["una parte puede anular el contrato a capricho"]
+      }
+    },
+    {
+      "id": "fix-doctrina-despido-carta",
+      "tipo": "doctrina",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "[FIXTURE] Doctrina de demostración — carta de despido y hechos",
+      "cita_formal": "[FIXTURE] Extracto doctrinal de demostración sobre la carta de despido — corpus ParaCite ES Laboral (no es una sentencia real ni un ECLI verificado)",
+      "parrafo": "FIXTURE-DOCTRINA. En el corpus de demostración se resume que la carta de despido disciplinario debe fijar los hechos que lo motivan con claridad suficiente para que el trabajador pueda impugnarlos, sin que quepa luego ampliar esos hechos en el proceso. Este párrafo es material sintético de ParaCite, no una resolución judicial auténtica.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "holds": ["carta de despido", "hechos que lo motivan", "impugnarlos"],
+        "rejects_if": ["carta genérica basta siempre", "hechos se pueden inventar en juicio"]
+      }
+    },
+    {
+      "id": "fix-doctrina-nexo-causal",
+      "tipo": "doctrina",
+      "jurisdiccion": "ES",
+      "materia": "civil",
+      "titulo": "[FIXTURE] Doctrina de demostración — nexo causal en 1902",
+      "cita_formal": "[FIXTURE] Extracto doctrinal de demostración sobre nexo causal — corpus ParaCite ES Civil (no es una sentencia real ni un ECLI verificado)",
+      "parrafo": "FIXTURE-DOCTRINA. El corpus de demostración recuerda que la responsabilidad del artículo 1902 exige nexo causal entre la conducta culposa y el daño, de modo que no basta un daño concurrente si la conducta no es causa adecuada. Este párrafo es material sintético de ParaCite, no una resolución judicial auténtica.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "holds": ["nexo causal", "causa adecuada", "1902"],
+        "rejects_if": ["sin nexo hay responsabilidad automática"]
+      }
+    },
+    {
+      "id": "fix-et-004-derechos",
+      "tipo": "norma",
+      "jurisdiccion": "ES",
+      "materia": "laboral",
+      "titulo": "Derechos laborales básicos",
+      "cita_formal": "[FIXTURE] Estatuto de los Trabajadores, art. 4.2 (corpus de demostración ParaCite; no es una cita oficial verificada)",
+      "parrafo": "FIXTURE. En la relación de trabajo, los trabajadores tienen derecho a la ocupación efectiva; a la promoción y formación profesional; a no ser discriminados; a su integridad física y a una política de prevención de riesgos laborales; al respeto de su intimidad y a la consideración debida a su dignidad; y a la percepción puntual de la remuneración pactada o legalmente establecida.",
+      "metadatos": {
+        "etiqueta_fixture": true,
+        "norma": "ET",
+        "articulo": "4.2",
+        "holds": ["ocupación efectiva", "no ser discriminados", "remuneración pactada"],
+        "rejects_if": ["año sabático retribuido obligatorio"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+services:
+  api:
+    build: .
+    ports:
+      - "18741:18741"
+    environment:
+      PARACITE_DEMO_API_KEY: ${PARACITE_DEMO_API_KEY:-pc_demo_dev_key}
+      DATABASE_URL: postgresql+psycopg://paracite:paracite@postgres:5432/paracite
+      REDIS_URL: redis://redis:6379/0
+      PUBLIC_BASE_URL: http://127.0.0.1:18741
+      WEKNORA_URL: ${WEKNORA_URL:-}
+      WEKNORA_API_KEY: ${WEKNORA_API_KEY:-}
+      WEKNORA_KB_ID: ${WEKNORA_KB_ID:-}
+      JEV_API_KEY: ${JEV_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: paracite
+      POSTGRES_PASSWORD: paracite
+      POSTGRES_DB: paracite
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paracite"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # TODO: levantar WeKnora real cuando el entorno pueda tirar de las imágenes oficiales.
+  # Uso: docker compose --profile weknora up -d
+  # Docs/imágenes: https://github.com/Tencent/WeKnora
+  weknora-app:
+    profiles: ["weknora"]
+    image: wechatopenai/weknora-app:latest
+    container_name: paracite-weknora-app
+    ports:
+      - "18080:8080"
+    environment:
+      - TZ=Europe/Madrid
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  pgdata:
