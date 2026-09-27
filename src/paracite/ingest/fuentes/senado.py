@@ -18,8 +18,8 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup, Tag
 
+from paracite.ingest.fuentes.funcionpublica import _DECRETA, _Ruta, numero_articulo
 from paracite.ingest.fuentes.funcionpublica import ARTICULO as _ARTICULO
-from paracite.ingest.fuentes.funcionpublica import _Ruta, numero_articulo
 from paracite.ingest.modelo import Articulo
 
 BASE = "http://www.secretariasenado.gov.co/senado/basedoc/"
@@ -81,6 +81,7 @@ def procesar(html: str) -> list[Articulo]:
     vistos: set[str] = set()
     ruta = _Ruta()
     actual: Articulo | None = None
+    tras_decreta = False  # se vio «DECRETA:» después del último artículo
 
     for nodo in soup.find_all(["p", "li", "table"]):
         if nodo.name in ("p", "li") and nodo.find_parent(["table", "li"]) is not None:
@@ -103,7 +104,9 @@ def procesar(html: str) -> list[Articulo]:
         m = _ARTICULO.match(titulo_ancla) if titulo_ancla else None
         if m and (m.group(1) or m.group(2)):
             numero = numero_articulo(m, articulos)
-            if numero == "1" and "1" in vistos and len(articulos) <= 5:
+            if numero in vistos and (tras_decreta or (numero == "1" and len(articulos) <= 5)):
+                # Reinicio de numeración: lo anterior era la norma que adopta el código o el
+                # tratado que la ley aprueba (transcrito antes de «DECRETA:»).
                 articulos.clear()
                 vistos.clear()
             if numero in vistos:
@@ -117,7 +120,11 @@ def procesar(html: str) -> list[Articulo]:
                               notas_vigencia=notas, epigrafe=epigrafe)
             vistos.add(numero)
             articulos.append(actual)
+            tras_decreta = False
             continue
+
+        if _DECRETA.match(texto):
+            tras_decreta = True
 
         if nodo.name == "p" and "centrado" in clases:
             if not texto.startswith("<"):

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import tempfile
 
 import pytest
 from fastapi.testclient import TestClient
@@ -13,6 +14,9 @@ os.environ.setdefault("REDIS_URL", "")
 os.environ.setdefault("WEKNORA_URL", "")
 os.environ.setdefault("JEV_API_KEY", "")
 os.environ.setdefault("PUBLIC_BASE_URL", "http://testserver")
+# Las pruebas no indexan el corpus real (52.000 artículos, ~15 s por app); las que lo necesitan
+# crean su propio corpus en tmp_path.
+os.environ.setdefault("PARACITE_CORPUS_DIR", tempfile.mkdtemp(prefix="paracite-corpus-vacio-"))
 
 from paracite.config import get_settings  # noqa: E402
 from paracite.main import create_app  # noqa: E402

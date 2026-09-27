@@ -224,3 +224,58 @@ def test_identidad_norma_funcionpublica(tmp_path):
     _verificar_identidad(dur, "<title>Decreto 1072 de 2015 Sector Trabajo - Gestor Normativo</title>")
     with pytest.raises(RuntimeError, match="revise el catálogo"):
         _verificar_identidad(dur, "<title>Decreto 1507 de 2015 - Gestor Normativo</title>")
+
+
+def test_funcionpublica_formatos_antiguos():
+    from paracite.ingest.fuentes import funcionpublica
+
+    # Leyes 27 de 1977 y 29 de 1982: exportadas de Word, encabezado en <b> y no en <strong>
+    html_b = """<div class="descripcion-contenido">
+    <P class=MsoNormal align=center><B>DECRETA:</B></P>
+    <P class=MsoNormal><B>ARTÍCULO 1º.-</B>&nbsp;Adiciónase el artículo 250 del Código Civil con el siguiente inciso:</P>
+    <P class=MsoNormal>Los hijos son legítimos, extramatrimoniales y adoptivos y tendrán iguales derechos.</P>
+    <P class=MsoNormal><B>ARTÍCULO&nbsp;<A id=sp9 name=9>&nbsp;</A>9º.-</B>&nbsp;El artículo 1240 del Código Civil quedará así:</P>
+    <p class=MsoNormal><b>ARTÍCULO
+    2º.</b>En todos los casos en que la ley señale los 21 años.</p>
+    </div>"""
+    arts = funcionpublica.procesar(html_b)
+    assert [a.numero for a in arts] == ["1", "9", "2"]
+    assert arts[0].parrafos == ["Adiciónase el artículo 250 del Código Civil con el siguiente inciso:",
+                                "Los hijos son legítimos, extramatrimoniales y adoptivos y tendrán iguales derechos."]
+    assert arts[2].texto == "En todos los casos en que la ley señale los 21 años."
+
+    # Ley 153 de 1887: encabezado sin negrilla; notas de vigencia al comienzo del texto
+    html_texto = """<div class="descripcion-contenido">
+    <p align="center"><strong>REGLAS GENERALES SOBRE VALIDEZ Y APLICACIÓN DE LAS LEYES</strong></p>
+    <p>ARTÍCULO <a id="sp1" name="1"></a> 1. Siempre que se advierta incongruencia en las leyes.</p>
+    <p>ARTÍCULO <a id="sp3" name="3"></a> 3.Estímase insubsistente una disposición legal.</p>
+    <p>ARTÍCULO 6. <strong>Derogado por el Art. 40, Acto legislativo 3 de 1910</strong>. Una disposición expresa.</p>
+    <p>ARTÍCULO 10. <strong>Artículo subrogado por el artículo 4. de la Ley 169 de 1889</strong>: Tres decisiones.</p>
+    </div>"""
+    arts = funcionpublica.procesar(html_texto)
+    assert [a.numero for a in arts] == ["1", "3", "6", "10"]
+    assert arts[1].texto == "Estímase insubsistente una disposición legal."
+    assert arts[1].ruta == ["REGLAS GENERALES SOBRE VALIDEZ Y APLICACIÓN DE LAS LEYES"]
+    assert [a.estado for a in arts] == ["vigente", "vigente", "derogado", "modificado"]
+
+
+def test_senado_ley_aprobatoria_de_tratado():
+    from paracite.ingest.fuentes import senado
+
+    # Ley 2273 de 2022: primero se transcribe el Acuerdo de Escazú (arts. 1 a 26) y después de
+    # «DECRETA:» vienen los artículos de la ley, que son los que se citan como «Ley 2273 de 2022».
+    html = """<body>
+    <p><a class="bookmarkaj" name="1">ART&Iacute;CULO 1. </A></p>
+    <p class="centrado"><span class="b_aj">Objetivo</span></p>
+    <p>El objetivo del presente Acuerdo es garantizar la implementación plena.</p>
+    <p><a class="bookmarkaj" name="2">ART&Iacute;CULO 2. </A></p>
+    <p>Definiciones del Acuerdo.</p>
+    <p class="centrado">DECRETA: </p>
+    <p><a class="bookmarkaj" name="1B">ART&Iacute;CULO 1o.</A> Apru&eacute;bese el &#8220;Acuerdo regional&#8221;.</p>
+    <p><a class="bookmarkaj" name="2B">ART&Iacute;CULO 2o.</A> De conformidad con la Ley 7 de 1994.</p>
+    <p><a class="bookmarkaj" name="3B">ART&Iacute;CULO 3o.</A> La presente ley rige a partir de su publicación.</p>
+    </body>"""
+    arts = senado.procesar(html)
+    assert [a.numero for a in arts] == ["1", "2", "3"]
+    assert arts[0].texto == "Apruébese el “Acuerdo regional”."
+    assert arts[2].texto == "La presente ley rige a partir de su publicación."

@@ -69,9 +69,14 @@ class Articulo:
             return "inexequible"
         if re.search(r"ART[ÍI]CULO\s+DEROGADO", inicio + " " + notas):
             return "derogado"
+        # Nota al comienzo del texto, sin la palabra ARTÍCULO: «Derogado por el Art. 40…» (Ley 153 de 1887)
+        if re.match(r"\s*DEROGADO\b", inicio):
+            return "derogado"
         if not self.parrafos:
             return "sin_texto_en_fuente"
         if re.search(r"MODIFICADO|SUSTITUIDO|ADICIONADO|SUBROGADO", notas):
+            return "modificado"
+        if re.match(r"\s*(ART[ÍI]CULO\s+)?(MODIFICADO|SUSTITUIDO|SUBROGADO)\s+POR\b", inicio):
             return "modificado"
         return "vigente"
 

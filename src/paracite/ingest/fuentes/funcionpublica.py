@@ -91,7 +91,18 @@ def _extraer_bloques_ocultos(soup: BeautifulSoup) -> dict[str, tuple[str, str]]:
     return bloques
 
 
+_DECRETA = re.compile(r"^(DECRETA|RESUELVE|ACUERDA)\s*:?$", re.IGNORECASE)
+
+
 def procesar(html: str) -> list[Articulo]:
+    """Artículos de una página del Gestor Normativo.
+
+    Normalmente el encabezado va en negrilla (<strong> o <b>). Algunas leyes antiguas (Ley 153 de
+    1887) lo traen como texto normal; solo si así no aparece ninguno se lee el encabezado del texto."""
+    return _procesar(html, encabezado_en_texto=False) or _procesar(html, encabezado_en_texto=True)
+
+
+def _procesar(html: str, *, encabezado_en_texto: bool) -> list[Articulo]:
     soup = BeautifulSoup(html, "html.parser")
     bloques = _extraer_bloques_ocultos(soup)
 
@@ -100,6 +111,7 @@ def procesar(html: str) -> list[Articulo]:
     actual: Articulo | None = None
     vistos: set[str] = set()
     usados: set[str] = set()
+    tras_decreta = False  # se vio «DECRETA:» después del último artículo
 
     def adjuntar(clave: str | None) -> None:
         if actual is None or not clave or clave not in bloques or clave in usados:
@@ -132,22 +144,30 @@ def procesar(html: str) -> list[Articulo]:
         if not texto:
             continue
 
-        fuerte = nodo.find("strong") if nodo.name == "p" else None
+        fuerte = nodo.find(["strong", "b"]) if nodo.name == "p" else None
         encabezado_art = _ARTICULO.match(_texto(fuerte)) if fuerte is not None else None
-        if encabezado_art and (encabezado_art.group(1) or encabezado_art.group(2)):
+        titulo_fuerte = _texto(fuerte) if fuerte is not None else ""
+        en_texto = False
+        if not (encabezado_art and (encabezado_art.group(1) or encabezado_art.group(2))):
+            encabezado_art = None
+            if encabezado_en_texto and nodo.name == "p":
+                m = _ARTICULO.match(texto)
+                if m and m.group(2):
+                    encabezado_art, titulo_fuerte, en_texto = m, texto[:m.end()], True
+        if encabezado_art:
             numero = numero_articulo(encabezado_art, articulos)
-            if numero == "1" and "1" in vistos and len(articulos) <= 5:
+            if numero in vistos and (tras_decreta or (numero == "1" and len(articulos) <= 5)):
                 # La numeración reinicia: lo anterior era el decreto/ley que adopta el código
-                # (p. ej. Decreto 624 de 1989 → Estatuto Tributario). Se conserva solo el código.
+                # (Decreto 624 de 1989 → Estatuto Tributario) o el tratado que la ley aprueba,
+                # transcrito antes de «DECRETA:». Se conserva lo que sigue.
                 articulos.clear()
                 vistos.clear()
             if numero in vistos:  # repetido fuera de bloque: se conserva el primero (vigente)
                 actual = None
                 continue
-            titulo_fuerte = _texto(fuerte)
             epigrafe = titulo_fuerte[encabezado_art.end():].strip(" .-")
             cuerpo = texto[len(titulo_fuerte):].lstrip(" .-").rstrip()
-            fuertes = nodo.find_all("strong")
+            fuertes = [] if en_texto else nodo.find_all(["strong", "b"])
             if not epigrafe and len(fuertes) > 1 and cuerpo.startswith(_texto(fuertes[1])):
                 epigrafe = _texto(fuertes[1]).strip(" .-")      # ET: <strong>240-1.</strong><strong>TARIFA…</strong>
                 cuerpo = cuerpo[len(_texto(fuertes[1])):].lstrip(" .-").rstrip()
@@ -155,8 +175,11 @@ def procesar(html: str) -> list[Articulo]:
                               epigrafe=epigrafe or None)
             vistos.add(numero)
             articulos.append(actual)
+            tras_decreta = False
             continue
 
+        if _DECRETA.match(texto):
+            tras_decreta = True
         if nodo.name == "p" and (nodo.get("align") or "").lower() == "center":
             if not texto.lower().startswith("ver "):
                 ruta.agregar(texto)
