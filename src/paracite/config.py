@@ -28,6 +28,11 @@ class Settings(BaseSettings):
     jev_api_url: str = Field(default="https://api.typesafe.ai/v1/system_one", alias="JEV_API_URL")
     jev_model: str = Field(default="jev-1.13.0", alias="JEV_MODEL")
 
+    corpus_dir: str = Field(default="corpus", alias="PARACITE_CORPUS_DIR")
+    # Carga continua: 0 = desactivada (por defecto). En producción, p. ej. 168 (semanal).
+    ingest_interval_hours: float = Field(default=0, alias="PARACITE_INGEST_INTERVAL_HOURS")
+    ingest_first_delay_s: float = Field(default=300, alias="PARACITE_INGEST_FIRST_DELAY_S")
+
     retrieval_top_k: int = 40
     default_umbral: float = 0.87
     default_jurisdiccion: str = "ES"

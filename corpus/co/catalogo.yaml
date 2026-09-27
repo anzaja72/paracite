@@ -1,0 +1,59 @@
+# Catálogo del corpus colombiano de ParaCite.
+#
+# Cada norma se descarga de su fuente oficial, se divide por artículo y se guarda en
+# corpus/co/<SIGLA>.jsonl. Para agregar una norma:
+#   1. Búsquela en https://www.funcionpublica.gov.co/eva/gestornormativo/
+#   2. Abra la norma y copie el número del parámetro ?i= de la dirección (norma.php?i=XXXX).
+#   3. Agregue una entrada con ese número en norma_id y activa: true.
+#
+# Las entradas con norma_id: null quedan pendientes (se omiten al cargar).
+
+normas:
+  - sigla: CP
+    nombre: Constitución Política de Colombia
+    cita: Constitución Política
+    materia: constitucional
+    fuente: funcionpublica
+    norma_id: "4125"
+
+  - sigla: CST
+    nombre: Código Sustantivo del Trabajo
+    cita: Código Sustantivo del Trabajo
+    materia: laboral
+    fuente: funcionpublica
+    norma_id: null   # PENDIENTE: número ?i= del CST en el Gestor Normativo
+
+  - sigla: CPTSS
+    nombre: Código Procesal del Trabajo y de la Seguridad Social
+    cita: Código Procesal del Trabajo
+    materia: laboral
+    fuente: funcionpublica
+    norma_id: null
+
+  - sigla: CGP
+    nombre: Código General del Proceso (Ley 1564 de 2012)
+    cita: Código General del Proceso
+    materia: procesal
+    fuente: funcionpublica
+    norma_id: null
+
+  - sigla: CC
+    nombre: Código Civil
+    cita: Código Civil
+    materia: civil
+    fuente: funcionpublica
+    norma_id: null
+
+  - sigla: ET
+    nombre: Estatuto Tributario (Decreto 624 de 1989)
+    cita: Estatuto Tributario
+    materia: tributario
+    fuente: funcionpublica
+    norma_id: null
+
+  - sigla: CPACA
+    nombre: Código de Procedimiento Administrativo y de lo Contencioso Administrativo (Ley 1437 de 2011)
+    cita: CPACA
+    materia: administrativo
+    fuente: funcionpublica
+    norma_id: null

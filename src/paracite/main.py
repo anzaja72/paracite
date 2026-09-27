@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -13,7 +14,7 @@ from paracite.api.routes.health import health_router, ingest_router, me_router
 from paracite.auth.keys import resolve_key, seed_demo_key
 from paracite.auth.rate_limit import RateLimiter
 from paracite.config import Settings, get_settings
-from paracite.db.models import make_engine, make_session_factory, Base
+from paracite.db.models import Base, make_engine, make_session_factory
 from paracite.services.cite import CiteService
 from paracite.services.ingest import IngestService
 from paracite.wiring import build_classifier, build_retriever
@@ -98,6 +99,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         response.headers["X-RateLimit-Limit"] = str(principal.key.rate_limit_per_minute)
         response.headers["X-RateLimit-Remaining"] = str(remaining)
         return response
+
+    if settings.ingest_interval_hours > 0:
+        from paracite.ingest.programador import ciclo
+
+        @app.on_event("startup")
+        async def _programar_carga() -> None:
+            app.state.tarea_ingesta = asyncio.create_task(ciclo(
+                app, cada_horas=settings.ingest_interval_hours,
+                primera_espera_s=settings.ingest_first_delay_s))
 
     app.include_router(health_router)
     app.include_router(me_router)

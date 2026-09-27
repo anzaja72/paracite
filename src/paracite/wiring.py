@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from paracite.classifier.jev import FallbackClassifier, JevHttpClient
 from paracite.classifier.mock import MockPrecisionClassifier
 from paracite.config import Settings
@@ -6,7 +8,7 @@ from paracite.retrieval.weknora import FallbackRetriever, WeKnoraHttpClient
 
 
 def build_retriever(settings: Settings):
-    local = LocalBm25Store.from_seed(settings.public_base_url)
+    local = LocalBm25Store.from_seed(settings.public_base_url, corpus_dir=Path(settings.corpus_dir))
     if settings.weknora_url and settings.weknora_api_key and settings.weknora_kb_id:
         remote = WeKnoraHttpClient(
             settings.weknora_url,

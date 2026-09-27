@@ -1,0 +1,23 @@
+{
+  "CP": {
+    "sigla": "CP",
+    "nombre": "Constitución Política de Colombia",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125",
+    "articulos": 384,
+    "estados": {
+      "vigente": 298,
+      "modificado": 84,
+      "inexequible": 1,
+      "derogado": 1
+    },
+    "huella": "64aa393e106618327ba05e96e9674d530f5a9ffa7e5260f8cab2c54ea8c04092",
+    "actualizado_en": "2026-09-27T16:15:15+00:00",
+    "verificado_en": "2026-09-27T16:15:17+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  }
+}

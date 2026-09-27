@@ -108,6 +108,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /v1/norma/{norma}/{articulo}:
+    get:
+      tags:
+      - corpus
+      - corpus
+      summary: Get Articulo
+      description: ¿Existe este artículo en el corpus oficial? Devuelve su texto,
+        estado y enlace oficial.
+      operationId: get_articulo_v1_norma__norma___articulo__get
+      parameters:
+      - name: norma
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Norma
+      - name: articulo
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Articulo
+      - name: jurisdiccion
+        in: query
+        required: false
+        schema:
+          type: string
+          default: CO
+          title: Jurisdiccion
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
     CiteMatch:

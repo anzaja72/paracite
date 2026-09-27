@@ -33,14 +33,24 @@ class LocalBm25Store:
         self._bm25 = BM25Okapi(corpus) if chunks else None
 
     @classmethod
-    def from_seed(cls, public_base_url: str, seed_path: Path | None = None) -> "LocalBm25Store":
+    def from_seed(
+        cls, public_base_url: str, seed_path: Path | None = None, corpus_dir: Path | None = None
+    ) -> LocalBm25Store:
         if seed_path is None:
             raw = files("paracite.corpus").joinpath("seed.json").read_text(encoding="utf-8")
         else:
             raw = Path(seed_path).read_text(encoding="utf-8")
-        payload = json.loads(raw)
+        items = list(json.loads(raw)["chunks"])
+        if corpus_dir is not None and Path(corpus_dir).is_dir():
+            # Corpus real (p. ej. corpus/co/CP.jsonl): un fragmento por línea, mismo formato que el seed.
+            for jsonl in sorted(Path(corpus_dir).rglob("*.jsonl")):
+                if "historial" in jsonl.parts:
+                    continue
+                items.extend(
+                    json.loads(line) for line in jsonl.read_text(encoding="utf-8").splitlines() if line.strip()
+                )
         chunks: list[Chunk] = []
-        for item in payload["chunks"]:
+        for item in items:
             chunk_id = item["id"]
             enlace = item.get("enlace_profundo") or f"{public_base_url.rstrip('/')}/corpus/{chunk_id}"
             chunks.append(
@@ -58,6 +68,16 @@ class LocalBm25Store:
                 )
             )
         return cls(chunks)
+
+    def buscar_articulo(self, jurisdiccion: str, norma: str, articulo: str) -> Chunk | None:
+        """Búsqueda exacta por norma y artículo (base de la verificación de existencia)."""
+        norma, articulo = norma.upper(), articulo.upper().lstrip("0") or "0"
+        for c in self._ordered:
+            m = c.metadatos
+            if c.jurisdiccion == jurisdiccion and str(m.get("norma", "")).upper() == norma \
+                    and str(m.get("articulo", "")).upper() == articulo:
+                return c
+        return None
 
     def retrieve(
         self,

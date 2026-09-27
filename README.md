@@ -141,3 +141,43 @@ tests/                 # ≥20 tesis fixture
 ```
 
 Inicializado con GitHub Spec Kit (`specify init --here --integration cursor-agent`). Constitución en `.specify/memory/constitution.md`.
+
+## Corpus colombiano (fuentes oficiales)
+
+Además del seed `[FIXTURE]` español, ParaCite carga un corpus **real** de Colombia desde fuentes
+oficiales, un fragmento por artículo, con su estado de vigencia y el enlace oficial.
+
+- Catálogo: `corpus/co/catalogo.yaml` (sigla, nombre, fuente y `norma_id` de Función Pública).
+- Datos: `corpus/co/<SIGLA>.jsonl` · resumen en `corpus/co/manifiesto.json` · versiones anteriores en
+  `corpus/co/historial/`.
+- Fuente actual: Gestor Normativo de Función Pública (`funcionpublica.gov.co/eva/gestornormativo`).
+  Cada artículo guarda `estado` (`vigente`, `modificado`, `derogado`, `inexequible`), notas de
+  vigencia, el texto anterior cuando lo hay y la jurisprudencia citada por la fuente.
+- Cargado hoy: **Constitución Política** (384 artículos). Pendientes de `norma_id` en el catálogo: CST,
+  CPTSS, CGP, Código Civil, Estatuto Tributario, CPACA.
+
+```bash
+# Cargar / actualizar todas las normas activas del catálogo (descarga de la fuente oficial)
+uv run python -m paracite.ingest.cargar
+# Solo algunas, o desde un HTML ya descargado (sin red)
+uv run python -m paracite.ingest.cargar --solo CP --archivo CP=/ruta/norma.html
+```
+
+Protecciones: si la fuente devuelve muchos menos artículos que la versión guardada (página de error o
+cambio de formato), no se reemplaza el corpus; los artículos cambiados se registran y la versión
+anterior se guarda en `historial/`.
+
+**Carga continua:** con `PARACITE_INGEST_INTERVAL_HOURS=168` la API ejecuta el cargador cada semana en
+segundo plano y, si hubo cambios, recarga el índice en caliente (sin reiniciar).
+
+**Consulta de existencia** (base del verificador de citas):
+
+```bash
+curl -H "Authorization: Bearer pc_demo_dev_key" http://127.0.0.1:18741/v1/norma/CP/86
+# 200 {"existe": true, "estado": "vigente", "cita_formal": "Constitución Política, art. 86", ...}
+# 404 {"existe": false, "norma_cubierta": true}   → el artículo no existe (posible cita inventada)
+# 404 {"existe": false, "norma_cubierta": false}  → norma aún no cargada: no verificable
+```
+
+`/v1/cite` no publica fragmentos del corpus real mientras el clasificador sea el simulado (`jev_mock`):
+se requiere un clasificador real (Jev o Laya) para validar que un párrafo respalda una tesis.

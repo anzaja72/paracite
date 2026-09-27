@@ -16,6 +16,7 @@ dependencies = [
     "redis>=5.2.0",
     "pyyaml>=6.0.2",
     "psycopg[binary]>=3.2.0",
+    "beautifulsoup4>=4.15.0",
 ]
 
 [tool.hatch.build.targets.wheel.force-include]
