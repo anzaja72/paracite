@@ -194,3 +194,16 @@ curl -H "Authorization: Bearer pc_demo_dev_key" http://127.0.0.1:18741/v1/norma/
 
 `/v1/cite` no publica fragmentos del corpus real mientras el clasificador sea el simulado (`jev_mock`):
 se requiere un clasificador real (Jev o Laya) para validar que un párrafo respalda una tesis.
+
+## Exportar el corpus a la biblioteca de un agente (Chipp.ai)
+
+```bash
+uv run python -m paracite.ingest.exportar_chipp --paquete esencial   # 31 normas de uso diario
+uv run python -m paracite.ingest.exportar_chipp                      # todo el corpus
+uv run python -m paracite.ingest.exportar_chipp --max-mb 2           # si la plataforma limita el tamaño
+```
+
+Genera `exportacion/chipp/`: un Markdown por norma (dividido en partes si supera `--max-mb`), con
+cada artículo como bloque autocontenido (cita formal, estado, notas de vigencia, texto y enlace
+oficial), más `00_INDICE.md`. El bloque para el system prompt del agente está en
+[`docs/chipp/instrucciones_legal_ia.md`](docs/chipp/instrucciones_legal_ia.md).

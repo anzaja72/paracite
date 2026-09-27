@@ -279,3 +279,25 @@ def test_senado_ley_aprobatoria_de_tratado():
     assert [a.numero for a in arts] == ["1", "2", "3"]
     assert arts[0].texto == "Apruébese el “Acuerdo regional”."
     assert arts[2].texto == "La presente ley rige a partir de su publicación."
+
+
+def test_exportar_chipp(tmp_path):
+    from paracite.ingest.exportar_chipp import main as exportar
+
+    corpus = tmp_path / "co"
+    corpus.mkdir()
+    cargar_norma(CP, corpus, html=FIXTURE.read_bytes())
+    filas = [json.loads(line) for line in (corpus / "CP.jsonl").read_text(encoding="utf-8").splitlines()]
+    filas[1]["metadatos"]["estado"] = "derogado"
+    (corpus / "CP.jsonl").write_text("".join(json.dumps(f, ensure_ascii=False) + "\n" for f in filas),
+                                     encoding="utf-8")
+
+    destino = tmp_path / "chipp"
+    assert exportar(["--corpus", str(corpus), "--destino", str(destino), "--max-mb", "0.002"]) == 0
+    archivos = sorted(destino.rglob("CP*.md"))
+    assert len(archivos) > 1                                  # se dividió por tamaño
+    texto = "\n".join(a.read_text(encoding="utf-8") for a in archivos)
+    assert texto.count("### Constitución Política, art. ") == len(filas)  # ningún artículo se pierde ni se corta
+    assert "**Estado:** NO VIGENTE — derogado" in texto
+    assert "Fuente oficial: https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4125#1" in texto
+    assert "Constitución Política" in (destino / "00_INDICE.md").read_text(encoding="utf-8")
