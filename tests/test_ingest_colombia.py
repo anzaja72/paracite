@@ -144,3 +144,49 @@ def test_cst_listas_y_articulo_sin_texto():
     assert arts["69"].epigrafe.startswith("RESPONSABILIDAD DE LOS")
     assert "responden solidariamente" in arts["69"].texto  # contenido en <ol><li>
     assert arts["360"].estado == "sin_texto_en_fuente" and arts["360"].epigrafe
+
+
+# ---------------- Secretaría del Senado ----------------
+
+SENADO_CST = Path(__file__).parent / "fixtures" / "senado_cst_parte0.html"
+
+
+def test_senado_articulos_notas_y_epigrafes():
+    from paracite.ingest.fuentes import senado
+
+    arts = {a.numero: a for a in senado.procesar(senado.decodificar(SENADO_CST.read_bytes()))}
+    assert "1" in arts and "1O" not in arts
+    assert arts["1"].epigrafe == "OBJETO"
+    art3 = arts["3"]
+    assert art3.estado == "modificado"
+    assert any("Ley 2466 de 2025" in n for n in art3.notas_vigencia)
+    assert not art3.texto.startswith("<") and "El nuevo texto" not in art3.texto
+    assert arts["30"].estado == "derogado"
+    assert arts["31"].ruta[-1].startswith("CAPITULO II")
+
+
+def test_senado_candidatos_y_descarga_por_partes(monkeypatch):
+    from paracite.ingest import cargar
+    from paracite.ingest.fuentes import senado
+
+    norma = NormaCatalogo(sigla="LEY-100-1993", nombre="Ley 100 de 1993", cita="Ley 100 de 1993",
+                          materia="laboral", fuente="senado", tipo="ley", numero="100", anio="1993")
+    assert norma.candidatos_senado == ["ley_0100_1993.html"]
+    dec = NormaCatalogo(sigla="DEC-780-2016", nombre="Decreto 780 de 2016", cita="Decreto 780 de 2016",
+                        materia="salud", fuente="senado", tipo="decreto", numero="780", anio="2016")
+    assert dec.candidatos_senado[0] == "decreto_0780_2016.html"
+
+    paginas = {
+        senado.url_de("ley_0100_1993.html"):
+            b'<p><a class="bookmarkaj" name="1">ARTICULO 1o. OBJETO.</a> Texto uno.</p>'
+            b'<p><a class="antsig" href="ley_0100_1993_pr001.html">Siguiente</a></p>',
+        senado.url_de("ley_0100_1993_pr001.html"):
+            b'<p><a class="bookmarkaj" name="2">ARTICULO 2o. PRINCIPIOS.</a> '
+            b'&lt;Art\xedculo modificado por el art\xedculo 1 de la Ley 797 de 2003&gt; Texto dos.</p>',
+    }
+    monkeypatch.setattr(cargar, "descargar", lambda url, **kw: paginas[url])
+    monkeypatch.setattr(cargar.time, "sleep", lambda s: None)
+    html, url = cargar.descargar_senado(norma)
+    arts = {a.numero: a for a in senado.procesar(html.decode("utf-8"))}
+    assert set(arts) == {"1", "2"} and arts["2"].estado == "modificado"
+    assert url.endswith("ley_0100_1993.html")

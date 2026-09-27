@@ -15,15 +15,35 @@ class NormaCatalogo:
     nombre: str              # Constitución Política de Colombia
     cita: str                # forma corta para la cita formal: «Constitución Política»
     materia: str
-    fuente: str              # funcionpublica
-    norma_id: str | None     # id en la fuente (Función Pública: parámetro ?i=)
+    fuente: str              # funcionpublica | senado
+    norma_id: str | None = None  # Función Pública: parámetro ?i=
+    archivos: list[str] = field(default_factory=list)  # Senado: ley_0100_1993.html (candidatos en orden)
+    tipo: str | None = None      # ley | decreto | decreto_ley
+    numero: str | None = None
+    anio: str | None = None
+    grupo: str | None = None     # rama del derecho (para el catálogo)
     activa: bool = True
 
     @property
     def url(self) -> str | None:
         if self.fuente == "funcionpublica" and self.norma_id:
             return f"https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i={self.norma_id}"
+        if self.fuente == "senado" and self.candidatos_senado:
+            return "http://www.secretariasenado.gov.co/senado/basedoc/" + self.candidatos_senado[0]
         return None
+
+    @property
+    def candidatos_senado(self) -> list[str]:
+        """Archivos a probar en el Senado: los explícitos y los derivados de tipo/número/año."""
+        out = list(self.archivos)
+        if self.numero and self.anio:
+            n = f"{int(self.numero):04d}"
+            if self.tipo in (None, "ley"):
+                out.append(f"ley_{n}_{self.anio}.html")
+            if self.tipo in ("decreto", "decreto_ley"):
+                out.append(f"decreto_{n}_{self.anio}.html")
+                out.append(f"decreto_ley_{n}_{self.anio}.html")
+        return list(dict.fromkeys(out))
 
 
 @dataclass
@@ -43,16 +63,15 @@ class Articulo:
 
     @property
     def estado(self) -> str:
-        if not self.parrafos:
-            return "sin_texto_en_fuente"
         notas = " ".join(self.notas_vigencia).upper()
         inicio = (self.parrafos[0] if self.parrafos else "").upper()
-        if re.search(r"^\(?\s*ART[ÍI]CULO\s+INEXEQUIBLE", inicio) or "(ARTÍCULO INEXEQUIBLE" in notas:
+        if re.search(r"ART[ÍI]CULO\s+(DECLARADO\s+)?INEXEQUIBLE", inicio + " " + notas):
             return "inexequible"
-        if re.search(r"ART[ÍI]CULO\s+DEROGADO|<\s*ART[ÍI]CULO\s+DEROGADO", inicio) or \
-           re.search(r"\(ART[ÍI]CULO\s+DEROGADO", notas):
+        if re.search(r"ART[ÍI]CULO\s+DEROGADO", inicio + " " + notas):
             return "derogado"
-        if "MODIFICADO" in notas or "SUSTITUIDO" in notas or "ADICIONADO" in notas:
+        if not self.parrafos:
+            return "sin_texto_en_fuente"
+        if re.search(r"MODIFICADO|SUSTITUIDO|ADICIONADO|SUBROGADO", notas):
             return "modificado"
         return "vigente"
 

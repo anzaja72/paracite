@@ -7,6 +7,10 @@
 #   3. Agregue una entrada con ese número en norma_id y activa: true.
 #
 # Las entradas con norma_id: null quedan pendientes (se omiten al cargar).
+#
+# Fuente «senado»: la dirección se arma sola con tipo/número/año (ley_0100_1993.html,
+# decreto_1072_2015.html); «archivos» permite indicar nombres especiales (codigo_civil.html).
+# Las normas largas se descargan en todas sus partes (_pr001, _pr002…).
 
 normas:
   - sigla: CP
@@ -38,11 +42,11 @@ normas:
     norma_id: "48425"
 
   - sigla: CC
-    nombre: Código Civil
+    nombre: Código Civil (Ley 57 de 1887)
     cita: Código Civil
     materia: civil
-    fuente: funcionpublica
-    norma_id: null
+    fuente: senado
+    archivos: [codigo_civil.html]
 
   - sigla: ET
     nombre: Estatuto Tributario (Decreto 624 de 1989)
@@ -57,3 +61,1114 @@ normas:
     materia: administrativo
     fuente: funcionpublica
     norma_id: "41249"
+
+  # ---- Normas prioritarias (lista de 127, fuente Senado) ----
+  - sigla: LEY-5-1992
+    nombre: Ley 5 de 1992 — Reglamento del Congreso de la República
+    cita: Ley 5 de 1992
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '5'
+    anio: '1992'
+  - sigla: LEY-24-1992
+    nombre: Ley 24 de 1992 — Organización de la Defensoría del Pueblo
+    cita: Ley 24 de 1992
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '24'
+    anio: '1992'
+  - sigla: LEY-134-1994
+    nombre: Ley 134 de 1994 — Mecanismos de participación ciudadana
+    cita: Ley 134 de 1994
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '134'
+    anio: '1994'
+  - sigla: LEY-137-1994
+    nombre: Ley 137 de 1994 — Estados de excepción
+    cita: Ley 137 de 1994
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '137'
+    anio: '1994'
+  - sigla: LEY-270-1996
+    nombre: Ley 270 de 1996 — Estatutaria de la Administración de Justicia
+    cita: Ley 270 de 1996
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '270'
+    anio: '1996'
+  - sigla: LEY-1475-2011
+    nombre: Ley 1475 de 2011 — Organización y funcionamiento de los partidos y movimientos políticos
+    cita: Ley 1475 de 2011
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '1475'
+    anio: '2011'
+  - sigla: LEY-1751-2015
+    nombre: Ley 1751 de 2015 — Estatutaria del derecho fundamental a la salud
+    cita: Ley 1751 de 2015
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '1751'
+    anio: '2015'
+  - sigla: LEY-1757-2015
+    nombre: Ley 1757 de 2015 — Promoción y protección del derecho a la participación democrática
+    cita: Ley 1757 de 2015
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '1757'
+    anio: '2015'
+  - sigla: LEY-1755-2015
+    nombre: Ley 1755 de 2015 — Estatutaria del derecho fundamental de petición
+    cita: Ley 1755 de 2015
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '1755'
+    anio: '2015'
+  - sigla: LEY-1957-2019
+    nombre: Ley 1957 de 2019 — Estatutaria de la Jurisdicción Especial para la Paz
+    cita: Ley 1957 de 2019
+    materia: constitucional
+    grupo: Constitucional, institucional y DDHH
+    fuente: senado
+    tipo: ley
+    numero: '1957'
+    anio: '2019'
+  - sigla: LEY-153-1887
+    nombre: Ley 153 de 1887 — Reglas generales sobre validez y aplicación de las leyes
+    cita: Ley 153 de 1887
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '153'
+    anio: '1887'
+  - sigla: LEY-28-1932
+    nombre: Ley 28 de 1932 — Régimen patrimonial en el matrimonio
+    cita: Ley 28 de 1932
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '28'
+    anio: '1932'
+  - sigla: LEY-45-1936
+    nombre: Ley 45 de 1936 — Filiación
+    cita: Ley 45 de 1936
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '45'
+    anio: '1936'
+  - sigla: LEY-75-1968
+    nombre: Ley 75 de 1968 — Creación del ICBF y normas de filiación
+    cita: Ley 75 de 1968
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '75'
+    anio: '1968'
+  - sigla: LEY-27-1977
+    nombre: Ley 27 de 1977 — Mayoría de edad a los 18 años
+    cita: Ley 27 de 1977
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '27'
+    anio: '1977'
+  - sigla: LEY-29-1982
+    nombre: Ley 29 de 1982 — Igualdad de derechos sucesorales
+    cita: Ley 29 de 1982
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '29'
+    anio: '1982'
+  - sigla: LEY-25-1992
+    nombre: Ley 25 de 1992 — Divorcio y cesación de efectos civiles del matrimonio religioso
+    cita: Ley 25 de 1992
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '25'
+    anio: '1992'
+  - sigla: LEY-54-1990
+    nombre: Ley 54 de 1990 — Uniones maritales de hecho
+    cita: Ley 54 de 1990
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '54'
+    anio: '1990'
+  - sigla: LEY-675-2001
+    nombre: Ley 675 de 2001 — Régimen de propiedad horizontal
+    cita: Ley 675 de 2001
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '675'
+    anio: '2001'
+  - sigla: LEY-820-2003
+    nombre: Ley 820 de 2003 — Arrendamiento de vivienda urbana
+    cita: Ley 820 de 2003
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '820'
+    anio: '2003'
+  - sigla: LEY-1098-2006
+    nombre: Ley 1098 de 2006 — Código de la Infancia y la Adolescencia
+    cita: Ley 1098 de 2006
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '1098'
+    anio: '2006'
+  - sigla: LEY-1257-2008
+    nombre: Ley 1257 de 2008 — Violencias y discriminación contra las mujeres
+    cita: Ley 1257 de 2008
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '1257'
+    anio: '2008'
+  - sigla: LEY-1934-2018
+    nombre: Ley 1934 de 2018 — Reforma al régimen de sucesiones
+    cita: Ley 1934 de 2018
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '1934'
+    anio: '2018'
+  - sigla: LEY-1996-2019
+    nombre: Ley 1996 de 2019 — Capacidad legal de las personas con discapacidad
+    cita: Ley 1996 de 2019
+    materia: civil
+    grupo: Civil, familia y personas
+    fuente: senado
+    tipo: ley
+    numero: '1996'
+    anio: '2019'
+  - sigla: LEY-2080-2021
+    nombre: Ley 2080 de 2021 — Reforma al CPACA
+    cita: Ley 2080 de 2021
+    materia: procesal
+    grupo: Procesal
+    fuente: senado
+    tipo: ley
+    numero: '2080'
+    anio: '2021'
+  - sigla: LEY-2213-2022
+    nombre: Ley 2213 de 2022 — Uso de las TIC en las actuaciones judiciales
+    cita: Ley 2213 de 2022
+    materia: procesal
+    grupo: Procesal
+    fuente: senado
+    tipo: ley
+    numero: '2213'
+    anio: '2022'
+  - sigla: LEY-1563-2012
+    nombre: Ley 1563 de 2012 — Estatuto de Arbitraje Nacional e Internacional
+    cita: Ley 1563 de 2012
+    materia: procesal
+    grupo: Procesal
+    fuente: senado
+    tipo: ley
+    numero: '1563'
+    anio: '2012'
+  - sigla: LEY-2220-2022
+    nombre: Ley 2220 de 2022 — Estatuto de Conciliación
+    cita: Ley 2220 de 2022
+    materia: procesal
+    grupo: Procesal
+    fuente: senado
+    tipo: ley
+    numero: '2220'
+    anio: '2022'
+  - sigla: LEY-599-2000
+    nombre: Ley 599 de 2000 — Código Penal
+    cita: Ley 599 de 2000
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '599'
+    anio: '2000'
+  - sigla: LEY-600-2000
+    nombre: Ley 600 de 2000 — Código de Procedimiento Penal (Ley 600)
+    cita: Ley 600 de 2000
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '600'
+    anio: '2000'
+  - sigla: LEY-906-2004
+    nombre: Ley 906 de 2004 — Código de Procedimiento Penal (sistema acusatorio)
+    cita: Ley 906 de 2004
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '906'
+    anio: '2004'
+  - sigla: LEY-65-1993
+    nombre: Ley 65 de 1993 — Código Penitenciario y Carcelario
+    cita: Ley 65 de 1993
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '65'
+    anio: '1993'
+  - sigla: LEY-1709-2014
+    nombre: Ley 1709 de 2014 — Reforma al Código Penitenciario y Carcelario
+    cita: Ley 1709 de 2014
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '1709'
+    anio: '2014'
+  - sigla: LEY-1762-2015
+    nombre: Ley 1762 de 2015 — Lucha contra el contrabando, lavado de activos y evasión fiscal
+    cita: Ley 1762 de 2015
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '1762'
+    anio: '2015'
+  - sigla: LEY-1774-2016
+    nombre: Ley 1774 de 2016 — Animales como seres sintientes
+    cita: Ley 1774 de 2016
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '1774'
+    anio: '2016'
+  - sigla: LEY-1952-2019
+    nombre: Ley 1952 de 2019 — Código General Disciplinario
+    cita: Ley 1952 de 2019
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '1952'
+    anio: '2019'
+  - sigla: LEY-2094-2021
+    nombre: Ley 2094 de 2021 — Reforma al Código General Disciplinario
+    cita: Ley 2094 de 2021
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '2094'
+    anio: '2021'
+  - sigla: LEY-2197-2022
+    nombre: Ley 2197 de 2022 — Seguridad Ciudadana
+    cita: Ley 2197 de 2022
+    materia: penal
+    grupo: Penal, penitenciario y disciplinario
+    fuente: senado
+    tipo: ley
+    numero: '2197'
+    anio: '2022'
+  - sigla: DL-410-1971
+    nombre: Decreto Ley 410 de 1971 — Código de Comercio
+    cita: Decreto Ley 410 de 1971
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: decreto_ley
+    numero: '410'
+    anio: '1971'
+    archivos:
+    - codigo_comercio.html
+  - sigla: LEY-222-1995
+    nombre: Ley 222 de 1995 — Reforma al Libro II del Código de Comercio (régimen societario)
+    cita: Ley 222 de 1995
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '222'
+    anio: '1995'
+  - sigla: LEY-527-1999
+    nombre: Ley 527 de 1999 — Comercio electrónico y firmas digitales
+    cita: Ley 527 de 1999
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '527'
+    anio: '1999'
+  - sigla: LEY-964-2005
+    nombre: Ley 964 de 2005 — Mercado de valores
+    cita: Ley 964 de 2005
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '964'
+    anio: '2005'
+  - sigla: LEY-1116-2006
+    nombre: Ley 1116 de 2006 — Régimen de insolvencia empresarial
+    cita: Ley 1116 de 2006
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '1116'
+    anio: '2006'
+  - sigla: LEY-1258-2008
+    nombre: Ley 1258 de 2008 — Sociedad por Acciones Simplificada (S.A.S.)
+    cita: Ley 1258 de 2008
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '1258'
+    anio: '2008'
+  - sigla: LEY-1328-2009
+    nombre: Ley 1328 de 2009 — Reforma financiera y protección al consumidor financiero
+    cita: Ley 1328 de 2009
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '1328'
+    anio: '2009'
+  - sigla: LEY-1480-2011
+    nombre: Ley 1480 de 2011 — Estatuto del Consumidor
+    cita: Ley 1480 de 2011
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '1480'
+    anio: '2011'
+  - sigla: LEY-1676-2013
+    nombre: Ley 1676 de 2013 — Garantías mobiliarias
+    cita: Ley 1676 de 2013
+    materia: comercial
+    grupo: Comercial, financiero y societario
+    fuente: senado
+    tipo: ley
+    numero: '1676'
+    anio: '2013'
+  - sigla: LEY-50-1990
+    nombre: Ley 50 de 1990 — Reforma laboral (Ley 50 de 1990)
+    cita: Ley 50 de 1990
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '50'
+    anio: '1990'
+  - sigla: LEY-100-1993
+    nombre: Ley 100 de 1993 — Sistema General de Seguridad Social Integral
+    cita: Ley 100 de 1993
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '100'
+    anio: '1993'
+  - sigla: LEY-789-2002
+    nombre: Ley 789 de 2002 — Reforma laboral (Ley 789 de 2002)
+    cita: Ley 789 de 2002
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '789'
+    anio: '2002'
+  - sigla: LEY-797-2003
+    nombre: Ley 797 de 2003 — Reforma al Sistema General de Pensiones
+    cita: Ley 797 de 2003
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '797'
+    anio: '2003'
+  - sigla: LEY-1010-2006
+    nombre: Ley 1010 de 2006 — Acoso laboral
+    cita: Ley 1010 de 2006
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '1010'
+    anio: '2006'
+  - sigla: LEY-1562-2012
+    nombre: Ley 1562 de 2012 — Sistema de Riesgos Laborales
+    cita: Ley 1562 de 2012
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '1562'
+    anio: '2012'
+  - sigla: LEY-2101-2021
+    nombre: Ley 2101 de 2021 — Reducción de la jornada laboral
+    cita: Ley 2101 de 2021
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '2101'
+    anio: '2021'
+  - sigla: LEY-2114-2021
+    nombre: Ley 2114 de 2021 — Licencia de paternidad y licencia parental compartida
+    cita: Ley 2114 de 2021
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '2114'
+    anio: '2021'
+  - sigla: LEY-2381-2024
+    nombre: Ley 2381 de 2024 — Sistema de Protección Social Integral para la Vejez, Invalidez y Muerte
+    cita: Ley 2381 de 2024
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '2381'
+    anio: '2024'
+  - sigla: LEY-2466-2025
+    nombre: Ley 2466 de 2025 — Reforma laboral (Ley 2466 de 2025)
+    cita: Ley 2466 de 2025
+    materia: laboral
+    grupo: Laboral y seguridad social
+    fuente: senado
+    tipo: ley
+    numero: '2466'
+    anio: '2025'
+  - sigla: LEY-80-1993
+    nombre: Ley 80 de 1993 — Estatuto General de Contratación de la Administración Pública
+    cita: Ley 80 de 1993
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '80'
+    anio: '1993'
+  - sigla: LEY-489-1998
+    nombre: Ley 489 de 1998 — Organización y funcionamiento de las entidades del orden nacional
+    cita: Ley 489 de 1998
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '489'
+    anio: '1998'
+  - sigla: LEY-909-2004
+    nombre: Ley 909 de 2004 — Empleo público y carrera administrativa
+    cita: Ley 909 de 2004
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '909'
+    anio: '2004'
+  - sigla: LEY-1150-2007
+    nombre: Ley 1150 de 2007 — Eficiencia y transparencia en la contratación pública
+    cita: Ley 1150 de 2007
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '1150'
+    anio: '2007'
+  - sigla: LEY-1474-2011
+    nombre: Ley 1474 de 2011 — Estatuto Anticorrupción
+    cita: Ley 1474 de 2011
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '1474'
+    anio: '2011'
+  - sigla: LEY-1712-2014
+    nombre: Ley 1712 de 2014 — Transparencia y acceso a la información pública
+    cita: Ley 1712 de 2014
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '1712'
+    anio: '2014'
+  - sigla: LEY-1882-2018
+    nombre: Ley 1882 de 2018 — Fortalecimiento de la contratación pública
+    cita: Ley 1882 de 2018
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '1882'
+    anio: '2018'
+  - sigla: LEY-2195-2022
+    nombre: Ley 2195 de 2022 — Transparencia, prevención y lucha contra la corrupción
+    cita: Ley 2195 de 2022
+    materia: administrativo
+    grupo: Administrativo, contratación y función pública
+    fuente: senado
+    tipo: ley
+    numero: '2195'
+    anio: '2022'
+  - sigla: LEY-38-1989
+    nombre: Ley 38 de 1989 — Estatuto Orgánico del Presupuesto
+    cita: Ley 38 de 1989
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '38'
+    anio: '1989'
+  - sigla: LEY-617-2000
+    nombre: Ley 617 de 2000 — Racionalización del gasto público y saneamiento fiscal territorial
+    cita: Ley 617 de 2000
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '617'
+    anio: '2000'
+  - sigla: LEY-819-2003
+    nombre: Ley 819 de 2003 — Presupuesto, responsabilidad y transparencia fiscal
+    cita: Ley 819 de 2003
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '819'
+    anio: '2003'
+  - sigla: LEY-1607-2012
+    nombre: Ley 1607 de 2012 — Reforma tributaria (Ley 1607 de 2012)
+    cita: Ley 1607 de 2012
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '1607'
+    anio: '2012'
+  - sigla: LEY-1819-2016
+    nombre: Ley 1819 de 2016 — Reforma tributaria estructural (Ley 1819 de 2016)
+    cita: Ley 1819 de 2016
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '1819'
+    anio: '2016'
+  - sigla: LEY-2010-2019
+    nombre: Ley 2010 de 2019 — Ley de Crecimiento Económico
+    cita: Ley 2010 de 2019
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '2010'
+    anio: '2019'
+  - sigla: LEY-2155-2021
+    nombre: Ley 2155 de 2021 — Ley de Inversión Social
+    cita: Ley 2155 de 2021
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '2155'
+    anio: '2021'
+  - sigla: LEY-2277-2022
+    nombre: Ley 2277 de 2022 — Reforma tributaria para la igualdad y la justicia social
+    cita: Ley 2277 de 2022
+    materia: tributario
+    grupo: Tributario y fiscal
+    fuente: senado
+    tipo: ley
+    numero: '2277'
+    anio: '2022'
+  - sigla: DL-2811-1974
+    nombre: Decreto Ley 2811 de 1974 — Código Nacional de Recursos Naturales Renovables
+    cita: Decreto Ley 2811 de 1974
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: decreto_ley
+    numero: '2811'
+    anio: '1974'
+  - sigla: LEY-99-1993
+    nombre: Ley 99 de 1993 — Ministerio del Medio Ambiente y Sistema Nacional Ambiental
+    cita: Ley 99 de 1993
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '99'
+    anio: '1993'
+  - sigla: LEY-160-1994
+    nombre: Ley 160 de 1994 — Sistema Nacional de Reforma Agraria y Desarrollo Rural Campesino
+    cita: Ley 160 de 1994
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '160'
+    anio: '1994'
+  - sigla: LEY-388-1997
+    nombre: Ley 388 de 1997 — Desarrollo Territorial
+    cita: Ley 388 de 1997
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '388'
+    anio: '1997'
+  - sigla: LEY-1448-2011
+    nombre: Ley 1448 de 2011 — Víctimas y restitución de tierras
+    cita: Ley 1448 de 2011
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '1448'
+    anio: '2011'
+  - sigla: LEY-1931-2018
+    nombre: Ley 1931 de 2018 — Gestión del cambio climático
+    cita: Ley 1931 de 2018
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '1931'
+    anio: '2018'
+  - sigla: LEY-2169-2021
+    nombre: Ley 2169 de 2021 — Carbono neutralidad y resiliencia climática
+    cita: Ley 2169 de 2021
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '2169'
+    anio: '2021'
+  - sigla: LEY-2273-2022
+    nombre: Ley 2273 de 2022 — Aprobación del Acuerdo de Escazú
+    cita: Ley 2273 de 2022
+    materia: ambiental
+    grupo: Ambiental, tierras y recursos naturales
+    fuente: senado
+    tipo: ley
+    numero: '2273'
+    anio: '2022'
+  - sigla: LEY-23-1982
+    nombre: Ley 23 de 1982 — Derechos de autor
+    cita: Ley 23 de 1982
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '23'
+    anio: '1982'
+  - sigla: LEY-1266-2008
+    nombre: Ley 1266 de 2008 — Habeas data financiero
+    cita: Ley 1266 de 2008
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '1266'
+    anio: '2008'
+  - sigla: LEY-1273-2009
+    nombre: Ley 1273 de 2009 — Delitos informáticos
+    cita: Ley 1273 de 2009
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '1273'
+    anio: '2009'
+  - sigla: LEY-1341-2009
+    nombre: Ley 1341 de 2009 — Sector TIC
+    cita: Ley 1341 de 2009
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '1341'
+    anio: '2009'
+  - sigla: LEY-1581-2012
+    nombre: Ley 1581 de 2012 — Protección de datos personales
+    cita: Ley 1581 de 2012
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '1581'
+    anio: '2012'
+  - sigla: LEY-1978-2019
+    nombre: Ley 1978 de 2019 — Modernización del sector TIC
+    cita: Ley 1978 de 2019
+    materia: tic
+    grupo: TIC, datos y propiedad intelectual
+    fuente: senado
+    tipo: ley
+    numero: '1978'
+    anio: '2019'
+  - sigla: LEY-136-1994
+    nombre: Ley 136 de 1994 — Organización y funcionamiento de los municipios
+    cita: Ley 136 de 1994
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '136'
+    anio: '1994'
+  - sigla: LEY-142-1994
+    nombre: Ley 142 de 1994 — Servicios públicos domiciliarios
+    cita: Ley 142 de 1994
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '142'
+    anio: '1994'
+  - sigla: LEY-610-2000
+    nombre: Ley 610 de 2000 — Procesos de responsabilidad fiscal
+    cita: Ley 610 de 2000
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '610'
+    anio: '2000'
+  - sigla: LEY-769-2002
+    nombre: Ley 769 de 2002 — Código Nacional de Tránsito Terrestre
+    cita: Ley 769 de 2002
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '769'
+    anio: '2002'
+  - sigla: LEY-1454-2011
+    nombre: Ley 1454 de 2011 — Orgánica de Ordenamiento Territorial
+    cita: Ley 1454 de 2011
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '1454'
+    anio: '2011'
+  - sigla: LEY-1551-2012
+    nombre: Ley 1551 de 2012 — Modernización de los municipios
+    cita: Ley 1551 de 2012
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '1551'
+    anio: '2012'
+  - sigla: LEY-1617-2013
+    nombre: Ley 1617 de 2013 — Régimen de los distritos especiales
+    cita: Ley 1617 de 2013
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '1617'
+    anio: '2013'
+  - sigla: LEY-1801-2016
+    nombre: Ley 1801 de 2016 — Código Nacional de Seguridad y Convivencia Ciudadana
+    cita: Ley 1801 de 2016
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '1801'
+    anio: '2016'
+  - sigla: LEY-2056-2020
+    nombre: Ley 2056 de 2020 — Sistema General de Regalías
+    cita: Ley 2056 de 2020
+    materia: territorial
+    grupo: Territorial, servicios públicos, tránsito y policía
+    fuente: senado
+    tipo: ley
+    numero: '2056'
+    anio: '2020'
+  - sigla: DEC-2555-2010
+    nombre: Decreto 2555 de 2010 — DUR del sector financiero, asegurador y del mercado de valores
+    cita: Decreto 2555 de 2010
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '2555'
+    anio: '2010'
+  - sigla: DEC-1066-2015
+    nombre: Decreto 1066 de 2015 — DUR del sector Interior
+    cita: Decreto 1066 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1066'
+    anio: '2015'
+  - sigla: DEC-1067-2015
+    nombre: Decreto 1067 de 2015 — DUR del sector Relaciones Exteriores
+    cita: Decreto 1067 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1067'
+    anio: '2015'
+  - sigla: DEC-1068-2015
+    nombre: Decreto 1068 de 2015 — DUR del sector Hacienda y Crédito Público
+    cita: Decreto 1068 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1068'
+    anio: '2015'
+  - sigla: DEC-1069-2015
+    nombre: Decreto 1069 de 2015 — DUR del sector Justicia y del Derecho
+    cita: Decreto 1069 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1069'
+    anio: '2015'
+  - sigla: DEC-1070-2015
+    nombre: Decreto 1070 de 2015 — DUR del sector Defensa
+    cita: Decreto 1070 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1070'
+    anio: '2015'
+  - sigla: DEC-1071-2015
+    nombre: Decreto 1071 de 2015 — DUR del sector Agropecuario, Pesquero y de Desarrollo Rural
+    cita: Decreto 1071 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1071'
+    anio: '2015'
+  - sigla: DEC-1072-2015
+    nombre: Decreto 1072 de 2015 — DUR del sector Trabajo
+    cita: Decreto 1072 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1072'
+    anio: '2015'
+  - sigla: DEC-1073-2015
+    nombre: Decreto 1073 de 2015 — DUR del sector Minas y Energía
+    cita: Decreto 1073 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1073'
+    anio: '2015'
+  - sigla: DEC-1074-2015
+    nombre: Decreto 1074 de 2015 — DUR del sector Comercio, Industria y Turismo
+    cita: Decreto 1074 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1074'
+    anio: '2015'
+  - sigla: DEC-1075-2015
+    nombre: Decreto 1075 de 2015 — DUR del sector Educación
+    cita: Decreto 1075 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1075'
+    anio: '2015'
+  - sigla: DEC-1076-2015
+    nombre: Decreto 1076 de 2015 — DUR del sector Ambiente y Desarrollo Sostenible
+    cita: Decreto 1076 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1076'
+    anio: '2015'
+  - sigla: DEC-1077-2015
+    nombre: Decreto 1077 de 2015 — DUR del sector Vivienda, Ciudad y Territorio
+    cita: Decreto 1077 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1077'
+    anio: '2015'
+  - sigla: DEC-1078-2015
+    nombre: Decreto 1078 de 2015 — DUR del sector TIC
+    cita: Decreto 1078 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1078'
+    anio: '2015'
+  - sigla: DEC-1079-2015
+    nombre: Decreto 1079 de 2015 — DUR del sector Transporte
+    cita: Decreto 1079 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1079'
+    anio: '2015'
+  - sigla: DEC-1080-2015
+    nombre: Decreto 1080 de 2015 — DUR del sector Cultura
+    cita: Decreto 1080 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1080'
+    anio: '2015'
+  - sigla: DEC-1081-2015
+    nombre: Decreto 1081 de 2015 — DUR del sector Presidencia de la República
+    cita: Decreto 1081 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1081'
+    anio: '2015'
+  - sigla: DEC-1082-2015
+    nombre: Decreto 1082 de 2015 — DUR del sector Planeación Nacional
+    cita: Decreto 1082 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1082'
+    anio: '2015'
+  - sigla: DEC-1083-2015
+    nombre: Decreto 1083 de 2015 — DUR del sector Función Pública
+    cita: Decreto 1083 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1083'
+    anio: '2015'
+  - sigla: DEC-1084-2015
+    nombre: Decreto 1084 de 2015 — DUR del sector Inclusión Social y Reconciliación
+    cita: Decreto 1084 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1084'
+    anio: '2015'
+  - sigla: DEC-1085-2015
+    nombre: Decreto 1085 de 2015 — DUR del sector Deporte
+    cita: Decreto 1085 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1085'
+    anio: '2015'
+  - sigla: DEC-1170-2015
+    nombre: Decreto 1170 de 2015 — DUR del sector Información Estadística
+    cita: Decreto 1170 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1170'
+    anio: '2015'
+  - sigla: DEC-2420-2015
+    nombre: Decreto 2420 de 2015 — DUR de normas de contabilidad, información financiera y aseguramiento
+    cita: Decreto 2420 de 2015
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '2420'
+    anio: '2015'
+  - sigla: DEC-780-2016
+    nombre: Decreto 780 de 2016 — DUR del sector Salud y Protección Social
+    cita: Decreto 780 de 2016
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '780'
+    anio: '2016'
+  - sigla: DEC-1625-2016
+    nombre: Decreto 1625 de 2016 — DUR en materia tributaria
+    cita: Decreto 1625 de 2016
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1625'
+    anio: '2016'
+  - sigla: DEC-1833-2016
+    nombre: Decreto 1833 de 2016 — Compilación del Sistema General de Pensiones
+    cita: Decreto 1833 de 2016
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1833'
+    anio: '2016'
+  - sigla: DEC-1821-2020
+    nombre: Decreto 1821 de 2020 — Compilación del Sistema General de Regalías
+    cita: Decreto 1821 de 2020
+    materia: reglamentario
+    grupo: Decretos Únicos Reglamentarios (DUR)
+    fuente: senado
+    tipo: decreto
+    numero: '1821'
+    anio: '2020'

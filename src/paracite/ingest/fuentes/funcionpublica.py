@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup, Tag
 from paracite.ingest.modelo import Articulo
 
 _ARTICULO = re.compile(
-    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+(?:-\d+)?[A-Z]?(?:[-\s]?BIS)?)?\s*(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
+    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+(?:-\d+)?(?-i:[A-Z])?(?:[-\s]?BIS)?)?\s*(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
     re.IGNORECASE,
 )
 _NOTA_VIGENCIA = re.compile(

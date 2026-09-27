@@ -29,7 +29,7 @@ from pathlib import Path
 import httpx
 import yaml
 
-from paracite.ingest.fuentes import funcionpublica
+from paracite.ingest.fuentes import funcionpublica, senado
 from paracite.ingest.modelo import NormaCatalogo, a_fragmento, huella
 
 log = logging.getLogger("paracite.ingest")
@@ -40,7 +40,8 @@ CATALOGO = SALIDA / "catalogo.yaml"
 USER_AGENT = "ParaCite-Ingest/0.1 (+verificacion de citas juridicas; contacto: legal-ia.co)"
 UMBRAL_CAIDA = 0.8  # si hay <80 % de los artículos de la versión anterior, no se reemplaza
 
-PROCESADORES = {"funcionpublica": funcionpublica}
+PROCESADORES = {"funcionpublica": funcionpublica, "senado": senado}
+MAX_PARTES = 60
 
 
 def leer_catalogo(ruta: Path = CATALOGO) -> list[NormaCatalogo]:
@@ -48,6 +49,9 @@ def leer_catalogo(ruta: Path = CATALOGO) -> list[NormaCatalogo]:
     normas = []
     for item in datos.get("normas", []):
         item = {**item, "norma_id": str(item["norma_id"]) if item.get("norma_id") else None}
+        for campo in ("numero", "anio"):
+            if item.get(campo) is not None:
+                item[campo] = str(item[campo])
         normas.append(NormaCatalogo(**item))
     return normas
 
@@ -57,6 +61,35 @@ def descargar(url: str, *, timeout: float = 90) -> bytes:
         resp = c.get(url)
         resp.raise_for_status()
         return resp.content
+
+
+def descargar_senado(norma: NormaCatalogo, *, pausa: float = 1.0) -> tuple[bytes, str]:
+    """Prueba los archivos candidatos y descarga todas las partes (_pr001, _pr002…).
+
+    Devuelve (html concatenado, url de la primera parte)."""
+    ultimo_error: Exception | None = None
+    for archivo in norma.candidatos_senado:
+        url = senado.url_de(archivo)
+        try:
+            primera = descargar(url)
+        except httpx.HTTPError as e:
+            ultimo_error = e
+            continue
+        texto = senado.decodificar(primera)
+        if "ART" not in texto.upper():  # página de error o índice sin artículos
+            ultimo_error = RuntimeError(f"{url} no contiene artículos")
+            continue
+        partes, actual = [texto], url
+        for _ in range(MAX_PARTES):
+            sig = senado.siguiente_parte(partes[-1], actual)
+            if not sig:
+                break
+            time.sleep(pausa)
+            actual = sig
+            partes.append(senado.decodificar(descargar(sig)))
+        return "\n".join(partes).encode("utf-8"), url
+    raise RuntimeError(f"{norma.sigla}: no se encontró en el Senado ({', '.join(norma.candidatos_senado)}): "
+                       f"{ultimo_error}")
 
 
 def _leer_jsonl(ruta: Path) -> list[dict]:
@@ -75,7 +108,12 @@ def cargar_norma(norma: NormaCatalogo, salida: Path, *, html: bytes | None = Non
     """Procesa una norma y actualiza su JSONL. Devuelve el resumen para el manifiesto."""
     procesador = PROCESADORES[norma.fuente]
     url = norma.url or ""
-    contenido = html if html is not None else descargar(url)
+    if html is not None:
+        contenido = html
+    elif norma.fuente == "senado":
+        contenido, url = descargar_senado(norma)
+    else:
+        contenido = descargar(url)
     articulos = procesador.procesar(procesador.decodificar(contenido))
     ahora = datetime.now(UTC).isoformat(timespec="seconds")
 
@@ -154,6 +192,7 @@ def main(argv: list[str] | None = None) -> int:
     manifiesto = json.loads(manifiesto_ruta.read_text(encoding="utf-8")) if manifiesto_ruta.exists() else {}
 
     errores = 0
+    fallidas: list[str] = []
     for i, norma in enumerate(normas):
         if norma.sigla not in archivos and not norma.url:
             log.info("%s: sin norma_id en el catálogo; se omite", norma.sigla)
@@ -165,6 +204,7 @@ def main(argv: list[str] | None = None) -> int:
             resumen = cargar_norma(norma, args.salida, html=html)
         except Exception as e:  # noqa: BLE001 — una norma fallida no detiene las demás
             errores += 1
+            fallidas.append(norma.sigla)
             log.error("%s: %s", norma.sigla, e)
             manifiesto.setdefault(norma.sigla, {})["ultimo_error"] = str(e)[:500]
             continue
@@ -175,6 +215,9 @@ def main(argv: list[str] | None = None) -> int:
                  resumen["estados"], resumen["cambios"])
 
     manifiesto_ruta.write_text(json.dumps(manifiesto, ensure_ascii=False, indent=2), encoding="utf-8")
+    cargadas = [n for n in manifiesto.values() if n.get("articulos")]
+    log.info("RESUMEN: %d normas en el corpus, %d artículos. Fallaron %d: %s",
+             len(cargadas), sum(n["articulos"] for n in cargadas), len(fallidas), ", ".join(fallidas) or "ninguna")
     return 2 if errores else 0
 
 
