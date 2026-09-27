@@ -335,7 +335,77 @@
     "detalle_cambios": {}
   },
   "LEY-153-1887": {
-    "ultimo_error": "LEY-153-1887: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=15805 (formato distinto); no se reemplaza la versión anterior"
+    "sigla": "LEY-153-1887",
+    "nombre": "Ley 153 de 1887 — Reglas generales sobre validez y aplicación de las leyes",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=15805",
+    "articulos": 327,
+    "estados": {
+      "vigente": 325,
+      "derogado": 1,
+      "modificado": 1
+    },
+    "huella": "04c9e65b29115f2c115ec82637c82a1311b64d61685ae29cfb17a0b24b18bf32",
+    "actualizado_en": "2026-09-27T20:22:17+00:00",
+    "verificado_en": "2026-09-27T20:22:17+00:00",
+    "cambios": {
+      "nuevos": 327,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {
+      "nuevos": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50"
+      ]
+    }
   },
   "LEY-28-1932": {
     "ultimo_error": "LEY-28-1932: no se encontró en el Senado (ley_0028_1932.html): Client error '404 Not Found' for url 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0028_1932.html'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
@@ -362,10 +432,60 @@
     "detalle_cambios": {}
   },
   "LEY-27-1977": {
-    "ultimo_error": "LEY-27-1977: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4965 (formato distinto); no se reemplaza la versión anterior"
+    "sigla": "LEY-27-1977",
+    "nombre": "Ley 27 de 1977 — Mayoría de edad a los 18 años",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4965",
+    "articulos": 3,
+    "estados": {
+      "vigente": 3
+    },
+    "huella": "f685c991f969a125b01553ea1ced7e3e08cef2ced3af181af3312f2846c78112",
+    "actualizado_en": "2026-09-27T20:22:20+00:00",
+    "verificado_en": "2026-09-27T20:22:20+00:00",
+    "cambios": {
+      "nuevos": 3,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {
+      "nuevos": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
   },
   "LEY-29-1982": {
-    "ultimo_error": "LEY-29-1982: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=256 (formato distinto); no se reemplaza la versión anterior"
+    "sigla": "LEY-29-1982",
+    "nombre": "Ley 29 de 1982 — Igualdad de derechos sucesorales",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=256",
+    "articulos": 11,
+    "estados": {
+      "vigente": 11
+    },
+    "huella": "883efb34b239ca14a5d3b682654597a5334fa588400a6afdd2b3aa05503a41a7",
+    "actualizado_en": "2026-09-27T20:22:23+00:00",
+    "verificado_en": "2026-09-27T20:22:23+00:00",
+    "cambios": {
+      "nuevos": 11,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {
+      "nuevos": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ]
+    }
   },
   "LEY-25-1992": {
     "sigla": "LEY-25-1992",
@@ -1611,18 +1731,25 @@
     "sigla": "LEY-2273-2022",
     "nombre": "Ley 2273 de 2022 — Aprobación del Acuerdo de Escazú",
     "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2273_2022.html",
-    "articulos": 0,
-    "estados": {},
-    "huella": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "actualizado_en": null,
-    "verificado_en": "2026-09-27T17:36:41+00:00",
+    "articulos": 3,
+    "estados": {
+      "vigente": 3
+    },
+    "huella": "44060cbcf4fe230750814c144f562764272a1b677f6e54f085f2027df1ae9eca",
+    "actualizado_en": "2026-09-27T20:22:26+00:00",
+    "verificado_en": "2026-09-27T20:22:26+00:00",
     "cambios": {
-      "nuevos": 0,
+      "nuevos": 3,
       "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {},
-    "ultimo_error": "LEY-2273-2022: no se reconoció ningún artículo en http://www.secretariasenado.gov.co/senado/basedoc/ley_2273_2022.html (formato distinto); no se reemplaza la versión anterior"
+    "detalle_cambios": {
+      "nuevos": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
   },
   "LEY-23-1982": {
     "sigla": "LEY-23-1982",
