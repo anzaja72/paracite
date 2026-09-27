@@ -18,16 +18,12 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup, Tag
 
-from paracite.ingest.fuentes.funcionpublica import _Ruta
+from paracite.ingest.fuentes.funcionpublica import ARTICULO as _ARTICULO
+from paracite.ingest.fuentes.funcionpublica import _Ruta, numero_articulo
 from paracite.ingest.modelo import Articulo
 
 BASE = "http://www.secretariasenado.gov.co/senado/basedoc/"
 
-_ARTICULO = re.compile(
-    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+(?:-\d+)?(?-i:[A-Z])?(?:[-\s]?BIS)?)?\s*"
-    r"(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
-    re.IGNORECASE,
-)
 # Notas editoriales en línea: <Artículo modificado por…>, <Inciso derogado por…>, <Aparte tachado INEXEQUIBLE>
 _NOTA = re.compile(
     r"<\s*((?:Art[íi]culo|Inciso|Par[áa]grafo|Numeral|Literal|Aparte|Texto|Expresi[óo]n|Ordinal|Cap[íi]tulo)"
@@ -106,9 +102,7 @@ def procesar(html: str) -> list[Articulo]:
         titulo_ancla = _texto(ancla) if ancla is not None else ""
         m = _ARTICULO.match(titulo_ancla) if titulo_ancla else None
         if m and (m.group(1) or m.group(2)):
-            numero = (m.group(2) or "").replace(" ", "").upper()
-            if m.group(1):
-                numero = f"T-{numero or len([a for a in articulos if a.numero.startswith('T-')]) + 1}"
+            numero = numero_articulo(m, articulos)
             if numero == "1" and "1" in vistos and len(articulos) <= 5:
                 articulos.clear()
                 vistos.clear()
@@ -118,7 +112,7 @@ def procesar(html: str) -> list[Articulo]:
             epigrafe = titulo_ancla[m.end():].strip(" .-") or None
             idx = texto.find(titulo_ancla)
             cuerpo = texto[idx + len(titulo_ancla):] if idx >= 0 else texto
-            cuerpo, notas = _separar_notas(cuerpo.strip(" .-"))
+            cuerpo, notas = _separar_notas(cuerpo.lstrip(" .-").rstrip())
             actual = Articulo(numero=numero, parrafos=[cuerpo] if cuerpo else [], ruta=ruta.actual(),
                               notas_vigencia=notas, epigrafe=epigrafe)
             vistos.add(numero)

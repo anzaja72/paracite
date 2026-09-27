@@ -158,7 +158,8 @@ normas:
     cita: Ley 153 de 1887
     materia: civil
     grupo: Civil, familia y personas
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '15805'
     tipo: ley
     numero: '153'
     anio: '1887'
@@ -171,6 +172,7 @@ normas:
     tipo: ley
     numero: '28'
     anio: '1932'
+    activa: false  # no está en el Senado ni se halló en Función Pública
   - sigla: LEY-45-1936
     nombre: Ley 45 de 1936 — Filiación
     cita: Ley 45 de 1936
@@ -180,12 +182,14 @@ normas:
     tipo: ley
     numero: '45'
     anio: '1936'
+    activa: false  # no está en el Senado ni se halló en Función Pública
   - sigla: LEY-75-1968
     nombre: Ley 75 de 1968 — Creación del ICBF y normas de filiación
     cita: Ley 75 de 1968
     materia: civil
     grupo: Civil, familia y personas
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '4828'
     tipo: ley
     numero: '75'
     anio: '1968'
@@ -194,7 +198,8 @@ normas:
     cita: Ley 27 de 1977
     materia: civil
     grupo: Civil, familia y personas
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '4965'
     tipo: ley
     numero: '27'
     anio: '1977'
@@ -203,7 +208,8 @@ normas:
     cita: Ley 29 de 1982
     materia: civil
     grupo: Civil, familia y personas
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '256'
     tipo: ley
     numero: '29'
     anio: '1982'
@@ -221,7 +227,8 @@ normas:
     cita: Ley 54 de 1990
     materia: civil
     grupo: Civil, familia y personas
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '30896'
     tipo: ley
     numero: '54'
     anio: '1990'
@@ -493,7 +500,8 @@ normas:
     cita: Ley 50 de 1990
     materia: laboral
     grupo: Laboral y seguridad social
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '281'
     tipo: ley
     numero: '50'
     anio: '1990'
@@ -655,7 +663,8 @@ normas:
     cita: Ley 38 de 1989
     materia: tributario
     grupo: Tributario y fiscal
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '14811'
     tipo: ley
     numero: '38'
     anio: '1989'
@@ -799,7 +808,8 @@ normas:
     cita: Ley 23 de 1982
     materia: tic
     grupo: TIC, datos y propiedad intelectual
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '3431'
     tipo: ley
     numero: '23'
     anio: '1982'
@@ -934,7 +944,8 @@ normas:
     cita: Decreto 2555 de 2010
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '40032'
     tipo: decreto
     numero: '2555'
     anio: '2010'
@@ -943,7 +954,8 @@ normas:
     cita: Decreto 1066 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76835'
     tipo: decreto
     numero: '1066'
     anio: '2015'
@@ -952,7 +964,8 @@ normas:
     cita: Decreto 1067 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '74000'
     tipo: decreto
     numero: '1067'
     anio: '2015'
@@ -961,7 +974,8 @@ normas:
     cita: Decreto 1068 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '72893'
     tipo: decreto
     numero: '1068'
     anio: '2015'
@@ -970,7 +984,8 @@ normas:
     cita: Decreto 1069 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '74174'
     tipo: decreto
     numero: '1069'
     anio: '2015'
@@ -979,7 +994,8 @@ normas:
     cita: Decreto 1070 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76837'
     tipo: decreto
     numero: '1070'
     anio: '2015'
@@ -988,7 +1004,8 @@ normas:
     cita: Decreto 1071 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76838'
     tipo: decreto
     numero: '1071'
     anio: '2015'
@@ -997,7 +1014,8 @@ normas:
     cita: Decreto 1072 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '72173'
     tipo: decreto
     numero: '1072'
     anio: '2015'
@@ -1006,7 +1024,8 @@ normas:
     cita: Decreto 1073 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77887'
     tipo: decreto
     numero: '1073'
     anio: '2015'
@@ -1015,7 +1034,8 @@ normas:
     cita: Decreto 1074 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76608'
     tipo: decreto
     numero: '1074'
     anio: '2015'
@@ -1024,7 +1044,8 @@ normas:
     cita: Decreto 1075 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77913'
     tipo: decreto
     numero: '1075'
     anio: '2015'
@@ -1033,7 +1054,8 @@ normas:
     cita: Decreto 1076 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '78153'
     tipo: decreto
     numero: '1076'
     anio: '2015'
@@ -1042,7 +1064,8 @@ normas:
     cita: Decreto 1077 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77216'
     tipo: decreto
     numero: '1077'
     anio: '2015'
@@ -1051,7 +1074,8 @@ normas:
     cita: Decreto 1078 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77888'
     tipo: decreto
     numero: '1078'
     anio: '2015'
@@ -1060,7 +1084,8 @@ normas:
     cita: Decreto 1079 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77889'
     tipo: decreto
     numero: '1079'
     anio: '2015'
@@ -1069,7 +1094,8 @@ normas:
     cita: Decreto 1080 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76833'
     tipo: decreto
     numero: '1080'
     anio: '2015'
@@ -1078,7 +1104,8 @@ normas:
     cita: Decreto 1081 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '73593'
     tipo: decreto
     numero: '1081'
     anio: '2015'
@@ -1087,7 +1114,8 @@ normas:
     cita: Decreto 1082 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77653'
     tipo: decreto
     numero: '1082'
     anio: '2015'
@@ -1096,7 +1124,8 @@ normas:
     cita: Decreto 1083 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '62866'
     tipo: decreto
     numero: '1083'
     anio: '2015'
@@ -1105,7 +1134,8 @@ normas:
     cita: Decreto 1084 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77715'
     tipo: decreto
     numero: '1084'
     anio: '2015'
@@ -1114,7 +1144,8 @@ normas:
     cita: Decreto 1085 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77714'
     tipo: decreto
     numero: '1085'
     anio: '2015'
@@ -1123,7 +1154,8 @@ normas:
     cita: Decreto 1170 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '62870'
     tipo: decreto
     numero: '1170'
     anio: '2015'
@@ -1132,7 +1164,8 @@ normas:
     cita: Decreto 2420 de 2015
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '76745'
     tipo: decreto
     numero: '2420'
     anio: '2015'
@@ -1141,7 +1174,8 @@ normas:
     cita: Decreto 780 de 2016
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '77813'
     tipo: decreto
     numero: '780'
     anio: '2016'
@@ -1150,7 +1184,8 @@ normas:
     cita: Decreto 1625 de 2016
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '83233'
     tipo: decreto
     numero: '1625'
     anio: '2016'
@@ -1159,7 +1194,8 @@ normas:
     cita: Decreto 1833 de 2016
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '85319'
     tipo: decreto
     numero: '1833'
     anio: '2016'
@@ -1168,7 +1204,8 @@ normas:
     cita: Decreto 1821 de 2020
     materia: reglamentario
     grupo: Decretos Únicos Reglamentarios (DUR)
-    fuente: senado
+    fuente: funcionpublica
+    norma_id: '154466'
     tipo: decreto
     numero: '1821'
     anio: '2020'

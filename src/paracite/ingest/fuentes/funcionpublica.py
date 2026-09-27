@@ -17,10 +17,31 @@ from bs4 import BeautifulSoup, Tag
 
 from paracite.ingest.modelo import Articulo
 
-_ARTICULO = re.compile(
-    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+(?:-\d+)?(?-i:[A-Z])?(?:[-\s]?BIS)?)?\s*(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
+# Ordinales en letras («ARTÍCULO PRIMERO.»), comunes en leyes aprobatorias de tratados y leyes antiguas.
+_UNIDADES = {"PRIMERO": 1, "SEGUNDO": 2, "TERCERO": 3, "CUARTO": 4, "QUINTO": 5, "SEXTO": 6,
+             "SÉPTIMO": 7, "SEPTIMO": 7, "OCTAVO": 8, "NOVENO": 9}
+_ORDINALES = {**_UNIDADES, "DÉCIMO": 10, "DECIMO": 10, "UNDÉCIMO": 11, "UNDECIMO": 11,
+              "DUODÉCIMO": 12, "DUODECIMO": 12,
+              **{f"{d} {u}": 10 + v for d in ("DÉCIMO", "DECIMO") for u, v in _UNIDADES.items()},
+              **{f"{d}{u}": 10 + v for d in ("DÉCIMO", "DECIMO") for u, v in _UNIDADES.items()}}
+_ORDINAL = "|".join(sorted((re.escape(o) for o in _ORDINALES), key=len, reverse=True))
+# Números: 64 · 240-1 · 5A · 20 BIS · 2.2.1.1.1 (decretos únicos reglamentarios) · PRIMERO…
+ARTICULO = re.compile(
+    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?"
+    r"(\d+(?:\.\d+)*(?:-\d+)?(?-i:[A-Z])?(?:[-\s]?BIS)?|(?:" + _ORDINAL + r")(?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?"
+    r"\s*(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
     re.IGNORECASE,
 )
+_ARTICULO = ARTICULO
+
+
+def numero_articulo(m: re.Match, previos: list[Articulo]) -> str:
+    """Número normalizado del artículo: «2.2.1.1.1», «240-1», «5A», «3» (de TERCERO), «T-12»."""
+    numero = (m.group(2) or "").upper()
+    numero = str(_ORDINALES[numero]) if numero in _ORDINALES else numero.replace(" ", "")
+    if m.group(1):
+        numero = f"T-{numero or len([a for a in previos if a.numero.startswith('T-')]) + 1}"
+    return numero
 _NOTA_VIGENCIA = re.compile(
     r"^\(\s*(?:Art[íi]culo|Inciso|Par[áa]grafo|Numeral|Literal|Texto|Modificado|Adicionado|Derogado|Subrogado)[^)]*"
     r"(?:MODIFICADO|ADICIONADO|DEROGADO|SUSTITUIDO|SUBROGADO|INEXEQUIBLE|EXEQUIBLE|REGLAMENTADO)",
@@ -114,9 +135,7 @@ def procesar(html: str) -> list[Articulo]:
         fuerte = nodo.find("strong") if nodo.name == "p" else None
         encabezado_art = _ARTICULO.match(_texto(fuerte)) if fuerte is not None else None
         if encabezado_art and (encabezado_art.group(1) or encabezado_art.group(2)):
-            numero = (encabezado_art.group(2) or "").replace(" ", "").upper()
-            if encabezado_art.group(1):
-                numero = f"T-{numero or len([a for a in articulos if a.numero.startswith('T-')]) + 1}"
+            numero = numero_articulo(encabezado_art, articulos)
             if numero == "1" and "1" in vistos and len(articulos) <= 5:
                 # La numeración reinicia: lo anterior era el decreto/ley que adopta el código
                 # (p. ej. Decreto 624 de 1989 → Estatuto Tributario). Se conserva solo el código.
@@ -127,11 +146,11 @@ def procesar(html: str) -> list[Articulo]:
                 continue
             titulo_fuerte = _texto(fuerte)
             epigrafe = titulo_fuerte[encabezado_art.end():].strip(" .-")
-            cuerpo = texto[len(titulo_fuerte):].strip(" .-")
+            cuerpo = texto[len(titulo_fuerte):].lstrip(" .-").rstrip()
             fuertes = nodo.find_all("strong")
             if not epigrafe and len(fuertes) > 1 and cuerpo.startswith(_texto(fuertes[1])):
                 epigrafe = _texto(fuertes[1]).strip(" .-")      # ET: <strong>240-1.</strong><strong>TARIFA…</strong>
-                cuerpo = cuerpo[len(_texto(fuertes[1])):].strip(" .-")
+                cuerpo = cuerpo[len(_texto(fuertes[1])):].lstrip(" .-").rstrip()
             actual = Articulo(numero=numero, parrafos=[cuerpo] if cuerpo else [], ruta=ruta.actual(),
                               epigrafe=epigrafe or None)
             vistos.add(numero)

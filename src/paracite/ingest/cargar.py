@@ -21,12 +21,15 @@ import argparse
 import json
 import logging
 import os
+import re
+import ssl
 import sys
 import time
 from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
+import truststore
 import yaml
 
 from paracite.ingest.fuentes import funcionpublica, senado
@@ -56,8 +59,17 @@ def leer_catalogo(ruta: Path = CATALOGO) -> list[NormaCatalogo]:
     return normas
 
 
-def descargar(url: str, *, timeout: float = 90) -> bytes:
-    with httpx.Client(headers={"User-Agent": USER_AGENT}, follow_redirects=True, timeout=timeout) as c:
+def _ssl() -> ssl.SSLContext:
+    """Certificados del sistema operativo (llavero de macOS, almacén de Windows/Linux).
+
+    Función Pública no envía el certificado intermedio: el navegador y curl lo completan, pero el
+    paquete de certificados de Python (certifi) no, y falla con CERTIFICATE_VERIFY_FAILED."""
+    return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+
+
+def descargar(url: str, *, timeout: float = 180) -> bytes:
+    with httpx.Client(headers={"User-Agent": USER_AGENT}, follow_redirects=True, timeout=timeout,
+                      verify=_ssl()) as c:
         resp = c.get(url)
         resp.raise_for_status()
         return resp.content
@@ -92,6 +104,19 @@ def descargar_senado(norma: NormaCatalogo, *, pausa: float = 1.0) -> tuple[bytes
                        f"{ultimo_error}")
 
 
+def _verificar_identidad(norma: NormaCatalogo, html: str) -> None:
+    """Evita guardar otra norma si el número ?i= del catálogo está equivocado."""
+    if not (norma.numero and norma.anio):
+        return
+    m = re.search(r"<title>(.*?)</title>", html, re.IGNORECASE | re.DOTALL)
+    titulo = " ".join((m.group(1) if m else "").split())
+    if not titulo:
+        return
+    if not re.search(rf"\b0*{int(norma.numero)}\s+de\s+{norma.anio}\b", titulo, re.IGNORECASE):
+        raise RuntimeError(f"{norma.sigla}: norma_id {norma.norma_id} corresponde a «{titulo[:120]}», "
+                           f"no a {norma.cita}; revise el catálogo")
+
+
 def _leer_jsonl(ruta: Path) -> list[dict]:
     if not ruta.exists():
         return []
@@ -114,7 +139,13 @@ def cargar_norma(norma: NormaCatalogo, salida: Path, *, html: bytes | None = Non
         contenido, url = descargar_senado(norma)
     else:
         contenido = descargar(url)
-    articulos = procesador.procesar(procesador.decodificar(contenido))
+    texto = procesador.decodificar(contenido)
+    if html is None and norma.fuente == "funcionpublica":
+        _verificar_identidad(norma, texto)
+    articulos = procesador.procesar(texto)
+    if not articulos:
+        raise RuntimeError(f"{norma.sigla}: no se reconoció ningún artículo en {url} (formato distinto); "
+                           "no se reemplaza la versión anterior")
     ahora = datetime.now(UTC).isoformat(timespec="seconds")
 
     destino = salida / f"{norma.sigla}.jsonl"

@@ -190,3 +190,37 @@ def test_senado_candidatos_y_descarga_por_partes(monkeypatch):
     arts = {a.numero: a for a in senado.procesar(html.decode("utf-8"))}
     assert set(arts) == {"1", "2"} and arts["2"].estado == "modificado"
     assert url.endswith("ley_0100_1993.html")
+
+
+def test_numeracion_dur_y_ordinales():
+    from paracite.ingest.fuentes import funcionpublica, senado
+
+    html_fp = """<html><body>
+    <p><strong>ARTÍCULO <a id="1.1.1.1"></a>1.1.1.1.</strong> <strong>Objeto.</strong> Compilar las normas.</p>
+    <p><strong>ARTÍCULO <a id="2.2.1.1.1"></a>2.2.1.1.1.</strong> Ámbito de aplicación del contrato.</p>
+    <p><strong>ARTÍCULO 2.2.1.1.1-1.</strong> Artículo adicionado.</p>
+    </body></html>"""
+    arts = funcionpublica.procesar(html_fp)
+    assert [a.numero for a in arts] == ["1.1.1.1", "2.2.1.1.1", "2.2.1.1.1-1"]
+    assert arts[0].epigrafe == "Objeto" and arts[0].texto == "Compilar las normas."
+
+    html_senado = """<html><body>
+    <p><a name="1">ARTÍCULO PRIMERO.</a> Apruébese el Acuerdo Regional.</p>
+    <p><a name="2">ARTÍCULO SEGUNDO.</a> De conformidad con la Ley 7a de 1944.</p>
+    <p><a name="11">ARTÍCULO DÉCIMO PRIMERO.</a> Rige a partir de su publicación.</p>
+    </body></html>"""
+    arts = senado.procesar(html_senado)
+    assert [a.numero for a in arts] == ["1", "2", "11"]
+    assert arts[0].texto == "Apruébese el Acuerdo Regional."
+
+
+def test_identidad_norma_funcionpublica(tmp_path):
+    from paracite.ingest.cargar import _verificar_identidad
+    from paracite.ingest.modelo import NormaCatalogo
+
+    dur = NormaCatalogo(sigla="DEC-1072-2015", nombre="Decreto 1072 de 2015", cita="Decreto 1072 de 2015",
+                        materia="laboral", fuente="funcionpublica", norma_id="72173", tipo="decreto",
+                        numero="1072", anio="2015")
+    _verificar_identidad(dur, "<title>Decreto 1072 de 2015 Sector Trabajo - Gestor Normativo</title>")
+    with pytest.raises(RuntimeError, match="revise el catálogo"):
+        _verificar_identidad(dur, "<title>Decreto 1507 de 2015 - Gestor Normativo</title>")
