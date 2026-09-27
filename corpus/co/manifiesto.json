@@ -10,33 +10,15 @@
       "inexequible": 1,
       "derogado": 1
     },
-    "huella": "a6b6b7b6315573d37e67f58816d207453196271eace0fbfbac9c44a69a7b4c3f",
-    "actualizado_en": "2026-09-27T16:47:16+00:00",
-    "verificado_en": "2026-09-27T16:47:16+00:00",
+    "huella": "7a350f9d23dec5a5d9d5a2c1f46a518e3a15d45ed573c0d8a7d032bef78cdeb6",
+    "actualizado_en": "2026-09-27T18:01:41+00:00",
+    "verificado_en": "2026-09-27T19:43:04+00:00",
     "cambios": {
       "nuevos": 0,
-      "modificados": 15,
+      "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {
-      "modificados": [
-        "24",
-        "28",
-        "156",
-        "287",
-        "300",
-        "305",
-        "312",
-        "313",
-        "315",
-        "318",
-        "325",
-        "330",
-        "356",
-        "359",
-        "380"
-      ]
-    }
+    "detalle_cambios": {}
   },
   "CST": {
     "sigla": "CST",
@@ -44,73 +26,21 @@
     "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=199983",
     "articulos": 491,
     "estados": {
-      "vigente": 457,
-      "modificado": 17,
+      "vigente": 454,
+      "modificado": 18,
       "derogado": 16,
-      "sin_texto_en_fuente": 1
+      "sin_texto_en_fuente": 1,
+      "inexequible": 2
     },
-    "huella": "68bf744f2512aad282823b2feb3a99081d88dfc66481cfe010f06be54c1401fb",
-    "actualizado_en": "2026-09-27T16:47:16+00:00",
-    "verificado_en": "2026-09-27T16:47:16+00:00",
+    "huella": "b27f0add842207b3e1a88f7d3fcd699db5f1528196fcd2ac34cd58683874503e",
+    "actualizado_en": "2026-09-27T18:01:45+00:00",
+    "verificado_en": "2026-09-27T19:43:08+00:00",
     "cambios": {
-      "nuevos": 491,
+      "nuevos": 0,
       "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {
-      "nuevos": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "29",
-        "30",
-        "31",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "37",
-        "38",
-        "39",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46",
-        "47",
-        "48",
-        "49",
-        "50",
-        "51"
-      ]
-    }
+    "detalle_cambios": {}
   },
   "CPTSS": {
     "sigla": "CPTSS",
@@ -120,68 +50,15 @@
     "estados": {
       "vigente": 331
     },
-    "huella": "18da849c9949d4c640188b4621196db80217c741d8a03f1c6d02c103e946fb14",
-    "actualizado_en": "2026-09-27T16:47:17+00:00",
-    "verificado_en": "2026-09-27T16:47:17+00:00",
+    "huella": "3e66bcdd04de1be9e82cd751d5bef21efc3e0e6e2e070c7198f733639a36ee5b",
+    "actualizado_en": "2026-09-27T18:01:49+00:00",
+    "verificado_en": "2026-09-27T19:43:12+00:00",
     "cambios": {
-      "nuevos": 331,
+      "nuevos": 0,
       "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {
-      "nuevos": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "29",
-        "30",
-        "31",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46",
-        "47",
-        "48",
-        "49",
-        "50"
-      ]
-    }
+    "detalle_cambios": {}
   },
   "CGP": {
     "sigla": "CGP",
@@ -194,68 +71,15 @@
       "sin_texto_en_fuente": 2,
       "derogado": 2
     },
-    "huella": "f5346543564baf3f8f1a49db2943c25b71010869a7c782ecca6f4a0672970de1",
-    "actualizado_en": "2026-09-27T16:47:17+00:00",
-    "verificado_en": "2026-09-27T16:47:17+00:00",
+    "huella": "314efc96a20aafa7dad95bec55b3043b57222883845c28f2dc40974d10e4ad6e",
+    "actualizado_en": "2026-09-27T18:01:53+00:00",
+    "verificado_en": "2026-09-27T19:43:16+00:00",
     "cambios": {
-      "nuevos": 625,
+      "nuevos": 0,
       "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {
-      "nuevos": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "29",
-        "30",
-        "31",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46",
-        "47",
-        "48",
-        "49",
-        "50"
-      ]
-    }
+    "detalle_cambios": {}
   },
   "ET": {
     "sigla": "ET",
@@ -263,72 +87,20 @@
     "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=6533",
     "articulos": 1311,
     "estados": {
-      "vigente": 1123,
-      "modificado": 185,
-      "derogado": 3
+      "vigente": 1121,
+      "modificado": 186,
+      "derogado": 3,
+      "inexequible": 1
     },
-    "huella": "ab7e12c9d928700a533ca8f3a14508a8f4467ea89b13dbea395c42d7e96e5189",
-    "actualizado_en": "2026-09-27T16:47:18+00:00",
-    "verificado_en": "2026-09-27T16:47:18+00:00",
+    "huella": "38ed94b6d8d5a1731a9ed57f5067abac7c399acff982acfe25c16cda3d0de240",
+    "actualizado_en": "2026-09-27T18:04:03+00:00",
+    "verificado_en": "2026-09-27T19:45:10+00:00",
     "cambios": {
-      "nuevos": 1311,
+      "nuevos": 0,
       "modificados": 0,
       "retirados": 0
     },
-    "detalle_cambios": {
-      "nuevos": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "12-1",
-        "13",
-        "14",
-        "14-1",
-        "14-2",
-        "15",
-        "16",
-        "17",
-        "18",
-        "18-1",
-        "19",
-        "19-1",
-        "19-2",
-        "19-3",
-        "19-4",
-        "19-5",
-        "20",
-        "20-1",
-        "20-2",
-        "20-3",
-        "21",
-        "22",
-        "23",
-        "23-1",
-        "23-2",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "28-1",
-        "29",
-        "29-1",
-        "30",
-        "31",
-        "32",
-        "32-1",
-        "33"
-      ]
-    }
+    "detalle_cambios": {}
   },
   "CPACA": {
     "sigla": "CPACA",
@@ -339,67 +111,2334 @@
       "vigente": 295,
       "modificado": 25
     },
-    "huella": "a7f7640ab2e18caf494d031d78a0464bfa56bf439e4f1394d8a8d1f7f609c162",
-    "actualizado_en": "2026-09-27T16:47:19+00:00",
-    "verificado_en": "2026-09-27T16:47:19+00:00",
+    "huella": "490ea47267f7e92e4e629ab5a08fb208bd9dde5a8697d6f44a069f16e5604a4b",
+    "actualizado_en": "2026-09-27T18:04:07+00:00",
+    "verificado_en": "2026-09-27T19:45:14+00:00",
     "cambios": {
-      "nuevos": 320,
+      "nuevos": 0,
       "modificados": 0,
       "retirados": 0
     },
+    "detalle_cambios": {}
+  },
+  "CC": {
+    "sigla": "CC",
+    "nombre": "Código Civil (Ley 57 de 1887)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/codigo_civil.html",
+    "articulos": 1837,
+    "estados": {
+      "vigente": 1405,
+      "derogado": 289,
+      "inexequible": 9,
+      "modificado": 134
+    },
+    "huella": "d5386de269cbbd5843845535bb1c19a50d17570433589f4d7ee977443f81b043",
+    "actualizado_en": "2026-09-27T18:03:58+00:00",
+    "verificado_en": "2026-09-27T19:45:06+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-5-1992": {
+    "sigla": "LEY-5-1992",
+    "nombre": "Ley 5 de 1992 — Reglamento del Congreso de la República",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0005_1992.html",
+    "articulos": 415,
+    "estados": {
+      "vigente": 337,
+      "derogado": 1,
+      "modificado": 70,
+      "inexequible": 7
+    },
+    "huella": "1c4b969d9fdfd8670af4ab02c87edca424d59303d68626d5f69519a965ca359c",
+    "actualizado_en": "2026-09-27T18:04:28+00:00",
+    "verificado_en": "2026-09-27T19:45:35+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-24-1992": {
+    "sigla": "LEY-24-1992",
+    "nombre": "Ley 24 de 1992 — Organización de la Defensoría del Pueblo",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0024_1992.html",
+    "articulos": 25,
+    "estados": {
+      "vigente": 24,
+      "derogado": 1
+    },
+    "huella": "1228f080ffe3e82867c387ddbaea13a5a0ed4c0d3a52fe15b9f4165800ce39d3",
+    "actualizado_en": "2026-09-27T18:04:31+00:00",
+    "verificado_en": "2026-09-27T19:45:39+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-134-1994": {
+    "sigla": "LEY-134-1994",
+    "nombre": "Ley 134 de 1994 — Mecanismos de participación ciudadana",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0134_1994.html",
+    "articulos": 109,
+    "estados": {
+      "vigente": 102,
+      "sin_texto_en_fuente": 5,
+      "modificado": 2
+    },
+    "huella": "37f256bd863363b519984017d3076872ad4578cdfe7255a8a4d47ea990a5ea95",
+    "actualizado_en": "2026-09-27T18:04:37+00:00",
+    "verificado_en": "2026-09-27T19:45:45+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-137-1994": {
+    "sigla": "LEY-137-1994",
+    "nombre": "Ley 137 de 1994 — Estados de excepción",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0137_1994.html",
+    "articulos": 59,
+    "estados": {
+      "vigente": 58,
+      "sin_texto_en_fuente": 1
+    },
+    "huella": "abde4d3637bb67e2f4b7955e5d91f6e0fc2f4a202f91a554e451e774a149dddb",
+    "actualizado_en": "2026-09-27T18:04:41+00:00",
+    "verificado_en": "2026-09-27T19:45:49+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-270-1996": {
+    "sigla": "LEY-270-1996",
+    "nombre": "Ley 270 de 1996 — Estatutaria de la Administración de Justicia",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0270_1996.html",
+    "articulos": 226,
+    "estados": {
+      "modificado": 98,
+      "vigente": 102,
+      "sin_texto_en_fuente": 21,
+      "derogado": 3,
+      "inexequible": 2
+    },
+    "huella": "681877cd98b6f94cc01c0ed6def0f068d6d207c62b7fcfe009bcf7e94a4807a6",
+    "actualizado_en": "2026-09-27T18:04:55+00:00",
+    "verificado_en": "2026-09-27T19:46:03+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1475-2011": {
+    "sigla": "LEY-1475-2011",
+    "nombre": "Ley 1475 de 2011 — Organización y funcionamiento de los partidos y movimientos políticos",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1475_2011.html",
+    "articulos": 55,
+    "estados": {
+      "vigente": 52,
+      "modificado": 3
+    },
+    "huella": "de4a7976a8d152232aa9ee183d7693bd9dce833787d46348990bf209012edc6e",
+    "actualizado_en": "2026-09-27T18:04:59+00:00",
+    "verificado_en": "2026-09-27T19:46:08+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1751-2015": {
+    "sigla": "LEY-1751-2015",
+    "nombre": "Ley 1751 de 2015 — Estatutaria del derecho fundamental a la salud",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1751_2015.html",
+    "articulos": 26,
+    "estados": {
+      "vigente": 26
+    },
+    "huella": "e4e818b44737e16a687dd92d0d5b6fc52029acf1d9ca46ecebe18df43b5ea6a8",
+    "actualizado_en": "2026-09-27T18:05:02+00:00",
+    "verificado_en": "2026-09-27T19:46:10+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1757-2015": {
+    "sigla": "LEY-1757-2015",
+    "nombre": "Ley 1757 de 2015 — Promoción y protección del derecho a la participación democrática",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1757_2015.html",
+    "articulos": 113,
+    "estados": {
+      "vigente": 113
+    },
+    "huella": "a83855b931548bdc49f50170df192eeb7c03e4bbeafb26a73cd900314c493489",
+    "actualizado_en": "2026-09-27T18:05:07+00:00",
+    "verificado_en": "2026-09-27T19:46:16+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1755-2015": {
+    "sigla": "LEY-1755-2015",
+    "nombre": "Ley 1755 de 2015 — Estatutaria del derecho fundamental de petición",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1755_2015.html",
+    "articulos": 2,
+    "estados": {
+      "vigente": 2
+    },
+    "huella": "71e1ddd1276a5b93e4d0042cdf660026a39b2d6a2d2cd1258698f4e9bdaf7f56",
+    "actualizado_en": "2026-09-27T18:05:10+00:00",
+    "verificado_en": "2026-09-27T19:46:19+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1957-2019": {
+    "sigla": "LEY-1957-2019",
+    "nombre": "Ley 1957 de 2019 — Estatutaria de la Jurisdicción Especial para la Paz",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1957_2019.html",
+    "articulos": 159,
+    "estados": {
+      "vigente": 159
+    },
+    "huella": "df8169e39533bb301b45005e14ebf604a6250cbfd6ca18833fbed22247f8060e",
+    "actualizado_en": "2026-09-27T18:05:18+00:00",
+    "verificado_en": "2026-09-27T19:46:27+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-153-1887": {
+    "ultimo_error": "LEY-153-1887: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=15805 (formato distinto); no se reemplaza la versión anterior"
+  },
+  "LEY-28-1932": {
+    "ultimo_error": "LEY-28-1932: no se encontró en el Senado (ley_0028_1932.html): Client error '404 Not Found' for url 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0028_1932.html'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+  },
+  "LEY-45-1936": {
+    "ultimo_error": "LEY-45-1936: no se encontró en el Senado (ley_0045_1936.html): Client error '404 Not Found' for url 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0045_1936.html'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+  },
+  "LEY-75-1968": {
+    "sigla": "LEY-75-1968",
+    "nombre": "Ley 75 de 1968 — Creación del ICBF y normas de filiación",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4828",
+    "articulos": 1,
+    "estados": {
+      "vigente": 1
+    },
+    "huella": "84ab36db1098b51512f51cd2a66ad74e1115604dc906786dc2863150a9ba9f94",
+    "actualizado_en": "2026-09-27T18:05:25+00:00",
+    "verificado_en": "2026-09-27T19:46:33+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-27-1977": {
+    "ultimo_error": "LEY-27-1977: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4965 (formato distinto); no se reemplaza la versión anterior"
+  },
+  "LEY-29-1982": {
+    "ultimo_error": "LEY-29-1982: no se reconoció ningún artículo en https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=256 (formato distinto); no se reemplaza la versión anterior"
+  },
+  "LEY-25-1992": {
+    "sigla": "LEY-25-1992",
+    "nombre": "Ley 25 de 1992 — Divorcio y cesación de efectos civiles del matrimonio religioso",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0025_1992.html",
+    "articulos": 14,
+    "estados": {
+      "vigente": 14
+    },
+    "huella": "d05ce8858dd87da1a2ff7bb4b85ec4de59628b6e01fcc67c5facd71b64d8a4fa",
+    "actualizado_en": "2026-09-27T18:05:34+00:00",
+    "verificado_en": "2026-09-27T19:46:42+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-54-1990": {
+    "sigla": "LEY-54-1990",
+    "nombre": "Ley 54 de 1990 — Uniones maritales de hecho",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=30896",
+    "articulos": 1,
+    "estados": {
+      "modificado": 1
+    },
+    "huella": "34ab1b8fff4b0179fd53202eb104e9d4ee449965d5b190e5c9a6ce54d0232566",
+    "actualizado_en": "2026-09-27T18:05:37+00:00",
+    "verificado_en": "2026-09-27T19:46:45+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-675-2001": {
+    "sigla": "LEY-675-2001",
+    "nombre": "Ley 675 de 2001 — Régimen de propiedad horizontal",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0675_2001.html",
+    "articulos": 87,
+    "estados": {
+      "vigente": 82,
+      "modificado": 5
+    },
+    "huella": "b5c32c5da2fd060e367fb98aee3428779bd41a42f61a977a24b49cc8d2b78094",
+    "actualizado_en": "2026-09-27T18:05:42+00:00",
+    "verificado_en": "2026-09-27T19:46:51+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-820-2003": {
+    "sigla": "LEY-820-2003",
+    "nombre": "Ley 820 de 2003 — Arrendamiento de vivienda urbana",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0820_2003.html",
+    "articulos": 42,
+    "estados": {
+      "vigente": 38,
+      "derogado": 4
+    },
+    "huella": "30a192663fa76aebc6f04f4c487029ed8e4ed9aa485f9c7c373530613f3c78bd",
+    "actualizado_en": "2026-09-27T18:05:46+00:00",
+    "verificado_en": "2026-09-27T19:46:54+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1098-2006": {
+    "sigla": "LEY-1098-2006",
+    "nombre": "Ley 1098 de 2006 — Código de la Infancia y la Adolescencia",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1098_2006.html",
+    "articulos": 218,
+    "estados": {
+      "vigente": 188,
+      "modificado": 24,
+      "derogado": 6
+    },
+    "huella": "98a20827e6a1944c8ba6f86a655393589531b1dcb0ff79bf5633d0c52a8a8f1f",
+    "actualizado_en": "2026-09-27T18:05:57+00:00",
+    "verificado_en": "2026-09-27T19:47:04+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1257-2008": {
+    "sigla": "LEY-1257-2008",
+    "nombre": "Ley 1257 de 2008 — Violencias y discriminación contra las mujeres",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1257_2008.html",
+    "articulos": 39,
+    "estados": {
+      "vigente": 36,
+      "modificado": 3
+    },
+    "huella": "42c2f2727da3bc746affcf6acabf0057bf1f7409df4eef68a8c523d894bad6ce",
+    "actualizado_en": "2026-09-27T18:06:00+00:00",
+    "verificado_en": "2026-09-27T19:47:07+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1934-2018": {
+    "sigla": "LEY-1934-2018",
+    "nombre": "Ley 1934 de 2018 — Reforma al régimen de sucesiones",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1934_2018.html",
+    "articulos": 22,
+    "estados": {
+      "vigente": 22
+    },
+    "huella": "95671ab5a986ba3a72b1a06bd778c44cafed09f3ab0bc4c6ae3638307bc0cd3e",
+    "actualizado_en": "2026-09-27T18:06:02+00:00",
+    "verificado_en": "2026-09-27T19:47:09+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1996-2019": {
+    "sigla": "LEY-1996-2019",
+    "nombre": "Ley 1996 de 2019 — Capacidad legal de las personas con discapacidad",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1996_2019.html",
+    "articulos": 63,
+    "estados": {
+      "vigente": 63
+    },
+    "huella": "8255730be95abe0dab76faf23b36f106dd5d48db8c51294ce88f63f5f608ed01",
+    "actualizado_en": "2026-09-27T18:06:06+00:00",
+    "verificado_en": "2026-09-27T19:47:13+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2080-2021": {
+    "sigla": "LEY-2080-2021",
+    "nombre": "Ley 2080 de 2021 — Reforma al CPACA",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2080_2021.html",
+    "articulos": 87,
+    "estados": {
+      "vigente": 85,
+      "inexequible": 2
+    },
+    "huella": "1ecc4833bead617d7be2a22e49ca9dd4df59f30bdbf199ebe177a94720afcc7c",
+    "actualizado_en": "2026-09-27T18:06:11+00:00",
+    "verificado_en": "2026-09-27T19:47:18+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2213-2022": {
+    "sigla": "LEY-2213-2022",
+    "nombre": "Ley 2213 de 2022 — Uso de las TIC en las actuaciones judiciales",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2213_2022.html",
+    "articulos": 15,
+    "estados": {
+      "vigente": 15
+    },
+    "huella": "1eb2315a94ea7730d0348ebae8aeb176efe378a9e6c411b70a5f8da4c5db1a54",
+    "actualizado_en": "2026-09-27T18:06:13+00:00",
+    "verificado_en": "2026-09-27T19:47:20+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1563-2012": {
+    "sigla": "LEY-1563-2012",
+    "nombre": "Ley 1563 de 2012 — Estatuto de Arbitraje Nacional e Internacional",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1563_2012.html",
+    "articulos": 119,
+    "estados": {
+      "vigente": 119
+    },
+    "huella": "96ffe564b0ba91180d46ecc27c9130ddb0dd73a08e91ac9211c3db551dbae359",
+    "actualizado_en": "2026-09-27T18:06:19+00:00",
+    "verificado_en": "2026-09-27T19:47:26+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2220-2022": {
+    "sigla": "LEY-2220-2022",
+    "nombre": "Ley 2220 de 2022 — Estatuto de Conciliación",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2220_2022.html",
+    "articulos": 146,
+    "estados": {
+      "vigente": 146
+    },
+    "huella": "ca947162fb1f3b5b37734abf89e5fde88c4dff9b61dcbf5fc2845b82afdf579b",
+    "actualizado_en": "2026-09-27T18:06:26+00:00",
+    "verificado_en": "2026-09-27T19:47:33+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-599-2000": {
+    "sigla": "LEY-599-2000",
+    "nombre": "Ley 599 de 2000 — Código Penal",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0599_2000.html",
+    "articulos": 567,
+    "estados": {
+      "vigente": 327,
+      "modificado": 224,
+      "derogado": 6,
+      "inexequible": 10
+    },
+    "huella": "60535e88c2d0b43f5ef2d36197ee8514c77d24db1fe8e5060235b53fdc97c227",
+    "actualizado_en": "2026-09-27T18:07:02+00:00",
+    "verificado_en": "2026-09-27T19:48:08+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-600-2000": {
+    "sigla": "LEY-600-2000",
+    "nombre": "Ley 600 de 2000 — Código de Procedimiento Penal (Ley 600)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0600_2000.html",
+    "articulos": 536,
+    "estados": {
+      "vigente": 519,
+      "inexequible": 16,
+      "modificado": 1
+    },
+    "huella": "32342d993ad6253d344d4a8323ffbba01c3045677f950e81cad8fb79a6ce6a43",
+    "actualizado_en": "2026-09-27T18:07:25+00:00",
+    "verificado_en": "2026-09-27T19:48:31+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-906-2004": {
+    "sigla": "LEY-906-2004",
+    "nombre": "Ley 906 de 2004 — Código de Procedimiento Penal (sistema acusatorio)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0906_2004.html",
+    "articulos": 590,
+    "estados": {
+      "vigente": 474,
+      "modificado": 111,
+      "inexequible": 5
+    },
+    "huella": "7ebcbeacae1a1b3096dd6898b4fc6b2240210030f897cd534cdcdf1f7f8440ee",
+    "actualizado_en": "2026-09-27T18:07:52+00:00",
+    "verificado_en": "2026-09-27T19:48:57+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-65-1993": {
+    "sigla": "LEY-65-1993",
+    "nombre": "Ley 65 de 1993 — Código Penitenciario y Carcelario",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0065_1993.html",
+    "articulos": 198,
+    "estados": {
+      "vigente": 96,
+      "modificado": 100,
+      "derogado": 1,
+      "inexequible": 1
+    },
+    "huella": "19f9050dc90f0691985c70599521e05884fad63895e4ca1ad350cf88f36921ea",
+    "actualizado_en": "2026-09-27T18:07:59+00:00",
+    "verificado_en": "2026-09-27T19:49:05+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1709-2014": {
+    "sigla": "LEY-1709-2014",
+    "nombre": "Ley 1709 de 2014 — Reforma al Código Penitenciario y Carcelario",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1709_2014.html",
+    "articulos": 105,
+    "estados": {
+      "vigente": 105
+    },
+    "huella": "3f1bdaae55774a960259402e293dddfcd8a9a24a8905f25d20330c49c97415e0",
+    "actualizado_en": "2026-09-27T18:08:05+00:00",
+    "verificado_en": "2026-09-27T19:49:11+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1762-2015": {
+    "sigla": "LEY-1762-2015",
+    "nombre": "Ley 1762 de 2015 — Lucha contra el contrabando, lavado de activos y evasión fiscal",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1762_2015.html",
+    "articulos": 56,
+    "estados": {
+      "vigente": 55,
+      "derogado": 1
+    },
+    "huella": "9b16380e21cbdc6aba3d27d6e297d51bd01aabfb48bca1ff755bfd13d4be2596",
+    "actualizado_en": "2026-09-27T18:08:09+00:00",
+    "verificado_en": "2026-09-27T19:49:15+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1774-2016": {
+    "sigla": "LEY-1774-2016",
+    "nombre": "Ley 1774 de 2016 — Animales como seres sintientes",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1774_2016.html",
+    "articulos": 11,
+    "estados": {
+      "vigente": 11
+    },
+    "huella": "393a09bd49ae26a7967968413b04cc355d94452e3bc1816794d6366b3f8d1dd2",
+    "actualizado_en": "2026-09-27T18:08:12+00:00",
+    "verificado_en": "2026-09-27T19:49:22+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1952-2019": {
+    "sigla": "LEY-1952-2019",
+    "nombre": "Ley 1952 de 2019 — Código General Disciplinario",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1952_2019.html",
+    "articulos": 281,
+    "estados": {
+      "vigente": 209,
+      "modificado": 71,
+      "derogado": 1
+    },
+    "huella": "e6bede183e397cd266bd6fc25e0feb9fde0d0df90431575534c68d2ffd947d9d",
+    "actualizado_en": "2026-09-27T18:08:24+00:00",
+    "verificado_en": "2026-09-27T19:50:16+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2094-2021": {
+    "sigla": "LEY-2094-2021",
+    "nombre": "Ley 2094 de 2021 — Reforma al Código General Disciplinario",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2094_2021.html",
+    "articulos": 75,
+    "estados": {
+      "vigente": 75
+    },
+    "huella": "6711557d936020ebd91313f491f3736d2a4659e49ce01866a313716e1a7888cd",
+    "actualizado_en": "2026-09-27T18:08:28+00:00",
+    "verificado_en": "2026-09-27T19:50:21+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2197-2022": {
+    "sigla": "LEY-2197-2022",
+    "nombre": "Ley 2197 de 2022 — Seguridad Ciudadana",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2197_2022.html",
+    "articulos": 68,
+    "estados": {
+      "vigente": 67,
+      "inexequible": 1
+    },
+    "huella": "b63844fb5d3477663812529dc9d2aa8ae91ab5e842f484fdd793dffaeb9c31d9",
+    "actualizado_en": "2026-09-27T18:08:33+00:00",
+    "verificado_en": "2026-09-27T19:50:26+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DL-410-1971": {
+    "sigla": "DL-410-1971",
+    "nombre": "Decreto Ley 410 de 1971 — Código de Comercio",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/codigo_comercio.html",
+    "articulos": 1940,
+    "estados": {
+      "vigente": 1736,
+      "derogado": 110,
+      "modificado": 94
+    },
+    "huella": "bb16843b4d0eaeba88172d079ae9236a9bf73f92f182ed9fad3d73c1a068aa55",
+    "actualizado_en": "2026-09-27T18:10:31+00:00",
+    "verificado_en": "2026-09-27T19:52:33+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-222-1995": {
+    "sigla": "LEY-222-1995",
+    "nombre": "Ley 222 de 1995 — Reforma al Libro II del Código de Comercio (régimen societario)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0222_1995.html",
+    "articulos": 240,
+    "estados": {
+      "vigente": 233,
+      "modificado": 6,
+      "inexequible": 1
+    },
+    "huella": "2dd1874b0cb49fdc8f00200e0788992e81e216a582071b159dc8c078c912ec39",
+    "actualizado_en": "2026-09-27T18:10:42+00:00",
+    "verificado_en": "2026-09-27T19:52:45+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-527-1999": {
+    "sigla": "LEY-527-1999",
+    "nombre": "Ley 527 de 1999 — Comercio electrónico y firmas digitales",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0527_1999.html",
+    "articulos": 47,
+    "estados": {
+      "vigente": 41,
+      "modificado": 4,
+      "derogado": 2
+    },
+    "huella": "054bf8470f77bee6f40fb097129d2ffa8190aa4af027e19339754b03953177a3",
+    "actualizado_en": "2026-09-27T18:10:46+00:00",
+    "verificado_en": "2026-09-27T19:52:49+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-964-2005": {
+    "sigla": "LEY-964-2005",
+    "nombre": "Ley 964 de 2005 — Mercado de valores",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0964_2005.html",
+    "articulos": 86,
+    "estados": {
+      "vigente": 79,
+      "modificado": 5,
+      "derogado": 2
+    },
+    "huella": "c115ea331db85ca2f60085e8def6ad1dd9590dfaffaab316a11ebfd3a8964729",
+    "actualizado_en": "2026-09-27T18:10:52+00:00",
+    "verificado_en": "2026-09-27T19:52:55+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1116-2006": {
+    "sigla": "LEY-1116-2006",
+    "nombre": "Ley 1116 de 2006 — Régimen de insolvencia empresarial",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1116_2006.html",
+    "articulos": 126,
+    "estados": {
+      "vigente": 114,
+      "modificado": 10,
+      "derogado": 2
+    },
+    "huella": "fc4d1828717612906b8519478ef0131dd3226406709fdc84b979258dcc2492f8",
+    "actualizado_en": "2026-09-27T18:10:58+00:00",
+    "verificado_en": "2026-09-27T19:53:01+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1258-2008": {
+    "sigla": "LEY-1258-2008",
+    "nombre": "Ley 1258 de 2008 — Sociedad por Acciones Simplificada (S.A.S.)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1258_2008.html",
+    "articulos": 46,
+    "estados": {
+      "vigente": 46
+    },
+    "huella": "d9f64d5caa6534ff8da396ad48835cc8d6e662bb66ce215cebd66a56d63aff6f",
+    "actualizado_en": "2026-09-27T18:11:02+00:00",
+    "verificado_en": "2026-09-27T19:53:06+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1328-2009": {
+    "sigla": "LEY-1328-2009",
+    "nombre": "Ley 1328 de 2009 — Reforma financiera y protección al consumidor financiero",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1328_2009.html",
+    "articulos": 103,
+    "estados": {
+      "vigente": 99,
+      "modificado": 4
+    },
+    "huella": "3d7811ca9d47ccda6681f63c5fc94ac450b2b8ec7a7eabab9a8906c553cafd37",
+    "actualizado_en": "2026-09-27T18:11:08+00:00",
+    "verificado_en": "2026-09-27T19:53:12+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1480-2011": {
+    "sigla": "LEY-1480-2011",
+    "nombre": "Ley 1480 de 2011 — Estatuto del Consumidor",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1480_2011.html",
+    "articulos": 83,
+    "estados": {
+      "vigente": 76,
+      "modificado": 6,
+      "inexequible": 1
+    },
+    "huella": "d9918bf6c6acbf7ccab0084f80e97a23272aa56d484ba402be6e242833c753f3",
+    "actualizado_en": "2026-09-27T18:11:13+00:00",
+    "verificado_en": "2026-09-27T19:53:18+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1676-2013": {
+    "sigla": "LEY-1676-2013",
+    "nombre": "Ley 1676 de 2013 — Garantías mobiliarias",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1676_2013.html",
+    "articulos": 91,
+    "estados": {
+      "vigente": 91
+    },
+    "huella": "2d7f4ff5f9b4f6dab15a1cf7385fbc52a6e1688670bd81eb866fe16878a76aa8",
+    "actualizado_en": "2026-09-27T18:11:19+00:00",
+    "verificado_en": "2026-09-27T19:53:24+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-50-1990": {
+    "sigla": "LEY-50-1990",
+    "nombre": "Ley 50 de 1990 — Reforma laboral (Ley 50 de 1990)",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=281",
+    "articulos": 151,
+    "estados": {
+      "vigente": 151
+    },
+    "huella": "24e89b2ffb0960400b1ae39c54c0688c2b739d9efa7b11c60aa67a4fc79e7cc3",
+    "actualizado_en": "2026-09-27T18:11:22+00:00",
+    "verificado_en": "2026-09-27T19:53:27+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-100-1993": {
+    "sigla": "LEY-100-1993",
+    "nombre": "Ley 100 de 1993 — Sistema General de Seguridad Social Integral",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0100_1993.html",
+    "articulos": 296,
+    "estados": {
+      "vigente": 244,
+      "modificado": 44,
+      "inexequible": 3,
+      "derogado": 5
+    },
+    "huella": "216eb73160a9f5eb1642e541e29d2ec54210acf1505520e3a8bf15f530b1e0fb",
+    "actualizado_en": "2026-09-27T18:11:35+00:00",
+    "verificado_en": "2026-09-27T19:53:43+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-789-2002": {
+    "sigla": "LEY-789-2002",
+    "nombre": "Ley 789 de 2002 — Reforma laboral (Ley 789 de 2002)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0789_2002.html",
+    "articulos": 52,
+    "estados": {
+      "vigente": 34,
+      "modificado": 11,
+      "derogado": 5,
+      "inexequible": 2
+    },
+    "huella": "060629eea2db2799bfaa9a6ab0da9e6a701d5f5efa52901963b77fc09f1abe6d",
+    "actualizado_en": "2026-09-27T18:11:42+00:00",
+    "verificado_en": "2026-09-27T19:53:48+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-797-2003": {
+    "sigla": "LEY-797-2003",
+    "nombre": "Ley 797 de 2003 — Reforma al Sistema General de Pensiones",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0797_2003.html",
+    "articulos": 19,
+    "estados": {
+      "vigente": 17,
+      "inexequible": 1,
+      "modificado": 1
+    },
+    "huella": "3e7d38cd4f8ef480a47d8829f057246e4847dcc375d197b632c3122753ff290e",
+    "actualizado_en": "2026-09-27T18:11:45+00:00",
+    "verificado_en": "2026-09-27T19:53:51+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1010-2006": {
+    "sigla": "LEY-1010-2006",
+    "nombre": "Ley 1010 de 2006 — Acoso laboral",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1010_2006.html",
+    "articulos": 19,
+    "estados": {
+      "vigente": 16,
+      "modificado": 3
+    },
+    "huella": "ce2998d7bd2f9f503a9e7731b4fb0ad4ce244fb7695adfe28dcb519cee944e76",
+    "actualizado_en": "2026-09-27T18:11:48+00:00",
+    "verificado_en": "2026-09-27T19:53:54+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1562-2012": {
+    "sigla": "LEY-1562-2012",
+    "nombre": "Ley 1562 de 2012 — Sistema de Riesgos Laborales",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1562_2012.html",
+    "articulos": 33,
+    "estados": {
+      "vigente": 33
+    },
+    "huella": "8bc8633122aeb7aaa5e1afbfc39d33874bc24059fd02e828eade1e7882684483",
+    "actualizado_en": "2026-09-27T18:11:50+00:00",
+    "verificado_en": "2026-09-27T19:53:57+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2101-2021": {
+    "sigla": "LEY-2101-2021",
+    "nombre": "Ley 2101 de 2021 — Reducción de la jornada laboral",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2101_2021.html",
+    "articulos": 8,
+    "estados": {
+      "vigente": 8
+    },
+    "huella": "963fbfb021acf758a7b85cce789477119c1f8b4bf97a884cbd9e4d8a822f2abb",
+    "actualizado_en": "2026-09-27T18:11:53+00:00",
+    "verificado_en": "2026-09-27T19:53:59+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2114-2021": {
+    "sigla": "LEY-2114-2021",
+    "nombre": "Ley 2114 de 2021 — Licencia de paternidad y licencia parental compartida",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2114_2021.html",
+    "articulos": 6,
+    "estados": {
+      "vigente": 6
+    },
+    "huella": "fb6ea26c4199170dba0364137a04b89dd440bac90d846bf29d8c29b7439f3f79",
+    "actualizado_en": "2026-09-27T18:11:56+00:00",
+    "verificado_en": "2026-09-27T19:54:02+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2381-2024": {
+    "sigla": "LEY-2381-2024",
+    "nombre": "Ley 2381 de 2024 — Sistema de Protección Social Integral para la Vejez, Invalidez y Muerte",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2381_2024.html",
+    "articulos": 95,
+    "estados": {
+      "vigente": 95
+    },
+    "huella": "fbdb695de88a41244695a78d8977be37a980195bb8f3dd8e28e95add23a895b8",
+    "actualizado_en": "2026-09-27T18:12:01+00:00",
+    "verificado_en": "2026-09-27T19:54:06+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2466-2025": {
+    "sigla": "LEY-2466-2025",
+    "nombre": "Ley 2466 de 2025 — Reforma laboral (Ley 2466 de 2025)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2466_2025.html",
+    "articulos": 70,
+    "estados": {
+      "vigente": 70
+    },
+    "huella": "e4b284d2f124c4ad6e609f40d273ad2d30b45a0f88df1fc26f0c7b7f79bc81b3",
+    "actualizado_en": "2026-09-27T18:12:05+00:00",
+    "verificado_en": "2026-09-27T19:54:09+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-80-1993": {
+    "sigla": "LEY-80-1993",
+    "nombre": "Ley 80 de 1993 — Estatuto General de Contratación de la Administración Pública",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0080_1993.html",
+    "articulos": 84,
+    "estados": {
+      "vigente": 56,
+      "modificado": 18,
+      "derogado": 10
+    },
+    "huella": "35f23245b7dda85dc43f369f1969810b6af3b9eeb5bff623a9854adc12b12d9e",
+    "actualizado_en": "2026-09-27T18:12:10+00:00",
+    "verificado_en": "2026-09-27T19:54:15+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-489-1998": {
+    "sigla": "LEY-489-1998",
+    "nombre": "Ley 489 de 1998 — Organización y funcionamiento de las entidades del orden nacional",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0489_1998.html",
+    "articulos": 121,
+    "estados": {
+      "vigente": 106,
+      "modificado": 2,
+      "derogado": 9,
+      "inexequible": 4
+    },
+    "huella": "c901d50ad131175d38ed7d5f5dd37be16a2af0d2c7dce2c7952f95e35e849801",
+    "actualizado_en": "2026-09-27T18:12:15+00:00",
+    "verificado_en": "2026-09-27T19:54:21+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-909-2004": {
+    "sigla": "LEY-909-2004",
+    "nombre": "Ley 909 de 2004 — Empleo público y carrera administrativa",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0909_2004.html",
+    "articulos": 59,
+    "estados": {
+      "vigente": 48,
+      "modificado": 10,
+      "inexequible": 1
+    },
+    "huella": "7463ddf3e0f933e1ccd8c3e2765d15034d842c5e47336a4c9046d0748d346676",
+    "actualizado_en": "2026-09-27T18:12:21+00:00",
+    "verificado_en": "2026-09-27T19:54:25+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1150-2007": {
+    "sigla": "LEY-1150-2007",
+    "nombre": "Ley 1150 de 2007 — Eficiencia y transparencia en la contratación pública",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1150_2007.html",
+    "articulos": 33,
+    "estados": {
+      "vigente": 23,
+      "modificado": 7,
+      "derogado": 3
+    },
+    "huella": "f2b9c1d2aab335975b97deac8c0c5b10b2de4e211ae1228cc9f9feab13820824",
+    "actualizado_en": "2026-09-27T18:12:25+00:00",
+    "verificado_en": "2026-09-27T19:54:28+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1474-2011": {
+    "sigla": "LEY-1474-2011",
+    "nombre": "Ley 1474 de 2011 — Estatuto Anticorrupción",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1474_2011.html",
+    "articulos": 142,
+    "estados": {
+      "vigente": 102,
+      "derogado": 23,
+      "modificado": 16,
+      "inexequible": 1
+    },
+    "huella": "4a8fdaa8434d58132520668e76bdf264300cadfa0e4b9d232bf72beefdf25a4e",
+    "actualizado_en": "2026-09-27T18:12:36+00:00",
+    "verificado_en": "2026-09-27T19:54:37+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1712-2014": {
+    "sigla": "LEY-1712-2014",
+    "nombre": "Ley 1712 de 2014 — Transparencia y acceso a la información pública",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1712_2014.html",
+    "articulos": 33,
+    "estados": {
+      "vigente": 30,
+      "inexequible": 2,
+      "modificado": 1
+    },
+    "huella": "60342a9872ad55e96a9ffc4baa47d27655d9c5628127f346dc8ae3ff36f92909",
+    "actualizado_en": "2026-09-27T18:12:51+00:00",
+    "verificado_en": "2026-09-27T19:54:42+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1882-2018": {
+    "sigla": "LEY-1882-2018",
+    "nombre": "Ley 1882 de 2018 — Fortalecimiento de la contratación pública",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1882_2018.html",
+    "articulos": 21,
+    "estados": {
+      "vigente": 20,
+      "modificado": 1
+    },
+    "huella": "127d770e8500a25a68bc6629ff9496573a4773038138da2db8c517553d1029cc",
+    "actualizado_en": "2026-09-27T18:12:53+00:00",
+    "verificado_en": "2026-09-27T19:54:45+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2195-2022": {
+    "sigla": "LEY-2195-2022",
+    "nombre": "Ley 2195 de 2022 — Transparencia, prevención y lucha contra la corrupción",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2195_2022.html",
+    "articulos": 66,
+    "estados": {
+      "vigente": 64,
+      "inexequible": 2
+    },
+    "huella": "1977e0cc1c291c85d043a6adc3d8db594674d88137d28f33976c43a7875021df",
+    "actualizado_en": "2026-09-27T18:12:58+00:00",
+    "verificado_en": "2026-09-27T19:54:49+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-38-1989": {
+    "sigla": "LEY-38-1989",
+    "nombre": "Ley 38 de 1989 — Estatuto Orgánico del Presupuesto",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=14811",
+    "articulos": 1,
+    "estados": {
+      "vigente": 1
+    },
+    "huella": "b67ffc98c0bd1f61f81b2e00da6fe0cf6a98176f6efebf52aa6021dbd4e88923",
+    "actualizado_en": "2026-09-27T18:13:01+00:00",
+    "verificado_en": "2026-09-27T19:54:53+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-617-2000": {
+    "sigla": "LEY-617-2000",
+    "nombre": "Ley 617 de 2000 — Racionalización del gasto público y saneamiento fiscal territorial",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0617_2000.html",
+    "articulos": 97,
+    "estados": {
+      "vigente": 87,
+      "modificado": 3,
+      "derogado": 6,
+      "inexequible": 1
+    },
+    "huella": "6dc5697aff1ae236dde230cb1f917e15618bc6d8a20b90d243ede95b2d6aaa0e",
+    "actualizado_en": "2026-09-27T18:13:07+00:00",
+    "verificado_en": "2026-09-27T19:54:59+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-819-2003": {
+    "sigla": "LEY-819-2003",
+    "nombre": "Ley 819 de 2003 — Presupuesto, responsabilidad y transparencia fiscal",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0819_2003.html",
+    "articulos": 28,
+    "estados": {
+      "vigente": 26,
+      "modificado": 1,
+      "inexequible": 1
+    },
+    "huella": "2c4b543c5b9b1e8e60e8adf7be5ae3a75a8f381039806a659c69d200b32f7f74",
+    "actualizado_en": "2026-09-27T18:13:10+00:00",
+    "verificado_en": "2026-09-27T19:55:01+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1607-2012": {
+    "sigla": "LEY-1607-2012",
+    "nombre": "Ley 1607 de 2012 — Reforma tributaria (Ley 1607 de 2012)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1607_2012.html",
+    "articulos": 206,
+    "estados": {
+      "vigente": 180,
+      "modificado": 6,
+      "derogado": 19,
+      "inexequible": 1
+    },
+    "huella": "b6f13b1c37fac94940e547f20102af1a565da3e8c5dd29c64642087f15b9ec80",
+    "actualizado_en": "2026-09-27T18:13:22+00:00",
+    "verificado_en": "2026-09-27T19:55:11+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1819-2016": {
+    "sigla": "LEY-1819-2016",
+    "nombre": "Ley 1819 de 2016 — Reforma tributaria estructural (Ley 1819 de 2016)",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1819_2016.html",
+    "articulos": 375,
+    "estados": {
+      "vigente": 352,
+      "modificado": 8,
+      "derogado": 13,
+      "inexequible": 2
+    },
+    "huella": "a3e3a48c378a7e529a9d1a5fcc807bf867c82cb458fee3ac8d953128c0af032f",
+    "actualizado_en": "2026-09-27T18:13:39+00:00",
+    "verificado_en": "2026-09-27T19:55:31+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2010-2019": {
+    "sigla": "LEY-2010-2019",
+    "nombre": "Ley 2010 de 2019 — Ley de Crecimiento Económico",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2010_2019.html",
+    "articulos": 159,
+    "estados": {
+      "vigente": 158,
+      "modificado": 1
+    },
+    "huella": "80046625dfcfa5d8413c96281f091cb7c9008ff2e4712691c37d1a1a27990ac9",
+    "actualizado_en": "2026-09-27T18:13:43+00:00",
+    "verificado_en": "2026-09-27T19:55:35+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2155-2021": {
+    "sigla": "LEY-2155-2021",
+    "nombre": "Ley 2155 de 2021 — Ley de Inversión Social",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2155_2021.html",
+    "articulos": 65,
+    "estados": {
+      "vigente": 60,
+      "modificado": 1,
+      "derogado": 4
+    },
+    "huella": "9beccba8d0a60fadfa38cfa96b4ebd5165bb026aa22a190a230ab9737e2728c0",
+    "actualizado_en": "2026-09-27T18:13:47+00:00",
+    "verificado_en": "2026-09-27T19:55:39+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2277-2022": {
+    "sigla": "LEY-2277-2022",
+    "nombre": "Ley 2277 de 2022 — Reforma tributaria para la igualdad y la justicia social",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2277_2022.html",
+    "articulos": 96,
+    "estados": {
+      "vigente": 94,
+      "inexequible": 2
+    },
+    "huella": "d87aedca1f7c997fe76690017b295ea8e832df706cbb71c3c03f0e764533b5af",
+    "actualizado_en": "2026-09-27T18:13:53+00:00",
+    "verificado_en": "2026-09-27T19:55:46+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DL-2811-1974": {
+    "sigla": "DL-2811-1974",
+    "nombre": "Decreto Ley 2811 de 1974 — Código Nacional de Recursos Naturales Renovables",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/decreto_2811_1974.html",
+    "articulos": 333,
+    "estados": {
+      "vigente": 324,
+      "modificado": 8,
+      "inexequible": 1
+    },
+    "huella": "5157bac118072865df65092cd426b8339fcb447628df555ea3479ca5c76d88d2",
+    "actualizado_en": "2026-09-27T18:14:07+00:00",
+    "verificado_en": "2026-09-27T19:56:01+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-99-1993": {
+    "sigla": "LEY-99-1993",
+    "nombre": "Ley 99 de 1993 — Ministerio del Medio Ambiente y Sistema Nacional Ambiental",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0099_1993.html",
+    "articulos": 120,
+    "estados": {
+      "vigente": 91,
+      "derogado": 9,
+      "modificado": 16,
+      "inexequible": 1,
+      "sin_texto_en_fuente": 3
+    },
+    "huella": "8bdbd9744f8e58b6de08f7e5d71eae4a6b35627ea676744b3b0bf1ce80404ee7",
+    "actualizado_en": "2026-09-27T18:14:13+00:00",
+    "verificado_en": "2026-09-27T19:56:07+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-160-1994": {
+    "sigla": "LEY-160-1994",
+    "nombre": "Ley 160 de 1994 — Sistema Nacional de Reforma Agraria y Desarrollo Rural Campesino",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0160_1994.html",
+    "articulos": 91,
+    "estados": {
+      "vigente": 77,
+      "modificado": 11,
+      "derogado": 1,
+      "inexequible": 2
+    },
+    "huella": "6c11bc6fb64ae9dc29c44a2be636a718d48c0214c840863328a81b9c468c1a8f",
+    "actualizado_en": "2026-09-27T18:14:19+00:00",
+    "verificado_en": "2026-09-27T19:56:14+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-388-1997": {
+    "sigla": "LEY-388-1997",
+    "nombre": "Ley 388 de 1997 — Desarrollo Territorial",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0388_1997.html",
+    "articulos": 138,
+    "estados": {
+      "vigente": 113,
+      "modificado": 20,
+      "inexequible": 1,
+      "derogado": 4
+    },
+    "huella": "b8cf72cefbb596826f81208559c1d4f1562da9d458f27558295ad392d90e3f42",
+    "actualizado_en": "2026-09-27T18:14:27+00:00",
+    "verificado_en": "2026-09-27T19:56:22+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1448-2011": {
+    "sigla": "LEY-1448-2011",
+    "nombre": "Ley 1448 de 2011 — Víctimas y restitución de tierras",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1448_2011.html",
+    "articulos": 211,
+    "estados": {
+      "vigente": 150,
+      "modificado": 61
+    },
+    "huella": "f87720a4c8ee3bdb4f30ae0f4c7d07b5c3c6f850366f45e7b74c9fd791f45b2c",
+    "actualizado_en": "2026-09-27T18:14:37+00:00",
+    "verificado_en": "2026-09-27T19:56:33+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1931-2018": {
+    "sigla": "LEY-1931-2018",
+    "nombre": "Ley 1931 de 2018 — Gestión del cambio climático",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1931_2018.html",
+    "articulos": 36,
+    "estados": {
+      "vigente": 34,
+      "modificado": 2
+    },
+    "huella": "e9662f2a0ce57011e12b7083d3500e2ac7dc685d54bdab3d4c1cc0c05a4215b4",
+    "actualizado_en": "2026-09-27T18:14:40+00:00",
+    "verificado_en": "2026-09-27T19:56:36+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2169-2021": {
+    "sigla": "LEY-2169-2021",
+    "nombre": "Ley 2169 de 2021 — Carbono neutralidad y resiliencia climática",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2169_2021.html",
+    "articulos": 38,
+    "estados": {
+      "vigente": 37,
+      "modificado": 1
+    },
+    "huella": "90924358e08d908431b6fd4af59687687232cbd23f1d2cef23dbca3e3edc1f1d",
+    "actualizado_en": "2026-09-27T18:14:42+00:00",
+    "verificado_en": "2026-09-27T19:56:39+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2273-2022": {
+    "sigla": "LEY-2273-2022",
+    "nombre": "Ley 2273 de 2022 — Aprobación del Acuerdo de Escazú",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2273_2022.html",
+    "articulos": 0,
+    "estados": {},
+    "huella": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "actualizado_en": null,
+    "verificado_en": "2026-09-27T17:36:41+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {},
+    "ultimo_error": "LEY-2273-2022: no se reconoció ningún artículo en http://www.secretariasenado.gov.co/senado/basedoc/ley_2273_2022.html (formato distinto); no se reemplaza la versión anterior"
+  },
+  "LEY-23-1982": {
+    "sigla": "LEY-23-1982",
+    "nombre": "Ley 23 de 1982 — Derechos de autor",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=3431",
+    "articulos": 262,
+    "estados": {
+      "vigente": 262
+    },
+    "huella": "a6634d07c1219d7c0cf1b7c490a1289052f43925461ce59f75fea1e55cfc6917",
+    "actualizado_en": "2026-09-27T18:14:49+00:00",
+    "verificado_en": "2026-09-27T19:56:45+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1266-2008": {
+    "sigla": "LEY-1266-2008",
+    "nombre": "Ley 1266 de 2008 — Habeas data financiero",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1266_2008.html",
+    "articulos": 24,
+    "estados": {
+      "vigente": 15,
+      "modificado": 9
+    },
+    "huella": "5eecd1508d117a10ad8e3e1b622364fbd5a528de341e88ad26876e78d85a0465",
+    "actualizado_en": "2026-09-27T18:14:51+00:00",
+    "verificado_en": "2026-09-27T19:56:48+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1273-2009": {
+    "sigla": "LEY-1273-2009",
+    "nombre": "Ley 1273 de 2009 — Delitos informáticos",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1273_2009.html",
+    "articulos": 4,
+    "estados": {
+      "vigente": 4
+    },
+    "huella": "541bd16d14dba0b742ced49deddac64c89d0a2add0f225a3afb76d73facf5ef0",
+    "actualizado_en": "2026-09-27T18:14:54+00:00",
+    "verificado_en": "2026-09-27T19:56:51+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1341-2009": {
+    "sigla": "LEY-1341-2009",
+    "nombre": "Ley 1341 de 2009 — Sector TIC",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1341_2009.html",
+    "articulos": 73,
+    "estados": {
+      "modificado": 33,
+      "vigente": 38,
+      "derogado": 2
+    },
+    "huella": "f05015a7aa2f2606453e394369974db987c17e902aa9fcf9d5da377703f0fa3f",
+    "actualizado_en": "2026-09-27T18:14:58+00:00",
+    "verificado_en": "2026-09-27T19:56:55+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1581-2012": {
+    "sigla": "LEY-1581-2012",
+    "nombre": "Ley 1581 de 2012 — Protección de datos personales",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html",
+    "articulos": 30,
+    "estados": {
+      "vigente": 30
+    },
+    "huella": "f283c8778934361e48a634469c287d44970b06a3d3cb10dee35881da92d93e87",
+    "actualizado_en": "2026-09-27T18:15:03+00:00",
+    "verificado_en": "2026-09-27T19:57:00+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1978-2019": {
+    "sigla": "LEY-1978-2019",
+    "nombre": "Ley 1978 de 2019 — Modernización del sector TIC",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1978_2019.html",
+    "articulos": 51,
+    "estados": {
+      "vigente": 49,
+      "modificado": 2
+    },
+    "huella": "3d12769a859b68d5fcbc2e8905c8e2c024085620b980be34fdb9fe4fe99bd658",
+    "actualizado_en": "2026-09-27T18:15:06+00:00",
+    "verificado_en": "2026-09-27T19:57:04+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-136-1994": {
+    "sigla": "LEY-136-1994",
+    "nombre": "Ley 136 de 1994 — Organización y funcionamiento de los municipios",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0136_1994.html",
+    "articulos": 203,
+    "estados": {
+      "vigente": 145,
+      "modificado": 46,
+      "inexequible": 9,
+      "derogado": 3
+    },
+    "huella": "b76fcbf6ac8d90c6f78a916006baaefa9084b9b114682f2e86087ec8b82540d3",
+    "actualizado_en": "2026-09-27T18:15:14+00:00",
+    "verificado_en": "2026-09-27T19:57:13+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-142-1994": {
+    "sigla": "LEY-142-1994",
+    "nombre": "Ley 142 de 1994 — Servicios públicos domiciliarios",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0142_1994.html",
+    "articulos": 187,
+    "estados": {
+      "modificado": 28,
+      "vigente": 155,
+      "derogado": 3,
+      "inexequible": 1
+    },
+    "huella": "889eb626c5d392e5a4cfa9a38fe44021d6dee8a759892049adb5130cfb4d7a72",
+    "actualizado_en": "2026-09-27T18:15:23+00:00",
+    "verificado_en": "2026-09-27T19:57:22+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-610-2000": {
+    "sigla": "LEY-610-2000",
+    "nombre": "Ley 610 de 2000 — Procesos de responsabilidad fiscal",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0610_2000.html",
+    "articulos": 67,
+    "estados": {
+      "vigente": 66,
+      "derogado": 1
+    },
+    "huella": "f22e04ab56f62ee11d9ecc0f848f97faa84e26a08e96a39dc374fa3b5d74b981",
+    "actualizado_en": "2026-09-27T18:15:27+00:00",
+    "verificado_en": "2026-09-27T19:57:26+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-769-2002": {
+    "sigla": "LEY-769-2002",
+    "nombre": "Ley 769 de 2002 — Código Nacional de Tránsito Terrestre",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_0769_2002.html",
+    "articulos": 181,
+    "estados": {
+      "modificado": 62,
+      "vigente": 118,
+      "derogado": 1
+    },
+    "huella": "fce94c04aa3ebbad51532e148d6eec5198200d4cabc939f56ff3a62eeaff1b04",
+    "actualizado_en": "2026-09-27T18:15:35+00:00",
+    "verificado_en": "2026-09-27T19:57:35+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1454-2011": {
+    "sigla": "LEY-1454-2011",
+    "nombre": "Ley 1454 de 2011 — Orgánica de Ordenamiento Territorial",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1454_2011.html",
+    "articulos": 40,
+    "estados": {
+      "vigente": 37,
+      "modificado": 3
+    },
+    "huella": "90429277097be98fec6e3fffaa47b33244b048bda1fb277cf4e836eb96f4494b",
+    "actualizado_en": "2026-09-27T18:15:39+00:00",
+    "verificado_en": "2026-09-27T19:57:39+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1551-2012": {
+    "sigla": "LEY-1551-2012",
+    "nombre": "Ley 1551 de 2012 — Modernización de los municipios",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1551_2012.html",
+    "articulos": 49,
+    "estados": {
+      "vigente": 45,
+      "modificado": 3,
+      "inexequible": 1
+    },
+    "huella": "2041a0568ac045c45164009cebb640c1028b52880748df3a795a56f43051421b",
+    "actualizado_en": "2026-09-27T18:15:44+00:00",
+    "verificado_en": "2026-09-27T19:57:43+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1617-2013": {
+    "sigla": "LEY-1617-2013",
+    "nombre": "Ley 1617 de 2013 — Régimen de los distritos especiales",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1617_2013.html",
+    "articulos": 138,
+    "estados": {
+      "vigente": 137,
+      "modificado": 1
+    },
+    "huella": "e543d7ccb2bebc73db1be66c7f9660e2118e781957a61e09c7123c14dbc53ceb",
+    "actualizado_en": "2026-09-27T18:15:51+00:00",
+    "verificado_en": "2026-09-27T19:57:51+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-1801-2016": {
+    "sigla": "LEY-1801-2016",
+    "nombre": "Ley 1801 de 2016 — Código Nacional de Seguridad y Convivencia Ciudadana",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_1801_2016.html",
+    "articulos": 248,
+    "estados": {
+      "vigente": 182,
+      "modificado": 36,
+      "inexequible": 30
+    },
+    "huella": "c75b02603e87c16caee0b1a1ce385cb9e9b56f9fff9c26636f596ad0e556e9f6",
+    "actualizado_en": "2026-09-27T18:16:02+00:00",
+    "verificado_en": "2026-09-27T19:58:06+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "LEY-2056-2020": {
+    "sigla": "LEY-2056-2020",
+    "nombre": "Ley 2056 de 2020 — Sistema General de Regalías",
+    "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2056_2020.html",
+    "articulos": 211,
+    "estados": {
+      "vigente": 210,
+      "modificado": 1
+    },
+    "huella": "b30caac440d1c19ebbba184f3c5775139793a1fda352c7ec84219f4c224d2c4e",
+    "actualizado_en": "2026-09-27T18:16:10+00:00",
+    "verificado_en": "2026-09-27T19:58:16+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-2555-2010": {
+    "sigla": "DEC-2555-2010",
+    "nombre": "Decreto 2555 de 2010 — DUR del sector financiero, asegurador y del mercado de valores",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=40032",
+    "articulos": 2601,
+    "estados": {
+      "modificado": 219,
+      "vigente": 2379,
+      "sin_texto_en_fuente": 3
+    },
+    "huella": "49e4c6533000a72983c9d49a76d8902835b597ab7aa3baf181f4fbcbeb2b5a0a",
+    "actualizado_en": "2026-09-27T18:16:16+00:00",
+    "verificado_en": "2026-09-27T19:58:22+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1066-2015": {
+    "sigla": "DEC-1066-2015",
+    "nombre": "Decreto 1066 de 2015 — DUR del sector Interior",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76835",
+    "articulos": 1583,
+    "estados": {
+      "vigente": 1568,
+      "sin_texto_en_fuente": 5,
+      "modificado": 10
+    },
+    "huella": "6117e1925453338479b0b10d4d31e19e3b123371dfcb33a4ea372bc624c6fd57",
+    "actualizado_en": "2026-09-27T18:16:21+00:00",
+    "verificado_en": "2026-09-27T19:58:27+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1067-2015": {
+    "sigla": "DEC-1067-2015",
+    "nombre": "Decreto 1067 de 2015 — DUR del sector Relaciones Exteriores",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=74000",
+    "articulos": 525,
+    "estados": {
+      "vigente": 507,
+      "modificado": 18
+    },
+    "huella": "dad4c109a077dab8de0cee69116b4f7379fb38dc8b26df54880377509e1e86c2",
+    "actualizado_en": "2026-09-27T18:16:25+00:00",
+    "verificado_en": "2026-09-27T19:58:31+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1068-2015": {
+    "sigla": "DEC-1068-2015",
+    "nombre": "Decreto 1068 de 2015 — DUR del sector Hacienda y Crédito Público",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=72893",
+    "articulos": 1835,
+    "estados": {
+      "vigente": 1779,
+      "modificado": 50,
+      "sin_texto_en_fuente": 6
+    },
+    "huella": "c1eb969820783f5b7cb0c769f75d7e8bdeadc0b1cf1e4e4d7a76800c909d3948",
+    "actualizado_en": "2026-09-27T18:16:30+00:00",
+    "verificado_en": "2026-09-27T19:58:37+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1069-2015": {
+    "sigla": "DEC-1069-2015",
+    "nombre": "Decreto 1069 de 2015 — DUR del sector Justicia y del Derecho",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=74174",
+    "articulos": 1485,
+    "estados": {
+      "vigente": 1482,
+      "modificado": 3
+    },
+    "huella": "56b2d56d64b1d42bd6d71b3fc68672dd02f0e8b12f5af39e4b59ad525888521a",
+    "actualizado_en": "2026-09-27T18:16:35+00:00",
+    "verificado_en": "2026-09-27T19:58:42+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1070-2015": {
+    "sigla": "DEC-1070-2015",
+    "nombre": "Decreto 1070 de 2015 — DUR del sector Defensa",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76837",
+    "articulos": 2237,
+    "estados": {
+      "vigente": 2227,
+      "modificado": 10
+    },
+    "huella": "0869106279b791192ca29ee8a966830f7c95e1bb9266b7d6ecf19c775de1b55e",
+    "actualizado_en": "2026-09-27T18:16:40+00:00",
+    "verificado_en": "2026-09-27T19:58:48+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1071-2015": {
+    "sigla": "DEC-1071-2015",
+    "nombre": "Decreto 1071 de 2015 — DUR del sector Agropecuario, Pesquero y de Desarrollo Rural",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76838",
+    "articulos": 1969,
+    "estados": {
+      "vigente": 1956,
+      "modificado": 13
+    },
+    "huella": "2ad633074f3769a938b327d60e5d753bcd3809fdced773b13cf0da5fa8a28714",
+    "actualizado_en": "2026-09-27T18:16:45+00:00",
+    "verificado_en": "2026-09-27T19:58:53+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1072-2015": {
+    "sigla": "DEC-1072-2015",
+    "nombre": "Decreto 1072 de 2015 — DUR del sector Trabajo",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=72173",
+    "articulos": 1408,
+    "estados": {
+      "vigente": 1353,
+      "modificado": 54,
+      "sin_texto_en_fuente": 1
+    },
+    "huella": "4f54d5600674be3832cb5b9f13b8ca2bb0937780f29b6a5d3bb70332ab25c0b5",
+    "actualizado_en": "2026-09-27T18:16:50+00:00",
+    "verificado_en": "2026-09-27T19:58:57+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1073-2015": {
+    "sigla": "DEC-1073-2015",
+    "nombre": "Decreto 1073 de 2015 — DUR del sector Minas y Energía",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77887",
+    "articulos": 1277,
+    "estados": {
+      "sin_texto_en_fuente": 7,
+      "vigente": 1261,
+      "modificado": 9
+    },
+    "huella": "9c660213689699f18fb3b12d110f3b9bd7eaa02be98f4e246105555c9955e1a3",
+    "actualizado_en": "2026-09-27T18:16:55+00:00",
+    "verificado_en": "2026-09-27T19:59:02+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1074-2015": {
+    "sigla": "DEC-1074-2015",
+    "nombre": "Decreto 1074 de 2015 — DUR del sector Comercio, Industria y Turismo",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76608",
+    "articulos": 2105,
+    "estados": {
+      "vigente": 2088,
+      "modificado": 17
+    },
+    "huella": "26ccb3b20422683b956bbb577f60648bbb022fbdefb8aca17119b7cd5f1efdb9",
+    "actualizado_en": "2026-09-27T18:17:00+00:00",
+    "verificado_en": "2026-09-27T19:59:08+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1075-2015": {
+    "sigla": "DEC-1075-2015",
+    "nombre": "Decreto 1075 de 2015 — DUR del sector Educación",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77913",
+    "articulos": 1842,
+    "estados": {
+      "vigente": 1830,
+      "modificado": 12
+    },
+    "huella": "5e6efecad230f7e9d8a22e2579287e645a8546dff0688522d7154a8cac95abea",
+    "actualizado_en": "2026-09-27T18:17:05+00:00",
+    "verificado_en": "2026-09-27T19:59:14+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1076-2015": {
+    "sigla": "DEC-1076-2015",
+    "nombre": "Decreto 1076 de 2015 — DUR del sector Ambiente y Desarrollo Sostenible",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+    "articulos": 1894,
+    "estados": {
+      "vigente": 1878,
+      "modificado": 16
+    },
+    "huella": "1797b3222148e11a984d5c92c6023b5c9331079f8227c6d4b1a1f0fbe0db06cd",
+    "actualizado_en": "2026-09-27T19:59:19+00:00",
+    "verificado_en": "2026-09-27T19:59:19+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 1,
+      "retirados": 0
+    },
     "detalle_cambios": {
-      "nuevos": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "20",
-        "21",
-        "22",
-        "23",
-        "24",
-        "25",
-        "26",
-        "27",
-        "28",
-        "29",
-        "30",
-        "31",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46",
-        "47",
-        "47A",
-        "48",
-        "49"
+      "modificados": [
+        "2.2"
       ]
     }
+  },
+  "DEC-1077-2015": {
+    "sigla": "DEC-1077-2015",
+    "nombre": "Decreto 1077 de 2015 — DUR del sector Vivienda, Ciudad y Territorio",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77216",
+    "articulos": 1800,
+    "estados": {
+      "sin_texto_en_fuente": 4,
+      "vigente": 1730,
+      "modificado": 66
+    },
+    "huella": "dca8bbe3eee28cdfa433b5af8ff42b8f0b090f2a8e65a2830d2590853f3bb5ea",
+    "actualizado_en": "2026-09-27T18:17:16+00:00",
+    "verificado_en": "2026-09-27T19:59:25+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1078-2015": {
+    "sigla": "DEC-1078-2015",
+    "nombre": "Decreto 1078 de 2015 — DUR del sector TIC",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77888",
+    "articulos": 214,
+    "estados": {
+      "vigente": 213,
+      "modificado": 1
+    },
+    "huella": "8510602a76cad7a287d4c46634b02579bb0e7087807613b3784c2f4811d4261d",
+    "actualizado_en": "2026-09-27T18:17:20+00:00",
+    "verificado_en": "2026-09-27T19:59:29+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1079-2015": {
+    "sigla": "DEC-1079-2015",
+    "nombre": "Decreto 1079 de 2015 — DUR del sector Transporte",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77889",
+    "articulos": 1224,
+    "estados": {
+      "vigente": 1209,
+      "modificado": 10,
+      "sin_texto_en_fuente": 4,
+      "derogado": 1
+    },
+    "huella": "6b114c09ccb5b94b1db8c3e650c5ca2a197d684bc1f6f0ffd257748f320694f8",
+    "actualizado_en": "2026-09-27T18:17:25+00:00",
+    "verificado_en": "2026-09-27T19:59:40+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1080-2015": {
+    "sigla": "DEC-1080-2015",
+    "nombre": "Decreto 1080 de 2015 — DUR del sector Cultura",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76833",
+    "articulos": 824,
+    "estados": {
+      "vigente": 820,
+      "modificado": 4
+    },
+    "huella": "f93eb2f5e7543232d551586db458089fe19a6b926e8324640646dd94b789f6e8",
+    "actualizado_en": "2026-09-27T18:17:30+00:00",
+    "verificado_en": "2026-09-27T19:59:44+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1081-2015": {
+    "sigla": "DEC-1081-2015",
+    "nombre": "Decreto 1081 de 2015 — DUR del sector Presidencia de la República",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=73593",
+    "articulos": 796,
+    "estados": {
+      "vigente": 793,
+      "modificado": 3
+    },
+    "huella": "b0d4a4894b132bee833c10aaeb02b2968a1b3c4c73a5a4633bcd2f02ebaa74f6",
+    "actualizado_en": "2026-09-27T18:17:34+00:00",
+    "verificado_en": "2026-09-27T19:59:49+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1082-2015": {
+    "sigla": "DEC-1082-2015",
+    "nombre": "Decreto 1082 de 2015 — DUR del sector Planeación Nacional",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77653",
+    "articulos": 1041,
+    "estados": {
+      "vigente": 1033,
+      "modificado": 7,
+      "sin_texto_en_fuente": 1
+    },
+    "huella": "27b719f1cb0bb4a4912bcfca912f152830afdbf665e960efe7491b01fcb41661",
+    "actualizado_en": "2026-09-27T18:17:38+00:00",
+    "verificado_en": "2026-09-27T19:59:53+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1083-2015": {
+    "sigla": "DEC-1083-2015",
+    "nombre": "Decreto 1083 de 2015 — DUR del sector Función Pública",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=62866",
+    "articulos": 889,
+    "estados": {
+      "vigente": 877,
+      "modificado": 11,
+      "sin_texto_en_fuente": 1
+    },
+    "huella": "8abb16ec232d4f5b5da1c921c3a8cd81211b6f44fdbcc03f15e16f7341112949",
+    "actualizado_en": "2026-09-27T18:17:43+00:00",
+    "verificado_en": "2026-09-27T19:59:58+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1084-2015": {
+    "sigla": "DEC-1084-2015",
+    "nombre": "Decreto 1084 de 2015 — DUR del sector Inclusión Social y Reconciliación",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77715",
+    "articulos": 691,
+    "estados": {
+      "vigente": 689,
+      "modificado": 2
+    },
+    "huella": "39f3095b548f7eab8b615570a4454cde103d2354a0b27b9787670f088e118f49",
+    "actualizado_en": "2026-09-27T18:17:48+00:00",
+    "verificado_en": "2026-09-27T20:00:03+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1085-2015": {
+    "sigla": "DEC-1085-2015",
+    "nombre": "Decreto 1085 de 2015 — DUR del sector Deporte",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77714",
+    "articulos": 290,
+    "estados": {
+      "vigente": 289,
+      "sin_texto_en_fuente": 1
+    },
+    "huella": "5d765352d7617d771cbe0684641958c95a7461db5b79e449b44d873afc2b3985",
+    "actualizado_en": "2026-09-27T18:17:51+00:00",
+    "verificado_en": "2026-09-27T20:00:07+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1170-2015": {
+    "sigla": "DEC-1170-2015",
+    "nombre": "Decreto 1170 de 2015 — DUR del sector Información Estadística",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=62870",
+    "articulos": 112,
+    "estados": {
+      "vigente": 112
+    },
+    "huella": "5726cc8280e172759760f209ac293f5777752eb7b5f4977967e3f0d9d87873e7",
+    "actualizado_en": "2026-09-27T18:17:55+00:00",
+    "verificado_en": "2026-09-27T20:00:11+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-2420-2015": {
+    "sigla": "DEC-2420-2015",
+    "nombre": "Decreto 2420 de 2015 — DUR de normas de contabilidad, información financiera y aseguramiento",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76745",
+    "articulos": 33,
+    "estados": {
+      "vigente": 31,
+      "modificado": 2
+    },
+    "huella": "91d81ee4da52c6fc3f03d065fa186b2a38ffd436ece2d0299784203115b7b620",
+    "actualizado_en": "2026-09-27T18:17:59+00:00",
+    "verificado_en": "2026-09-27T20:00:15+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-780-2016": {
+    "sigla": "DEC-780-2016",
+    "nombre": "Decreto 780 de 2016 — DUR del sector Salud y Protección Social",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=77813",
+    "articulos": 2240,
+    "estados": {
+      "vigente": 2223,
+      "sin_texto_en_fuente": 3,
+      "modificado": 14
+    },
+    "huella": "960ebbb3779bff864708506667adfe1ab37997809cec0de7bd8494417bbe4c0b",
+    "actualizado_en": "2026-09-27T18:18:04+00:00",
+    "verificado_en": "2026-09-27T20:00:21+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1625-2016": {
+    "sigla": "DEC-1625-2016",
+    "nombre": "Decreto 1625 de 2016 — DUR en materia tributaria",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=83233",
+    "articulos": 2114,
+    "estados": {
+      "vigente": 1913,
+      "modificado": 201
+    },
+    "huella": "1c2c918587ab6599ab5b4877a0d9847a485850c6b6d61533a81c9c9b3fe8feda",
+    "actualizado_en": "2026-09-27T18:18:10+00:00",
+    "verificado_en": "2026-09-27T20:00:34+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1833-2016": {
+    "sigla": "DEC-1833-2016",
+    "nombre": "Decreto 1833 de 2016 — Compilación del Sistema General de Pensiones",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=85319",
+    "articulos": 965,
+    "estados": {
+      "vigente": 962,
+      "modificado": 3
+    },
+    "huella": "70bd6ce6d212a4857e8dcb0313fa4f35bcee6b0150cc7b345d23fda5a7c5d27a",
+    "actualizado_en": "2026-09-27T18:18:14+00:00",
+    "verificado_en": "2026-09-27T20:00:38+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
+  },
+  "DEC-1821-2020": {
+    "sigla": "DEC-1821-2020",
+    "nombre": "Decreto 1821 de 2020 — Compilación del Sistema General de Regalías",
+    "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=154466",
+    "articulos": 375,
+    "estados": {
+      "vigente": 340,
+      "modificado": 35
+    },
+    "huella": "4fa2bb847a8dd25c9d2f52d754e54de1c2670f3454ab80a79dd6f90139e1212d",
+    "actualizado_en": "2026-09-27T18:18:19+00:00",
+    "verificado_en": "2026-09-27T20:00:43+00:00",
+    "cambios": {
+      "nuevos": 0,
+      "modificados": 0,
+      "retirados": 0
+    },
+    "detalle_cambios": {}
   }
 }
