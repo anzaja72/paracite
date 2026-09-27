@@ -153,8 +153,10 @@ oficiales, un fragmento por artículo, con su estado de vigencia y el enlace ofi
 - Fuente actual: Gestor Normativo de Función Pública (`funcionpublica.gov.co/eva/gestornormativo`).
   Cada artículo guarda `estado` (`vigente`, `modificado`, `derogado`, `inexequible`), notas de
   vigencia, el texto anterior cuando lo hay y la jurisprudencia citada por la fuente.
-- Cargado hoy: **Constitución Política** (384 artículos). Pendientes de `norma_id` en el catálogo: CST,
-  CPTSS, CGP, Código Civil, Estatuto Tributario, CPACA.
+- Cargado (27-sep-2026): Constitución (384 artículos), Código Sustantivo del Trabajo (491), Código
+  Procesal del Trabajo (331), Código General del Proceso (625), Estatuto Tributario (1.311) y CPACA (320).
+  Pendiente: Código Civil (falta su `norma_id`). Algunos artículos derogados no los publica la fuente
+  (p. ej. CST 40, CGP 564): se reportan como inexistentes en la fuente, no como citas falsas seguras.
 
 ```bash
 # Cargar / actualizar todas las normas activas del catálogo (descarga de la fuente oficial)
@@ -167,7 +169,15 @@ Protecciones: si la fuente devuelve muchos menos artículos que la versión guar
 cambio de formato), no se reemplaza el corpus; los artículos cambiados se registran y la versión
 anterior se guarda en `historial/`.
 
-**Carga continua:** con `PARACITE_INGEST_INTERVAL_HOURS=168` la API ejecuta el cargador cada semana en
+**Carga semanal desde el Mac:** el VPS no llega a Función Pública, así que la carga corre en un equipo
+en Colombia con `scripts/actualizar_corpus.sh` (descarga, procesa y, si hubo cambios, hace commit y push).
+En macOS, semanal los lunes a las 6:00 con `crontab -e`:
+
+```
+0 6 * * 1 cd $HOME/paracite && ./scripts/actualizar_corpus.sh >> $HOME/paracite-corpus.log 2>&1
+```
+
+**Carga continua en el servidor** (si el servidor sí llega a la fuente): con `PARACITE_INGEST_INTERVAL_HOURS=168` la API ejecuta el cargador cada semana en
 segundo plano y, si hubo cambios, recarga el índice en caliente (sin reiniciar).
 
 **Consulta de existencia** (base del verificador de citas):

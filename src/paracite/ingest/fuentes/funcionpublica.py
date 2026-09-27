@@ -18,15 +18,15 @@ from bs4 import BeautifulSoup, Tag
 from paracite.ingest.modelo import Articulo
 
 _ARTICULO = re.compile(
-    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+[A-Z]?(?:[-\s]?BIS)?)?\s*[oº°]?\s*\.?",
+    r"^\s*ART[ÍI]CULO\s*(TRANSITORIO\s*)?(\d+(?:-\d+)?[A-Z]?(?:[-\s]?BIS)?)?\s*(?:[oº°](?![A-Za-zÁÉÍÓÚÑáéíóúñ]))?\s*\.?",
     re.IGNORECASE,
 )
 _NOTA_VIGENCIA = re.compile(
-    r"^\((?:Art[íi]culo|Inciso|Par[áa]grafo|Numeral|Literal|Texto)[^)]*"
+    r"^\(\s*(?:Art[íi]culo|Inciso|Par[áa]grafo|Numeral|Literal|Texto|Modificado|Adicionado|Derogado|Subrogado)[^)]*"
     r"(?:MODIFICADO|ADICIONADO|DEROGADO|SUSTITUIDO|SUBROGADO|INEXEQUIBLE|EXEQUIBLE|REGLAMENTADO)",
     re.IGNORECASE,
 )
-_REFERENCIA = re.compile(r"^\(Ver\b", re.IGNORECASE)
+_REFERENCIA = re.compile(r"^\(\s*Ver\b", re.IGNORECASE)
 _ENCABEZADO = re.compile(r"^(LIBRO|PARTE|T[ÍI]TULO|CAP[ÍI]TULO|SECCI[ÓO]N)\b", re.IGNORECASE)
 _NIVEL = {"LIBRO": 0, "PARTE": 0, "TITULO": 1, "TÍTULO": 1, "CAPITULO": 2, "CAPÍTULO": 2,
           "SECCION": 3, "SECCIÓN": 3}
@@ -42,6 +42,15 @@ def decodificar(contenido: bytes) -> str:
 
 def _texto(nodo: Tag) -> str:
     return " ".join(nodo.get_text(" ", strip=True).split())
+
+
+def _texto_tabla(tabla: Tag) -> str:
+    filas = []
+    for tr in tabla.find_all("tr"):
+        celdas = [_texto(c) for c in tr.find_all(["td", "th"])]
+        if any(celdas):
+            filas.append(" | ".join(celdas))
+    return "\n".join(filas)
 
 
 def _extraer_bloques_ocultos(soup: BeautifulSoup) -> dict[str, tuple[str, str]]:
@@ -81,11 +90,13 @@ def procesar(html: str) -> list[Articulo]:
         elif texto:
             actual.jurisprudencia.append(texto)
 
-    for nodo in soup.find_all(["p", "button"]):
+    for nodo in soup.find_all(["p", "li", "table", "button"]):
         if nodo.decomposed:
             continue
-        if nodo.name == "p" and nodo.find_parent(id=re.compile(r"^juris\d+")) is not None:
+        if nodo.name != "button" and nodo.find_parent(id=re.compile(r"^juris\d+")) is not None:
             continue  # contenido de un bloque oculto (norma anterior, jurisprudencia)
+        if nodo.name in ("p", "li") and nodo.find_parent(["table", "li"]) is not None:
+            continue  # ya incluido en la tabla o en el ítem de lista que lo contiene
         if nodo.name == "button":
             adjuntar(nodo.get("data-bloque"))
             continue
@@ -96,26 +107,38 @@ def procesar(html: str) -> list[Articulo]:
         for oculto in nodo.find_all(attrs={"data-bloque": True}):
             oculto.decompose()
 
-        texto = _texto(nodo)
+        texto = _texto_tabla(nodo) if nodo.name == "table" else _texto(nodo)
         if not texto:
             continue
 
-        fuerte = nodo.find("strong")
+        fuerte = nodo.find("strong") if nodo.name == "p" else None
         encabezado_art = _ARTICULO.match(_texto(fuerte)) if fuerte is not None else None
         if encabezado_art and (encabezado_art.group(1) or encabezado_art.group(2)):
             numero = (encabezado_art.group(2) or "").replace(" ", "").upper()
             if encabezado_art.group(1):
                 numero = f"T-{numero or len([a for a in articulos if a.numero.startswith('T-')]) + 1}"
+            if numero == "1" and "1" in vistos and len(articulos) <= 5:
+                # La numeración reinicia: lo anterior era el decreto/ley que adopta el código
+                # (p. ej. Decreto 624 de 1989 → Estatuto Tributario). Se conserva solo el código.
+                articulos.clear()
+                vistos.clear()
             if numero in vistos:  # repetido fuera de bloque: se conserva el primero (vigente)
                 actual = None
                 continue
-            cuerpo = texto[len(_texto(fuerte)):].strip(" .-")
-            actual = Articulo(numero=numero, parrafos=[cuerpo] if cuerpo else [], ruta=ruta.actual())
+            titulo_fuerte = _texto(fuerte)
+            epigrafe = titulo_fuerte[encabezado_art.end():].strip(" .-")
+            cuerpo = texto[len(titulo_fuerte):].strip(" .-")
+            fuertes = nodo.find_all("strong")
+            if not epigrafe and len(fuertes) > 1 and cuerpo.startswith(_texto(fuertes[1])):
+                epigrafe = _texto(fuertes[1]).strip(" .-")      # ET: <strong>240-1.</strong><strong>TARIFA…</strong>
+                cuerpo = cuerpo[len(_texto(fuertes[1])):].strip(" .-")
+            actual = Articulo(numero=numero, parrafos=[cuerpo] if cuerpo else [], ruta=ruta.actual(),
+                              epigrafe=epigrafe or None)
             vistos.add(numero)
             articulos.append(actual)
             continue
 
-        if (nodo.get("align") or "").lower() == "center":
+        if nodo.name == "p" and (nodo.get("align") or "").lower() == "center":
             if not texto.lower().startswith("ver "):
                 ruta.agregar(texto)
                 actual = None
@@ -130,7 +153,8 @@ def procesar(html: str) -> list[Articulo]:
         else:
             actual.parrafos.append(texto)
 
-    return [a for a in articulos if a.parrafos]
+    # Se conservan los artículos con solo epígrafe (existen en la fuente aunque sin texto publicado).
+    return [a for a in articulos if a.parrafos or a.epigrafe]
 
 
 class _Ruta:

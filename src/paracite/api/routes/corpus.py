@@ -60,7 +60,8 @@ def get_articulo(norma: str, articulo: str, request: Request, jurisdiccion: str 
             detail={
                 "existe": False,
                 "norma_cubierta": cubierta,
-                "mensaje": (f"El artículo {articulo} no existe en {norma.upper()} según el corpus oficial."
+                "mensaje": (f"El artículo {articulo} no aparece en {norma.upper()} en la fuente oficial "
+                            "(puede no existir, o estar derogado y no publicado por la fuente)."
                             if cubierta else
                             f"La norma {norma.upper()} aún no está en el corpus: no se puede verificar."),
             },

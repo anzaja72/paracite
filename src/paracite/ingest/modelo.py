@@ -35,6 +35,7 @@ class Articulo:
     referencias: list[str] = field(default_factory=list)
     jurisprudencia: list[str] = field(default_factory=list)
     texto_anterior: list[str] = field(default_factory=list)
+    epigrafe: str | None = None                   # «CONTRATO ESCRITO», «TARIFA PARA USUARIOS…»
 
     @property
     def texto(self) -> str:
@@ -42,6 +43,8 @@ class Articulo:
 
     @property
     def estado(self) -> str:
+        if not self.parrafos:
+            return "sin_texto_en_fuente"
         notas = " ".join(self.notas_vigencia).upper()
         inicio = (self.parrafos[0] if self.parrafos else "").upper()
         if re.search(r"^\(?\s*ART[ÍI]CULO\s+INEXEQUIBLE", inicio) or "(ARTÍCULO INEXEQUIBLE" in notas:
@@ -66,7 +69,9 @@ def a_fragmento(norma: NormaCatalogo, art: Articulo, *, url: str, capturado_en: 
     """Convierte un artículo al formato de chunk que carga LocalBm25Store."""
     numero_cita = f"art. transitorio {art.numero[2:]}" if art.numero.startswith("T-") else f"art. {art.numero}"
     titulo = f"{norma.nombre}, {numero_cita}"
-    if art.ruta:
+    if art.epigrafe:
+        titulo += f". {art.epigrafe.capitalize() if art.epigrafe.isupper() else art.epigrafe}"
+    elif art.ruta:
         titulo += f" — {art.ruta[-1]}"
     ancla = art.numero if not art.numero.startswith("T-") else ""
     return {
@@ -86,6 +91,7 @@ def a_fragmento(norma: NormaCatalogo, art: Articulo, *, url: str, capturado_en: 
             "norma": norma.sigla,
             "norma_nombre": norma.nombre,
             "articulo": art.numero,
+            "epigrafe": art.epigrafe,
             "ruta": art.ruta,
             "estado": art.estado,
             "notas_vigencia": art.notas_vigencia,

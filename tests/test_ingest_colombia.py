@@ -120,3 +120,27 @@ def test_recarga_en_caliente(tmp_path, monkeypatch):
         cargar_norma(CP, tmp_path / "co", html=FIXTURE.read_bytes())  # llega corpus nuevo
         recargar_indice(c.app)
         assert c.get("/v1/norma/CP/1", headers=AUTH).status_code == 200
+
+
+def _arts(nombre: str):
+    ruta = Path(__file__).parent / "fixtures" / nombre
+    return {a.numero: a for a in procesar(decodificar(ruta.read_bytes()))}
+
+
+def test_estatuto_tributario_reinicio_guiones_y_notas():
+    arts = _arts("funcionpublica_et_extracto.html")
+    # El art. 1 es el del Estatuto (no el del Decreto 624 que lo adopta)
+    assert arts["1"].epigrafe.upper().startswith("ORIGEN DE LA OBLIGACI")
+    assert arts["1"].texto.startswith("La obligación tributaria sustancial")
+    # Artículos con guion, numerales en <ol> y nota de vigencia dentro de un enlace
+    a = arts["240-1"]
+    assert a.epigrafe == "TARIFA PARA USUARIOS DE ZONA FRANCA"
+    assert "La suma de los numerales 1 y 2" in a.texto
+    assert a.estado == "modificado" and "Ley 2277 de 2022" in a.notas_vigencia[0]
+
+
+def test_cst_listas_y_articulo_sin_texto():
+    arts = _arts("funcionpublica_cst_extracto.html")
+    assert arts["69"].epigrafe.startswith("RESPONSABILIDAD DE LOS")
+    assert "responden solidariamente" in arts["69"].texto  # contenido en <ol><li>
+    assert arts["360"].estado == "sin_texto_en_fuente" and arts["360"].epigrafe
