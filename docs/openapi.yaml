@@ -6,7 +6,8 @@ info:
     un documento generado con los chunks cargados y responde JSON (completar, dejar
     o no_sostiene) sin reescribir el texto. Al arrancar se cargan el seed ES, etiquetado
     [FIXTURE] y que no es derecho colombiano, y el piloto CO (paracite/corpus/co-piloto.json)
-    con la cita_formal del chunk.
+    con la cita_formal del chunk. Si el paquete laya está instalado, una tesis sin
+    artículo se contrasta con Laya Router (noul y choice, sin generar texto).
   contact:
     name: ParaCite
   version: 0.1.0

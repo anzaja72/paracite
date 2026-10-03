@@ -3,16 +3,24 @@
 No reescribe el texto, no llama a n8n y no usa un modelo generativo.
 Cada afirmación sale con un único estado: completar, dejar o no_sostiene.
 La cita que se devuelve, si hace falta completarla, es la del chunk cargado.
+
+Si el texto nombra un artículo cargado, la decisión es exacta y no consulta Laya.
+Si no hay artículo recuperable y hay un cliente Laya, se puntúan los candidatos
+BM25 solo con noul/choice. Sin ese cliente, la tesis libre sigue en no_sostiene
+salvo el clasificador de fixtures ya existente.
 """
 
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 import time
 import unicodedata
 import uuid
 from dataclasses import dataclass
+
+logger = logging.getLogger(__name__)
 
 from sqlalchemy.orm import Session
 
@@ -24,6 +32,7 @@ from paracite.api.schemas import (
     RevisionDejar,
     RevisionNoSostiene,
 )
+from paracite.classifier.laya import LAYA_FLOOR
 from paracite.db.models import RequestLog
 from paracite.retrieval.local_store import tokenize
 from paracite.retrieval.protocol import Chunk
@@ -156,10 +165,11 @@ def _in_jurisdiction(chunk: Chunk, jurisdiccion: str | None) -> bool:
 
 
 class RevisarService:
-    def __init__(self, retriever, classifier, *, retrieval_top_k: int = 40) -> None:
+    def __init__(self, retriever, classifier, *, retrieval_top_k: int = 40, laya=None) -> None:
         self.retriever = retriever
         self.classifier = classifier
         self.retrieval_top_k = retrieval_top_k
+        self.laya = laya
 
     def revisar(
         self,
@@ -228,6 +238,9 @@ class RevisarService:
             if confianza >= request.umbral_confianza:
                 return _matched(claim, chunk, dejar=dejar, confianza=confianza)
 
+        if self.laya is not None:
+            return self._from_laya(claim, retrieved, request, observed)
+
         best_score = observed
         best: tuple[float, Chunk] | None = None
         if retrieved:
@@ -270,6 +283,46 @@ class RevisarService:
             )
         )
         db.commit()
+
+    def _from_laya(
+        self,
+        claim: _Claim,
+        retrieved: list[Chunk],
+        request: RevisarRequest,
+        observed: float,
+    ) -> RevisionCompletar | RevisionNoSostiene:
+        candidates = [
+            chunk
+            for chunk in retrieved
+            if _has_published_text(chunk) and _in_jurisdiction(chunk, request.jurisdiccion)
+        ]
+        if not candidates:
+            return _no_sostiene(claim, observed)
+        try:
+            scored = self.laya.score(claim.surface, candidates)
+        except Exception:
+            logger.warning("Laya no pudo clasificar la tesis", exc_info=True)
+            return _no_sostiene(claim, observed)
+        by_id = {chunk.id: chunk for chunk in candidates}
+        threshold = max(float(request.umbral_confianza), LAYA_FLOOR)
+        best: tuple[float, Chunk] | None = None
+        best_score = observed
+        for chunk_id, raw_score in scored:
+            score = max(0.0, min(1.0, float(raw_score)))
+            best_score = max(best_score, score)
+            chunk = by_id.get(chunk_id)
+            if chunk is None or not _has_published_text(chunk):
+                continue
+            if not _in_jurisdiction(chunk, request.jurisdiccion):
+                continue
+            if score < threshold:
+                continue
+            if best is None or score > best[0]:
+                best = (score, chunk)
+        if best is None:
+            return _no_sostiene(claim, best_score)
+        score, chunk = best
+        return _matched(claim, chunk, dejar=False, confianza=score)
 
 
 def _best_exact(claim_n: str, chunks: list[Chunk]) -> tuple[Chunk, bool] | None:

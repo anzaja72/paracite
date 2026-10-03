@@ -13,6 +13,8 @@ os.environ.setdefault("REDIS_URL", "")
 os.environ.setdefault("WEKNORA_URL", "")
 os.environ.setdefault("JEV_API_KEY", "")
 os.environ.setdefault("PUBLIC_BASE_URL", "http://testserver")
+# Los tests no descargan pesos de Laya. El mock se inyecta en el servicio.
+os.environ.setdefault("PARACITE_LAYA", "off")
 
 from paracite.config import get_settings  # noqa: E402
 from paracite.main import create_app  # noqa: E402

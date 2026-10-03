@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     jev_api_url: str = Field(default="https://api.typesafe.ai/v1/system_one", alias="JEV_API_URL")
     jev_model: str = Field(default="jev-1.13.0", alias="JEV_MODEL")
 
+    # auto: usa Laya si el paquete está instalado. off: no lo carga. on: exige el paquete.
+    laya_mode: str = Field(default="auto", alias="PARACITE_LAYA")
+
     retrieval_top_k: int = 40
     default_umbral: float = 0.87
     default_jurisdiccion: str = "ES"
