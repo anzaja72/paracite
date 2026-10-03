@@ -17,7 +17,7 @@ from paracite.db.models import make_engine, make_session_factory, Base
 from paracite.services.cite import CiteService
 from paracite.services.ingest import IngestService
 from paracite.services.revisar import RevisarService
-from paracite.wiring import build_classifier, build_retriever
+from paracite.wiring import build_classifier, build_laya, build_retriever
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 OPEN_PATHS = {"/health", "/docs", "/redoc", "/openapi.json", "/favicon.ico"}
@@ -33,7 +33,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "POST /v1/cite devuelve matches del corpus por encima del umbral (default 0.87). "
             "POST /v1/revisar compara un documento generado con los chunks cargados y "
             "responde JSON (completar, dejar o no_sostiene) sin reescribir el texto. "
-            "El seed de demostración está etiquetado [FIXTURE] y no es derecho colombiano."
+            "Al arrancar se cargan el seed ES, etiquetado [FIXTURE] y que no es derecho "
+            "colombiano, y el piloto CO (paracite/corpus/co-piloto.json) con la "
+            "cita_formal del chunk. Si el paquete laya está instalado, una tesis sin "
+            "artículo se contrasta con Laya Router (noul y choice, sin generar texto)."
         ),
         contact={"name": "ParaCite"},
     )
@@ -63,7 +66,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.rate_limiter = rate_limiter
     app.state.cite_service = CiteService(retriever, classifier, retrieval_top_k=settings.retrieval_top_k)
     app.state.revisar_service = RevisarService(
-        retriever, classifier, retrieval_top_k=settings.retrieval_top_k
+        retriever,
+        classifier,
+        retrieval_top_k=settings.retrieval_top_k,
+        laya=build_laya(settings),
     )
     app.state.ingest_service = IngestService(redis_client)
 

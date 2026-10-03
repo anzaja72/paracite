@@ -3,16 +3,24 @@
 No reescribe el texto, no llama a n8n y no usa un modelo generativo.
 Cada afirmación sale con un único estado: completar, dejar o no_sostiene.
 La cita que se devuelve, si hace falta completarla, es la del chunk cargado.
+
+Si el texto nombra un artículo cargado, la decisión es exacta y no consulta Laya.
+Si no hay artículo recuperable y hay un cliente Laya, se puntúan los candidatos
+BM25 solo con noul/choice. Sin ese cliente, la tesis libre sigue en no_sostiene
+salvo el clasificador de fixtures ya existente.
 """
 
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 import time
 import unicodedata
 import uuid
 from dataclasses import dataclass
+
+logger = logging.getLogger(__name__)
 
 from sqlalchemy.orm import Session
 
@@ -24,13 +32,34 @@ from paracite.api.schemas import (
     RevisionDejar,
     RevisionNoSostiene,
 )
+from paracite.classifier.laya import LAYA_FLOOR
 from paracite.db.models import RequestLog
+from paracite.retrieval.local_store import tokenize
 from paracite.retrieval.protocol import Chunk
 
 _ART_RE = re.compile(r"\bart(?:[íi]culo|\.)?\s*(\d+(?:\.\d+)*)", re.IGNORECASE)
 _CITE_PREFIX_RE = re.compile(r"^\[(?:fixture|weknora)\]\s*")
 _TRAILING_NOTE_RE = re.compile(r"\s*\([^)]*\)\s*$")
 _STATUTE_SPLIT_RE = re.compile(r",?\s*\bart(?:[íi]culo|\.)?\b", re.IGNORECASE)
+
+# Palabras que aparecen en muchos títulos y no identifican una norma.
+_GENERIC_STATUTE_TOKENS = {
+    "código",
+    "codigo",
+    "ley",
+    "decreto",
+    "norma",
+    "artículo",
+    "articulo",
+    "general",
+    "nacional",
+    "colombia",
+    "colombiano",
+    "colombiana",
+    "política",
+    "politica",
+    "oficial",
+}
 
 _DEJAR = "La cita ya está completa y coincide con el párrafo del corpus. Déjala como está."
 _COMPLETAR = (
@@ -51,6 +80,16 @@ def _norm(text: str) -> str:
     return re.sub(r"\s+", " ", folded).strip()
 
 
+def _fold_accents(text: str) -> str:
+    decomposed = unicodedata.normalize("NFD", text)
+    return "".join(ch for ch in decomposed if unicodedata.category(ch) != "Mn")
+
+
+def _has_published_text(chunk: Chunk) -> bool:
+    """Un párrafo vacío no es cita: la fuente no trae texto y no se inventa."""
+    return bool((chunk.parrafo or "").strip()) and bool((chunk.cita_formal or "").strip())
+
+
 def _paragraph_body(chunk: Chunk) -> str:
     body = _norm(chunk.parrafo)
     return re.sub(r"^fixture\.\s*", "", body)
@@ -68,7 +107,24 @@ def _quote_exact(claim_n: str, chunk: Chunk) -> bool:
 
 def _cite_complete(claim_n: str, chunk: Chunk) -> bool:
     core = _cite_core(chunk)
-    return len(core) >= 8 and core in claim_n
+    if len(core) < 8:
+        return False
+    start = 0
+    while True:
+        idx = claim_n.find(core, start)
+        if idx < 0:
+            return False
+        # «art. 1» no es «art. 10», ni «art. 34» es «art. 34.1».
+        if not _article_number_continues(claim_n, idx + len(core)):
+            return True
+        start = idx + 1
+
+
+def _article_number_continues(claim_n: str, end: int) -> bool:
+    nxt = claim_n[end:end + 1]
+    if nxt.isalnum():
+        return True
+    return nxt in ".-" and claim_n[end + 1:end + 2].isalnum()
 
 
 def _chunk_articles(chunk: Chunk) -> set[str]:
@@ -90,7 +146,16 @@ def _article_and_statute(claim_n: str, chunk: Chunk) -> bool:
     if not mentioned.intersection(_chunk_articles(chunk)):
         return False
     name = _statute_name(chunk)
-    return len(name) >= 8 and name in claim_n
+    if len(name) >= 8 and name in claim_n:
+        return True
+    # «Constitución art. 29» no repite el título completo «Constitución Política».
+    folded_claim = _fold_accents(claim_n)
+    for token in tokenize(name):
+        if len(token) < 8 or token in _GENERIC_STATUTE_TOKENS:
+            continue
+        if _fold_accents(token) in folded_claim:
+            return True
+    return False
 
 
 def _in_jurisdiction(chunk: Chunk, jurisdiccion: str | None) -> bool:
@@ -100,10 +165,11 @@ def _in_jurisdiction(chunk: Chunk, jurisdiccion: str | None) -> bool:
 
 
 class RevisarService:
-    def __init__(self, retriever, classifier, *, retrieval_top_k: int = 40) -> None:
+    def __init__(self, retriever, classifier, *, retrieval_top_k: int = 40, laya=None) -> None:
         self.retriever = retriever
         self.classifier = classifier
         self.retrieval_top_k = retrieval_top_k
+        self.laya = laya
 
     def revisar(
         self,
@@ -172,6 +238,9 @@ class RevisarService:
             if confianza >= request.umbral_confianza:
                 return _matched(claim, chunk, dejar=dejar, confianza=confianza)
 
+        if self.laya is not None:
+            return self._from_laya(claim, retrieved, request, observed)
+
         best_score = observed
         best: tuple[float, Chunk] | None = None
         if retrieved:
@@ -182,7 +251,7 @@ class RevisarService:
                 if not item.es_cita_valida_alta_precision or score < request.umbral_confianza:
                     continue
                 chunk = by_id.get(item.chunk_id)
-                if chunk is None or not (chunk.cita_formal or "").strip():
+                if chunk is None or not _has_published_text(chunk):
                     continue
                 if best is None or score > best[0]:
                     best = (score, chunk)
@@ -215,11 +284,51 @@ class RevisarService:
         )
         db.commit()
 
+    def _from_laya(
+        self,
+        claim: _Claim,
+        retrieved: list[Chunk],
+        request: RevisarRequest,
+        observed: float,
+    ) -> RevisionCompletar | RevisionNoSostiene:
+        candidates = [
+            chunk
+            for chunk in retrieved
+            if _has_published_text(chunk) and _in_jurisdiction(chunk, request.jurisdiccion)
+        ]
+        if not candidates:
+            return _no_sostiene(claim, observed)
+        try:
+            scored = self.laya.score(claim.surface, candidates)
+        except Exception:
+            logger.warning("Laya no pudo clasificar la tesis", exc_info=True)
+            return _no_sostiene(claim, observed)
+        by_id = {chunk.id: chunk for chunk in candidates}
+        threshold = max(float(request.umbral_confianza), LAYA_FLOOR)
+        best: tuple[float, Chunk] | None = None
+        best_score = observed
+        for chunk_id, raw_score in scored:
+            score = max(0.0, min(1.0, float(raw_score)))
+            best_score = max(best_score, score)
+            chunk = by_id.get(chunk_id)
+            if chunk is None or not _has_published_text(chunk):
+                continue
+            if not _in_jurisdiction(chunk, request.jurisdiccion):
+                continue
+            if score < threshold:
+                continue
+            if best is None or score > best[0]:
+                best = (score, chunk)
+        if best is None:
+            return _no_sostiene(claim, best_score)
+        score, chunk = best
+        return _matched(claim, chunk, dejar=False, confianza=score)
+
 
 def _best_exact(claim_n: str, chunks: list[Chunk]) -> tuple[Chunk, bool] | None:
     best: tuple[tuple[int, int, int, float], Chunk, bool] | None = None
     for chunk in chunks:
-        if not (chunk.cita_formal or "").strip():
+        if not _has_published_text(chunk):
             continue
         quote = _quote_exact(claim_n, chunk)
         cite = _cite_complete(claim_n, chunk)
