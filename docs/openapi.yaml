@@ -1,9 +1,11 @@
 openapi: 3.1.0
 info:
   title: ParaCite API
-  description: Citas jurídicas de precisión para agentes Legal-AI. Solo se devuelven
-    matches con `es_cita_valida_alta_precision` por encima del umbral (default 0.87).
-    El corpus seed está etiquetado [FIXTURE].
+  description: Citas jurídicas de precisión para agentes Legal-AI. POST /v1/cite devuelve
+    matches del corpus por encima del umbral (default 0.87). POST /v1/revisar compara
+    un documento generado con los chunks cargados y responde JSON (completar, dejar
+    o no_sostiene) sin reescribir el texto. El seed de demostración está etiquetado
+    [FIXTURE] y no es derecho colombiano.
   contact:
     name: ParaCite
   version: 0.1.0
@@ -52,6 +54,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CiteResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /v1/revisar:
+    post:
+      tags:
+      - cite
+      summary: Revisar
+      description: Compara un documento generado con el corpus y devuelve JSON, sin
+        reescribirlo.
+      operationId: revisar_v1_revisar_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevisarRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RevisarResponse'
         '422':
           description: Validation Error
           content:
@@ -110,6 +139,29 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    Afirmacion:
+      properties:
+        id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Id
+          description: Identificador opcional del tramo.
+        texto:
+          type: string
+          minLength: 1
+          title: Texto
+          description: Afirmación o tramo del documento generado.
+        cita:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cita
+          description: Cita tal como figura en el documento, si viene aparte del texto.
+      type: object
+      required:
+      - texto
+      title: Afirmacion
     CiteMatch:
       properties:
         id:
@@ -310,6 +362,167 @@ components:
       - limit
       - remaining
       title: RateLimitInfo
+    RevisarRequest:
+      properties:
+        texto:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Texto
+          description: Documento generado. Sin afirmaciones, se revisa cada párrafo.
+        afirmaciones:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Afirmacion'
+            type: array
+          - type: 'null'
+          title: Afirmaciones
+          description: Tramos de cita o afirmación. Si vienen, no se parte el texto.
+        jurisdiccion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jurisdiccion
+          description: Filtro opcional (CO, ES, …). Si se omite, se usan todos los
+            chunks cargados. El seed de demostración es ES y no es derecho colombiano.
+        umbral_confianza:
+          type: number
+          maximum: 1.0
+          minimum: 0.0
+          title: Umbral Confianza
+          default: 0.87
+      type: object
+      title: RevisarRequest
+    RevisarResponse:
+      properties:
+        request_id:
+          type: string
+          title: Request Id
+        jurisdiccion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jurisdiccion
+        resultados:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/RevisionCompletar'
+            - $ref: '#/components/schemas/RevisionDejar'
+            - $ref: '#/components/schemas/RevisionNoSostiene'
+            discriminator:
+              propertyName: estado
+              mapping:
+                completar: '#/components/schemas/RevisionCompletar'
+                dejar: '#/components/schemas/RevisionDejar'
+                no_sostiene: '#/components/schemas/RevisionNoSostiene'
+          type: array
+          title: Resultados
+        tiempo_procesamiento_ms:
+          type: integer
+          title: Tiempo Procesamiento Ms
+      type: object
+      required:
+      - request_id
+      - resultados
+      - tiempo_procesamiento_ms
+      title: RevisarResponse
+    RevisionCompletar:
+      properties:
+        id:
+          type: string
+          title: Id
+        texto:
+          type: string
+          title: Texto
+          description: Tramo recibido, sin reescritura.
+        confianza:
+          type: number
+          title: Confianza
+        indicacion:
+          type: string
+          title: Indicacion
+        estado:
+          type: string
+          const: completar
+          title: Estado
+          default: completar
+        chunk_id:
+          type: string
+          title: Chunk Id
+        cita_formal:
+          type: string
+          title: Cita Formal
+        parrafo_exacto:
+          type: string
+          title: Parrafo Exacto
+        enlace_profundo:
+          type: string
+          title: Enlace Profundo
+      type: object
+      required:
+      - id
+      - texto
+      - confianza
+      - indicacion
+      - chunk_id
+      - cita_formal
+      - parrafo_exacto
+      - enlace_profundo
+      title: RevisionCompletar
+    RevisionDejar:
+      properties:
+        id:
+          type: string
+          title: Id
+        texto:
+          type: string
+          title: Texto
+          description: Tramo recibido, sin reescritura.
+        confianza:
+          type: number
+          title: Confianza
+        indicacion:
+          type: string
+          title: Indicacion
+        estado:
+          type: string
+          const: dejar
+          title: Estado
+          default: dejar
+      type: object
+      required:
+      - id
+      - texto
+      - confianza
+      - indicacion
+      title: RevisionDejar
+    RevisionNoSostiene:
+      properties:
+        id:
+          type: string
+          title: Id
+        texto:
+          type: string
+          title: Texto
+          description: Tramo recibido, sin reescritura.
+        confianza:
+          type: number
+          title: Confianza
+        indicacion:
+          type: string
+          title: Indicacion
+        estado:
+          type: string
+          const: no_sostiene
+          title: Estado
+          default: no_sostiene
+      type: object
+      required:
+      - id
+      - texto
+      - confianza
+      - indicacion
+      title: RevisionNoSostiene
     TipoDocumento:
       type: string
       enum:

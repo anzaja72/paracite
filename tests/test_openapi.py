@@ -9,6 +9,7 @@ def test_openapi_contains_mvp_paths(client):
     spec = client.get("/openapi.json").json()
     paths = spec["paths"]
     assert "/v1/cite" in paths
+    assert "/v1/revisar" in paths
     assert "/health" in paths
     assert "/v1/me" in paths
     assert "/v1/ingest" in paths
@@ -22,6 +23,8 @@ def test_openapi_contains_mvp_paths(client):
     assert "tesis" in dumped
     assert "umbral_confianza" in dumped
     assert "sin_match_alta_confianza" in dumped
+    assert "no_sostiene" in dumped
+    assert "completar" in dumped
 
 
 def test_docs_ui(client):

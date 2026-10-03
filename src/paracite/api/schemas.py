@@ -1,8 +1,8 @@
 from datetime import datetime
 from enum import Enum
-from typing import Any
+from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 class TipoDocumento(str, Enum):
@@ -106,3 +106,98 @@ class JevClassification(BaseModel):
     es_cita_valida_alta_precision: bool
     tipo_coincidencia: TipoCoincidencia
     explicacion_corta: str | None = None
+
+
+class Afirmacion(BaseModel):
+    id: str | None = Field(default=None, description="Identificador opcional del tramo.")
+    texto: str = Field(..., min_length=1, description="Afirmación o tramo del documento generado.")
+    cita: str | None = Field(
+        default=None,
+        description="Cita tal como figura en el documento, si viene aparte del texto.",
+    )
+
+    @field_validator("texto")
+    @classmethod
+    def texto_no_vacio(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("texto no puede estar vacío")
+        return stripped
+
+    @field_validator("cita")
+    @classmethod
+    def cita_opcional(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        return value.strip() or None
+
+
+class RevisarRequest(BaseModel):
+    texto: str | None = Field(
+        default=None,
+        description="Documento generado. Sin afirmaciones, se revisa cada párrafo.",
+    )
+    afirmaciones: list[Afirmacion] | None = Field(
+        default=None,
+        description="Tramos de cita o afirmación. Si vienen, no se parte el texto.",
+    )
+    jurisdiccion: str | None = Field(
+        default=None,
+        description=(
+            "Filtro opcional (CO, ES, …). Si se omite, se usan todos los chunks cargados. "
+            "El seed de demostración es ES y no es derecho colombiano."
+        ),
+    )
+    umbral_confianza: float = Field(default=0.87, ge=0, le=1)
+
+    @field_validator("jurisdiccion")
+    @classmethod
+    def jurisdiccion_opcional(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        cleaned = value.strip().upper()
+        return cleaned or None
+
+    @model_validator(mode="after")
+    def require_input(self):
+        texto = (self.texto or "").strip()
+        self.texto = texto or None
+        if self.texto is None and not self.afirmaciones:
+            raise ValueError("hace falta texto o afirmaciones")
+        return self
+
+
+class _RevisionBase(BaseModel):
+    id: str
+    texto: str = Field(description="Tramo recibido, sin reescritura.")
+    confianza: float
+    indicacion: str
+
+
+class RevisionDejar(_RevisionBase):
+    estado: Literal["dejar"] = "dejar"
+
+
+class RevisionNoSostiene(_RevisionBase):
+    estado: Literal["no_sostiene"] = "no_sostiene"
+
+
+class RevisionCompletar(_RevisionBase):
+    estado: Literal["completar"] = "completar"
+    chunk_id: str
+    cita_formal: str
+    parrafo_exacto: str
+    enlace_profundo: str
+
+
+RevisionItem = Annotated[
+    RevisionCompletar | RevisionDejar | RevisionNoSostiene,
+    Field(discriminator="estado"),
+]
+
+
+class RevisarResponse(BaseModel):
+    request_id: str
+    jurisdiccion: str | None = None
+    resultados: list[RevisionItem]
+    tiempo_procesamiento_ms: int
