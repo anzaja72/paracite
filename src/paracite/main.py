@@ -16,6 +16,7 @@ from paracite.config import Settings, get_settings
 from paracite.db.models import make_engine, make_session_factory, Base
 from paracite.services.cite import CiteService
 from paracite.services.ingest import IngestService
+from paracite.services.revisar import RevisarService
 from paracite.wiring import build_classifier, build_retriever
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
@@ -29,8 +30,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         version=settings.version,
         description=(
             "Citas jurídicas de precisión para agentes Legal-AI. "
-            "Solo se devuelven matches con `es_cita_valida_alta_precision` "
-            "por encima del umbral (default 0.87). El corpus seed está etiquetado [FIXTURE]."
+            "POST /v1/cite devuelve matches del corpus por encima del umbral (default 0.87). "
+            "POST /v1/revisar compara un documento generado con los chunks cargados y "
+            "responde JSON (completar, dejar o no_sostiene) sin reescribir el texto. "
+            "El seed de demostración está etiquetado [FIXTURE] y no es derecho colombiano."
         ),
         contact={"name": "ParaCite"},
     )
@@ -59,6 +62,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.classifier = classifier
     app.state.rate_limiter = rate_limiter
     app.state.cite_service = CiteService(retriever, classifier, retrieval_top_k=settings.retrieval_top_k)
+    app.state.revisar_service = RevisarService(
+        retriever, classifier, retrieval_top_k=settings.retrieval_top_k
+    )
     app.state.ingest_service = IngestService(redis_client)
 
     @app.middleware("http")

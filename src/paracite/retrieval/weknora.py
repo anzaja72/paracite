@@ -41,7 +41,7 @@ class WeKnoraHttpClient:
         self,
         tesis: str,
         *,
-        jurisdiccion: str = "ES",
+        jurisdiccion: str | None = "ES",
         tipos: list[str] | None = None,
         top_k: int = 40,
     ) -> list[Chunk]:
@@ -83,7 +83,7 @@ class WeKnoraHttpClient:
             return []
         return []
 
-    def _to_chunk(self, item: dict[str, Any], jurisdiccion: str) -> Chunk:
+    def _to_chunk(self, item: dict[str, Any], jurisdiccion: str | None) -> Chunk:
         chunk_id = str(item.get("id") or item.get("chunk_id"))
         content = item.get("content") or item.get("text") or ""
         title = item.get("knowledge_title") or item.get("title") or "WeKnora chunk"
@@ -91,7 +91,7 @@ class WeKnoraHttpClient:
         return Chunk(
             id=chunk_id,
             tipo=str(item.get("tipo") or "norma"),
-            jurisdiccion=jurisdiccion,
+            jurisdiccion=jurisdiccion if jurisdiccion is not None else str(item.get("jurisdiccion") or ""),
             materia=str(item.get("materia") or ""),
             cita_formal=str(item.get("cita_formal") or f"[WEKNORA] {title}"),
             titulo=title,

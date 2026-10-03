@@ -30,7 +30,7 @@ class WeKnoraClient(Protocol):
         self,
         tesis: str,
         *,
-        jurisdiccion: str = "ES",
+        jurisdiccion: str | None = "ES",
         tipos: list[str] | None = None,
         top_k: int = 40,
     ) -> list[Chunk]: ...

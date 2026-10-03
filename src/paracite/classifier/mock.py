@@ -53,7 +53,8 @@ class MockPrecisionClassifier:
     """Mock de alta calidad con el schema Jev. No llama red.
 
     Marca `es_cita_valida_alta_precision` solo si la tesis cubre los `holds`
-    del chunk y no dispara `rejects_if`. Nunca inventa citas.
+    del chunk y no dispara `rejects_if`. No inventa citas: solo puntúa chunks
+    ya recuperados. No descarta un chunk real por el texto de `cita_formal`.
     """
 
     name = "jev_mock"
@@ -76,7 +77,7 @@ class MockPrecisionClassifier:
                 es_cita_valida_alta_precision=False,
                 tipo_coincidencia=TipoCoincidencia.contrario,
                 explicacion_corta=(
-                    f"El párrafo fixture no soporta la tesis: dispara rechazo '{hit_reject}'."
+                    f"El párrafo recuperado no soporta la tesis: dispara rechazo '{hit_reject}'."
                 ),
             )
         hold_hits = sum(1 for h in holds if h and h in tesis_n)
@@ -86,7 +87,7 @@ class MockPrecisionClassifier:
             score = round(0.88 + 0.08 * min(1.0, jacc * 2), 4)
             tipo = TipoCoincidencia.fundamento_directo
             valid = True
-            why = "La tesis cubre los núcleos del párrafo fixture (fundamento directo)."
+            why = "La tesis cubre los núcleos del párrafo recuperado (fundamento directo)."
         elif hold_ratio >= 0.5 and jacc >= 0.12:
             score = round(0.74 + 0.2 * hold_ratio, 4)
             tipo = TipoCoincidencia.cita_parcial
@@ -102,11 +103,6 @@ class MockPrecisionClassifier:
             tipo = TipoCoincidencia.no_soporta
             valid = False
             why = "El chunk recuperado no fundamenta la tesis."
-        if valid and not str(chunk.cita_formal).startswith("[FIXTURE]"):
-            # Cinturón de seguridad: el seed MVP solo publica fixtures etiquetados.
-            valid = False
-            tipo = TipoCoincidencia.no_soporta
-            why = "Cita no etiquetada como fixture; se omite para evitar alucinación."
         return JevClassification(
             chunk_id=chunk.id,
             relevancia_semantica=min(score, 0.97),

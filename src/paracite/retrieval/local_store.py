@@ -63,7 +63,7 @@ class LocalBm25Store:
         self,
         tesis: str,
         *,
-        jurisdiccion: str = "ES",
+        jurisdiccion: str | None = "ES",
         tipos: list[str] | None = None,
         top_k: int = 40,
     ) -> list[Chunk]:
@@ -73,7 +73,7 @@ class LocalBm25Store:
         ranked = sorted(zip(self._ordered, scores, strict=True), key=lambda x: x[1], reverse=True)
         out: list[Chunk] = []
         for chunk, score in ranked:
-            if chunk.jurisdiccion != jurisdiccion:
+            if jurisdiccion is not None and chunk.jurisdiccion != jurisdiccion:
                 continue
             if tipos and chunk.tipo not in tipos:
                 continue

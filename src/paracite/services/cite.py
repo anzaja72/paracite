@@ -36,7 +36,10 @@ class CiteService:
             chunk = by_id.get(item.chunk_id)
             if chunk is None:
                 continue
-            if not chunk.cita_formal.startswith("[FIXTURE]") and not chunk.cita_formal.startswith("[WEKNORA]"):
+            # La cita publicada es la del chunk recuperado. No se inventa una
+            # fuente que no esté en el corpus, ni se descarta un chunk real
+            # porque su cita_formal no empiece por [FIXTURE] o [WEKNORA].
+            if not (chunk.cita_formal or "").strip():
                 continue
             metadatos = {
                 **chunk.metadatos,
