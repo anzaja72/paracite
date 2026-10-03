@@ -144,7 +144,8 @@ class RevisarRequest(BaseModel):
     jurisdiccion: str | None = Field(
         default=None,
         description=(
-            "Filtro opcional (CO, ES, …). Si se omite, se usan todos los chunks cargados. "
+            "Filtro opcional (CO, ES, …). CO limita la revisión al piloto colombiano. "
+            "Si se omite, se usan todos los chunks cargados. "
             "El seed de demostración es ES y no es derecho colombiano."
         ),
     )

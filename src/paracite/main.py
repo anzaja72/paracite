@@ -33,7 +33,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "POST /v1/cite devuelve matches del corpus por encima del umbral (default 0.87). "
             "POST /v1/revisar compara un documento generado con los chunks cargados y "
             "responde JSON (completar, dejar o no_sostiene) sin reescribir el texto. "
-            "El seed de demostración está etiquetado [FIXTURE] y no es derecho colombiano."
+            "Al arrancar se cargan el seed ES, etiquetado [FIXTURE] y que no es derecho "
+            "colombiano, y el piloto CO (paracite/corpus/co-piloto.json) con la "
+            "cita_formal del chunk."
         ),
         contact={"name": "ParaCite"},
     )

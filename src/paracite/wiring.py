@@ -6,6 +6,7 @@ from paracite.retrieval.weknora import FallbackRetriever, WeKnoraHttpClient
 
 
 def build_retriever(settings: Settings):
+    # seed ES ([FIXTURE]) y piloto CO, lado a lado. No se mezcla el piloto en seed.json.
     local = LocalBm25Store.from_seed(settings.public_base_url)
     if settings.weknora_url and settings.weknora_api_key and settings.weknora_kb_id:
         remote = WeKnoraHttpClient(

@@ -20,6 +20,7 @@ dependencies = [
 
 [tool.hatch.build.targets.wheel.force-include]
 "src/paracite/corpus/seed.json" = "paracite/corpus/seed.json"
+"src/paracite/corpus/co-piloto.json" = "paracite/corpus/co-piloto.json"
 "src/paracite/static/index.html" = "paracite/static/index.html"
 
 [project.optional-dependencies]

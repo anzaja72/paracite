@@ -41,6 +41,9 @@ class CiteService:
             # porque su cita_formal no empiece por [FIXTURE] o [WEKNORA].
             if not (chunk.cita_formal or "").strip():
                 continue
+            # El párrafo vacío no se publica: no hay texto normativo que citar.
+            if not (chunk.parrafo or "").strip():
+                continue
             metadatos = {
                 **chunk.metadatos,
                 "jurisdiccion": chunk.jurisdiccion,
